@@ -39,7 +39,7 @@ onMount(()=>{
     <button class="dropdown-btn sevice aling-bt">
     <div class="center">
     <Service class="pr-10" />
-    서비스관리 
+    서비스 관리 
     </div>
  
      <Icon class="arrow-color" icon="mdi:chevron-up" />
@@ -47,19 +47,25 @@ onMount(()=>{
    
   </button>
   <div class="dropdown-container">
-    <a href={"#"}>대시보드</a>
-    <a href={"#"}>통계현황</a>
-    <a href={"#"}>지역 모니터링 보기</a>
+    <a href={"#"}>회원관리</a>
+    <a href={"#"}>제품관리</a>
+    <a href={"#"}>CS관리</a>
+    <a href={"#"}>지역관리</a>
+    <a href={"#"}>S/W관리</a>
+    <a href={"#"}>권한관리</a>
   </div>
 
 
-  <button class="dropdown-btn"><div class="center"><MainIcon class="pr-10" /> 컨텐츠관리</div> 
+  <button class="dropdown-btn"><div class="center"><MainIcon class="pr-10" /> 컨텐츠 관리</div> 
  <Icon class="arrow-color" icon="mdi:chevron-up" />
   </button>
   <div class="dropdown-container">
-    <a href={"#"}>대시보드</a>
-    <a href={"#"}>통계현황</a>
-    <a href={"#"}>지역 모니터링 보기</a>
+    <a href={"#"}>공지관리</a>
+    <a href={"#"}>소식관리</a>
+    <a href={"#"}>미디어관리</a>
+    <a href={"#"}>이용안내관리</a>
+    <a href={"#"}>약관관리</a>
+    <a href={"#"}>문자관리</a>
   </div>
 </div>
 
@@ -91,16 +97,16 @@ onMount(()=>{
 }
 /* Style the sidenav links and the dropdown button */
 .sidenav a, .dropdown-btn {
-border-radius:10px;
-  padding: 6px 8px 6px 16px;
+  border-radius:10px;
+  padding: 6px 16px 6px 16px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 17px;
   height: 54px;
   color: #585858;
   display: flex;
   border: none;
   background: none;
-  width: 180px;
+  width: 100%;
   text-align: left;
   align-items: center;
   justify-content: space-between;
@@ -135,7 +141,8 @@ border-radius:10px;
     padding-bottom: 10px;
   a{
      background-color: white;
-     font-size:16px;
+       font-weight: 300;
+     font-size:15px;
      padding: 12px 0px;
      height:auto;
      color:#A9ABAD;
