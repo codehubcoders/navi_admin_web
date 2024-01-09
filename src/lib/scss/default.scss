@@ -1,23 +1,12 @@
 @import 'mixin.scss';
 @import 'variables.scss';
 
-@font-face {
-    font-family: 'NotoSansKR-bold';
-    src: url('../fonts/NotoSansKR-Bold.ttf');
-}
-@font-face {
-    font-family: 'NotoSansKR-semi';
-    src: url('../fonts/NotoSansKR-SemiBold.ttf');
-}
 
 
 .bold{
-    font-family: 'NotoSansKR-bold';
+    font-weight: 700;
 }
 
-.s-bold{
-    font-family: 'NotoSansKR-semi';
-}
 
 // 간격
 
@@ -275,20 +264,42 @@
 	font-size: calc(16.8px + 0.6vw);
 }
 
-.fw-400 {
-	font-weight: 400 !important;
-}
 
-.fw-500 {
-	font-weight: 500 !important;
+.fw-200{
+    font-weight: 200;
 }
-
-.fw-600 {
-	font-weight: 600 !important;
+.fw-300{
+    font-weight: 300;
 }
-
-.fw-700 {
-	font-weight: 700 !important;
+.fw-400{
+    font-weight: 400;
+}
+.fw-500{
+    font-weight: 500;
+}
+.fw-600{
+    font-weight: 600;
+}
+.fw-700{
+    font-weight: 700;
+}
+.bold{
+    font-weight: 700;
+}
+//디폴트 스타일
+h1{
+    font-size: 32px;
+}
+.d-f{
+    display: flex;
+}
+.d-b{
+    display: block;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn {
@@ -296,103 +307,76 @@
     background-color: #EFF1F2;
     color: #2E3132;
  }
+    &-primary {
+    background-color: $primary-color;
+    color: $white-color;
+    padding: 10px 20px;
+    width: fit-content;
+    border-radius: 8px;
+    &:hover{
+        background-color: $light-primary;
+        cursor: pointer;
+    }
+ }
 }
 
-
-
-// 데스크탑
-@include desktop {
-    background-color: $primary-red;
-	// .visual {
-    // }
+section.login{
+    background-color: #F8FAFB;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
     
-    // .section {
-    // }
-    
-    // .footer {
-    // }
+}
+.card {
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(173, 181, 217, 0.2);
+    background-color: $white-color;
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    display: inline-block;
+    &.login{
+        margin-top: 200px;
+        padding:3em 2em;
+        height: 470px;
+        input{
+            width: 360px;
+        }
+        @include mobile  {
+            margin-top: 100px;
+            width: 70%;
+            input{
+                width: 100%;
+            }
+
+        }
+    }
+
 }
 
-
-// 노트북에서 데스크탑
-@include desktopToLaptop {
-    background-color: $dark_primary;
-	// .visual {
-    // }
-    
-    // .section {
-    // }
-    
-    // .footer {
-    // }
+//인풋 타입별 디폴트
+input,
+textarea,
+.form-control {
+	-webkit-transition: 0s;
+	-o-transition: 0s;
+	transition: 0s;
 }
+::-ms-input-placeholder { /* Edge 12-18 */
+    color: #E1E3E4;
+  }
+  
+  ::placeholder {
+    color: #E1E3E4;
+  }
+input[type=text], select {
+    width: 100%;
+    padding: 12px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
 
+  }
 
-// 노트북
-@include laptop {
-    background-color: $secondary-color;
-	// .visual {
-    // }
-    
-    // .section {
-    // }
-    
-    // .footer {
-    // }
-}
-
-
-// 태블릿에서 노트북
-@include laptopToTablet {
-    background-color: $gray-dash-bg;
-	// .visual {
-    // }
-    
-    // .section {
-    // }
-    
-    // .footer {
-    // }
-}
-
-
-// 태블릿
-@include tablet {
-    background-color: $warning-color;
-	// .visual {
-    // }
-    
-    // .section {
-    // }
-    
-    // .footer {
-    // }
-}
-
-
-// 모바일에서 태블릿
-@include tabletToMobile  {
-    background-color: $primary-orange;
-	// .visual {
-    // }
-    
-    // .section {
-    // }
-    
-    // .footer {
-    // }
-}
-
-
-// 모바일
-@include mobile  {
-    background-color: $primary-green;
-// .visual {
-//     }
-    
-//     .section {
-//     }
-    
-//     .footer {
-    // }
-}

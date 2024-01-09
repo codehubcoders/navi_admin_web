@@ -47,3 +47,94 @@
     @content;
   }
 }
+
+
+// 데스크탑
+@include desktop {
+
+  // .contain {
+  //       background-color: #F8FAFB;
+  //       width: 100vw;
+  //       height: 100vh;
+  //   }
+    
+    // .section {
+    // }
+    
+    // .footer {
+    // }
+}
+
+
+// 노트북에서 데스크탑
+@include desktopToLaptop {
+
+
+    
+    // .section {
+    // }
+    
+    // .footer {
+    // }
+}
+
+
+// 노트북
+@include laptop {
+
+
+    // .section {
+    // }
+    
+    // .footer {
+    // }
+}
+
+
+// 태블릿에서 노트북
+@include laptopToTablet {
+
+    
+    // .section {
+    // }
+    
+    // .footer {
+    // }
+}
+
+
+// 태블릿
+@include tablet {
+ 
+
+    
+    // .section {
+    // }
+    
+    // .footer {
+    // }
+}
+
+
+// 모바일에서 태블릿
+@include tabletToMobile  {
+ 
+
+    // .section {
+    // }
+    
+    // .footer {
+    // }
+}
+
+
+// 모바일
+@include mobile  {
+
+    
+//     .section {
+//     }
+    
+//     .footer {
+    // }
+}

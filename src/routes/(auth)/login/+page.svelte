@@ -7,6 +7,8 @@
 	<title>로그인</title>
 </svelte:head>
 
-<section>
+<section class="contain">
+
 	<Login />
+
 </section>

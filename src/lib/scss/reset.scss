@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'NotoSansKR';
-    src: url('../fonts/NotoSansKR-Regular.ttf');
+	font-family: 'Noto Sans KR', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700&display=swap');
 }
 
 html, body, div, span, applet, object, iframe,
@@ -15,15 +15,15 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video, button {
 	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-    font-family: 'NotoSansKR';
-    color: $body-color;
+    font-family: 'Noto Sans KR', sans-serif;
+
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -55,7 +55,21 @@ a{
     color: $body-color;
 }
 
-p {
+p,h1 {
     color: $body-color;
-	line-height: 1;
+	line-height: 1.2em;
 }
+section{
+	position: relative;
+}
+
+// main {
+// 	display: flex; /* or grid */
+// 	justify-content: center;
+// 	align-items: center;
+//   }
+
+  button{
+	display: block;
+
+  }

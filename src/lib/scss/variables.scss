@@ -26,7 +26,7 @@ $gray-dash-bg:#F5F5F5;
 $gray-dash-light-bg:#F8FAFB;
 
 // 모바일
-$breakpoint-mobile: 335px;
+$breakpoint-mobile: 280px;
 
 // 모바일에서 태블릿
 $breakpoint-tabletToMobile: 535px;
@@ -45,3 +45,12 @@ $breakpoint-desktopToLaptop: 1500px;
 
 // 데스크탑
 $breakpoint-desktop: 1800px;
+
+
+:root {
+    --light-gray-rgba: 173, 181, 217;
+    --color-white: #fff;
+    --border-color: #F1F2F6;
+    --input-bg: var(--color-white);
+	--input-focus-bg: var(--color-white);
+}
