@@ -1,3 +1,6 @@
+@import 'mixin.scss';
+@import 'variables.scss';
+
 @font-face {
     font-family: 'NotoSansKR-bold';
     src: url('../fonts/NotoSansKR-Bold.ttf');
@@ -293,4 +296,103 @@
     background-color: #EFF1F2;
     color: #2E3132;
  }
+}
+
+
+
+// 데스크탑
+@include desktop {
+    background-color: $primary-red;
+	// .visual {
+    // }
+    
+    // .section {
+    // }
+    
+    // .footer {
+    // }
+}
+
+
+// 노트북에서 데스크탑
+@include desktopToLaptop {
+    background-color: $dark_primary;
+	// .visual {
+    // }
+    
+    // .section {
+    // }
+    
+    // .footer {
+    // }
+}
+
+
+// 노트북
+@include laptop {
+    background-color: $secondary-color;
+	// .visual {
+    // }
+    
+    // .section {
+    // }
+    
+    // .footer {
+    // }
+}
+
+
+// 태블릿에서 노트북
+@include laptopToTablet {
+    background-color: $gray-dash-bg;
+	// .visual {
+    // }
+    
+    // .section {
+    // }
+    
+    // .footer {
+    // }
+}
+
+
+// 태블릿
+@include tablet {
+    background-color: $warning-color;
+	// .visual {
+    // }
+    
+    // .section {
+    // }
+    
+    // .footer {
+    // }
+}
+
+
+// 모바일에서 태블릿
+@include tabletToMobile  {
+    background-color: $primary-orange;
+	// .visual {
+    // }
+    
+    // .section {
+    // }
+    
+    // .footer {
+    // }
+}
+
+
+// 모바일
+@include mobile  {
+    background-color: $primary-green;
+// .visual {
+//     }
+    
+//     .section {
+//     }
+    
+//     .footer {
+    // }
 }
