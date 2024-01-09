@@ -338,7 +338,7 @@ section.login{
     &.login{
         margin-top: 200px;
         padding:3em 2em;
-        height: 470px;
+        height: 340px;
         input{
             width: 360px;
         }
@@ -380,3 +380,12 @@ input[type=text], select {
 
   }
 
+.white{
+    color:white;
+}
+
+.container {
+    background-color: #F8FAFB;
+    width: 100vw;
+    height: 100vh;
+}

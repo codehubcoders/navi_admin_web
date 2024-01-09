@@ -1,7 +1,7 @@
 <script>
 	import Sidebar from '/src/lib/components/sidebar/Sidebar.svelte';
 </script>
-<main>
+<main class="container">
 	
 	<Sidebar />
 	<slot />

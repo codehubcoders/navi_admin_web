@@ -1,13 +1,27 @@
 import { sveltekit } from "@sveltejs/kit/vite";
 import { defineConfig } from "vite";
+import { svelteSVG } from "rollup-plugin-svelte-svg";
 
 export default defineConfig({
-  plugins: [sveltekit()],
+  plugins: [
+    svelteSVG({
+      // optional SVGO options
+      // pass empty object to enable defaults
+      svgo: {},
+      // vite-specific
+      // https://vitejs.dev/guide/api-plugin.html#plugin-ordering
+      // enforce: 'pre' | 'post'
+      enforce: "pre",
+  }),
+    sveltekit(),
+  ],
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@use "src/lib/scss/style.scss" as *;',
+        additionalData: '@use "src/lib/scss/variables.scss" as *;',
       },
     },
+    
   },
+  
 });
