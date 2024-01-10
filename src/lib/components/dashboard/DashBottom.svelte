@@ -121,10 +121,15 @@
 
   .dash-bottom{
     margin-top: 40px;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 40px;
-
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 30px;
+     @media (max-width: 960px) {
+        grid-template-columns: 1.5fr 1fr ;
+    }
+         @media (max-width: 535px) {
+        grid-template-columns: 1fr ;
+    }
   }
 
   .contents{

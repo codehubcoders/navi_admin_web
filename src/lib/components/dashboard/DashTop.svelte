@@ -1,14 +1,12 @@
 <script>
 	import { browser } from '$app/environment';
     let topBox = [{number: 23, name: '주의', color:'#FFD600'},{number: 12, name: '경고', color:'#FF9933'},{number: 3, name: '위험', color:'#F5365C'}];
-    import ReplayIcon from "../../assets/icons/replay_icon.svg";
+    // import ReplayIcon from "../../assets/icons/replay_icon.svg";
 
 
 </script>
 <section class="top">
-  <div class="update"><p class="rplay"><ReplayIcon  /></p>
-  <p class="">2023.12.12 14:46</p>
-  </div>
+
     <div class="top-box">
        <div class="left">
        	{#each topBox as item, index}
@@ -41,47 +39,36 @@
 
 <style lang="scss">
 @import '../../scss/style.scss';
-     .update{
-            display:flex;
-            padding-bottom:10px;
-            font-size:14px;
-            justify-content:end;
-            .rplay{
-                padding-right:10px;
-                 padding-top:1px;
-            }
-        }
-
     .top{
 
         padding-top:20px;
 
         &-box {
-        display:flex;
-   
-        justify-content: space-between;
+                display: grid;
+                grid-template-columns: 2fr  1fr ;
+                 gap: 30px;
+                    @media (max-width: 820px) {
+                    grid-template-columns: 1fr ;
+                }
             .left {
-                display:flex;
-                // flex-wrap: wrap;
-                justify-content: space-between;
-                width:65%;
+                display: grid;
+                grid-template-columns: 1fr  1fr 1fr;
+                gap: 30px;
                 background-color:white;
                 border-radius: 10px;
                 box-shadow: 0 5px 20px rgba(173, 181, 217, 0.2);
                 padding: 20px 30px;
-                text-align: center;
-                margin-right: 20px;
                 gap: 1rem;
                 height: fit-content;
+                @media (max-width: 535px) {
+                    grid-template-columns: 1fr ;
+                }
                 .sub-box{
                     height:90px;
-                    flex: 1 1 auto;
-                    flex-wrap: wrap;
-                    
                     border-radius: 12px; 
                     display:flex;
                     justify-content: space-between;
-                     align-items:center;
+                    align-items:center;
                     p{
                       color:white;
                       padding: 0px 30px;
@@ -96,9 +83,6 @@
                 }
             }
             .card-main{
-                
-                width:33%;
-         
                 .contents{
                     height:250px;
                     overflow: auto;

@@ -30,14 +30,6 @@ onMount(()=>{
 </script>
 
 <div class="sidenav">
-<div class="logo">
-로고
-</div>
-<div class="userInfo">
-<p>이름</p>
-<p>지역</p>
-<button class="m-auto">로그아웃</button>
-</div>
 <div class="box-w">
   <button class="dropdown-btn"><div class="center"><MainIcon class="pr-10" /> 메인</div> 
  <Icon class="arrow-color" icon="mdi:chevron-up" />
@@ -87,48 +79,14 @@ onMount(()=>{
 
 /* Fixed sidenav, full height */
 .sidenav {
-  height: 100%;
-  width: 180px;
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #F8FAFB;
-  overflow-x: hidden;
+  height: 100vh;
+  width: 300px;
   padding-top: 10px;
   color:#585858;
-     @media (max-width: 1300px) {
-       left:10px;
-    }
-      @media (max-width: 960px) {
-      display:none;
-    }
-}
-.userInfo{
-  text-align: center;
-  font-weight: 500;
-  margin: 10px 0px;
-  font-size: 15px;
-  p{
-    display:block;
-    line-height:1.5em;
-  }
-  button{
-  background-color: #F8FAFB;
-  line-height: 3em;
-  cursor:pointer;
-  }
 }
 
-.logo{
-  border-radius:10px;
-  background-color:#ebebeb;
-  width: 100%;
-  height: 63px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
+
 // .arrow-color{
 //     color:#898D90;
 //     margin-left: auto;
@@ -155,16 +113,7 @@ onMount(()=>{
     
 }
 
-/* Main content */
-// .contain {
-//   margin-left: 200px; /* Same as the width of the sidenav */
-//   font-size: 20px; /* Increased text to enable scrolling */
-//   padding: 0px 10px;
-//        @media (max-width: 1300px) {
-//        margin-left: 210px; 
-//     }
-  
-// }
+
 
 /* Add an active class to the active dropdown button */
 .active {
@@ -191,9 +140,6 @@ onMount(()=>{
   }
 }
 
-.box-w{
-  padding-top:10px;
-  background-color: white;
-}
+
 
 </style>

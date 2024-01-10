@@ -26,5 +26,9 @@ import Icon from '@iconify/svelte';
 @import '../../scss/style.scss';
    .dash-main{
     padding-left:200px;
+         @media (max-width: 960px) {
+         padding-left:0px;
+         padding : 0 20px;
+    }
    }
 </style>
