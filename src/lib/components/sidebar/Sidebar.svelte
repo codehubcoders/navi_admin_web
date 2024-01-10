@@ -14,23 +14,27 @@ onMount(()=>{
     for (i = 0; i < dropdown.length; i++) {
     dropdown[i].addEventListener("click", function() {
         this.classList.toggle("active");
+        
         var dropdownContent = this.nextElementSibling;
-        if (dropdownContent.style.display === "block") {
-        dropdownContent.style.display = "none";
-        } else {
+    
+        if (dropdownContent.style.display === "none") {
         dropdownContent.style.display = "block";
-
+        } else {
+        dropdownContent.style.display = "none";
         }
     });
+    
     }
 })
+
+
 </script>
 
 <div class="sidenav">
   <button class="dropdown-btn"><div class="center"><MainIcon class="pr-10" /> 메인</div> 
  <Icon class="arrow-color" icon="mdi:chevron-up" />
   </button>
-  <div class="dropdown-container">
+  <div class="dropdown-container" >
     <a href={"#"}>대시보드</a>
     <a href={"#"}>통계현황</a>
     <a href={"#"}>지역 모니터링 보기</a>
@@ -127,15 +131,14 @@ onMount(()=>{
 }
 
 /* Add an active class to the active dropdown button */
-.active {
-  background-color: green;
-  color: white;
-}
+// .active {
+//   background-color: green;
+//   color: white;
+// }
 
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
   display: block;
-
    background-color: white;
    padding-left:20px;
     padding-bottom: 10px;
