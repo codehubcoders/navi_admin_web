@@ -452,3 +452,23 @@ input[type=text], select {
         }
     }
 }
+
+.pagenation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 0;
+    .round-box{
+        width: 40px;
+        height: 40px;
+        background-color: $gray-d9;
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}

@@ -25,6 +25,9 @@ time, mark, audio, video, button {
     font-family: 'Noto Sans KR', sans-serif;
 
 }
+button{
+	cursor: pointer;
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {

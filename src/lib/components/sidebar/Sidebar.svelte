@@ -14,6 +14,7 @@ onMount(()=>{
     for (i = 0; i < dropdown.length; i++) {
     dropdown[i].addEventListener("click", function() {
         this.classList.toggle("active");
+ 
         var dropdownContent = this.nextElementSibling;
         if (dropdownContent.style.display === "none") {
         dropdownContent.style.display = "block";
@@ -37,6 +38,7 @@ onMount(()=>{
 <p>지역</p>
 <button class="m-auto">로그아웃</button>
 </div>
+<div class="box-w">
   <button class="dropdown-btn"><div class="center"><MainIcon class="pr-10" /> 메인</div> 
  <Icon class="arrow-color" icon="mdi:chevron-up" />
   </button>
@@ -74,11 +76,11 @@ onMount(()=>{
     <a href={"#"}>문자관리</a>
   </div>
 </div>
-
-<div class="contain">
+</div>
+<!-- <div class="contain">
 
 <slot />
-</div>
+</div> -->
 
 <style lang="scss">
 
@@ -90,9 +92,9 @@ onMount(()=>{
   position: absolute;
   z-index: 1;
   top: 0;
-  left: -150;
+  left: 0;
   background-color: #F8FAFB;
-  // overflow-x: hidden;
+  overflow-x: hidden;
   padding-top: 10px;
   color:#585858;
      @media (max-width: 1300px) {
@@ -124,11 +126,11 @@ onMount(()=>{
   align-items: center;
   justify-content: center;
 }
-.arrow-color{
-    color:#898D90;
-    margin-left: auto;
+// .arrow-color{
+//     color:#898D90;
+//     margin-left: auto;
 
-}
+// }
 /* Style the sidenav links and the dropdown button */
 .sidenav a, .dropdown-btn {
   border-radius:10px;
@@ -151,21 +153,21 @@ onMount(()=>{
 }
 
 /* Main content */
-.contain {
-  margin-left: 200px; /* Same as the width of the sidenav */
-  font-size: 20px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-       @media (max-width: 1300px) {
-       margin-left: 210px; 
-    }
+// .contain {
+//   margin-left: 200px; /* Same as the width of the sidenav */
+//   font-size: 20px; /* Increased text to enable scrolling */
+//   padding: 0px 10px;
+//        @media (max-width: 1300px) {
+//        margin-left: 210px; 
+//     }
   
-}
+// }
 
 /* Add an active class to the active dropdown button */
-// .active {
-//   background-color: green;
-//   color: white;
-// }
+.active {
+  background-color: green;
+  color: white;
+}
 
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
@@ -186,6 +188,9 @@ onMount(()=>{
   }
 }
 
-
+.box-w{
+  padding-top:10px;
+  background-color: white;
+}
 
 </style>
