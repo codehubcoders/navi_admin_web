@@ -3,5 +3,8 @@
 </script>
 <main class="container_layout">
 	<Sidebar />
-	<slot />
+	<section class="container-main">
+			<slot />
+	</section>
+
 </main>

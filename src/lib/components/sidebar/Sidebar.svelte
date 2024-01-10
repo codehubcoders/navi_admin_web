@@ -90,9 +90,9 @@ onMount(()=>{
   position: absolute;
   z-index: 1;
   top: 0;
-  left: 0;
+  left: -150;
   background-color: #F8FAFB;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   padding-top: 10px;
   color:#585858;
      @media (max-width: 1300px) {

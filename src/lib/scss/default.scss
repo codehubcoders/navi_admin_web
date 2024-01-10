@@ -302,10 +302,16 @@ h1{
     align-items: center;
 }
 
+
 .btn {
+    
     &-gray {
+        padding: 10px 20px;
+        width: fit-content;
+        border-radius: 8px;
     background-color: #EFF1F2;
     color: #2E3132;
+    cursor: pointer;
  }
     &-primary {
     background-color: $primary-color;
@@ -319,6 +325,7 @@ h1{
     }
  }
 }
+
 
 section.login{
     background-color: #F8FAFB;
@@ -385,7 +392,6 @@ input[type=text], select {
 }
 
 .container_layout {
-    
     max-width: 1300px;
     background-color: #F8FAFB;
     width: 100vw;
@@ -393,4 +399,56 @@ input[type=text], select {
     margin: 0 auto;
     position: relative;
  
+}
+// .container-main{
+// //    padding-left: 200px;
+//     width: 100%;
+//     height:100%;
+// }
+
+.card-main{
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(173, 181, 217, 0.2);
+    background-color: #F5F5F5;
+    .header{
+        border-radius: 10px 10px 0px 0px;
+        padding: 15px 20px;
+        background-color: $white-color;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .contents{
+        overflow: auto;
+    }
+
+}
+
+.icon-avatar{
+    display: flex;
+    background-color: $gray-d9;
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+    font-size: 8px;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.item-detail{
+    padding: 10px 8px;
+    .detail-box{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $white-color;
+        border-radius: 8px;
+        height: 50px;
+        padding: 0px 20px;
+        margin-bottom: 15px;
+        .txt{
+            font-weight: 500;
+            font-size: 14px;
+        }
+    }
 }
