@@ -14,9 +14,7 @@ onMount(()=>{
     for (i = 0; i < dropdown.length; i++) {
     dropdown[i].addEventListener("click", function() {
         this.classList.toggle("active");
-        
         var dropdownContent = this.nextElementSibling;
-    
         if (dropdownContent.style.display === "none") {
         dropdownContent.style.display = "block";
         } else {
@@ -31,6 +29,14 @@ onMount(()=>{
 </script>
 
 <div class="sidenav">
+<div class="logo">
+로고
+</div>
+<div class="userInfo">
+<p>이름</p>
+<p>지역</p>
+<button class="m-auto">로그아웃</button>
+</div>
   <button class="dropdown-btn"><div class="center"><MainIcon class="pr-10" /> 메인</div> 
  <Icon class="arrow-color" icon="mdi:chevron-up" />
   </button>
@@ -39,16 +45,12 @@ onMount(()=>{
     <a href={"#"}>통계현황</a>
     <a href={"#"}>지역 모니터링 보기</a>
   </div>
-
     <button class="dropdown-btn sevice aling-bt">
     <div class="center">
     <Service class="pr-10" />
     서비스 관리 
     </div>
- 
      <Icon class="arrow-color" icon="mdi:chevron-up" />
-
-   
   </button>
   <div class="dropdown-container">
     <a href={"#"}>회원관리</a>
@@ -85,14 +87,42 @@ onMount(()=>{
 .sidenav {
   height: 100%;
   width: 180px;
-  position: fixed;
+  position: absolute;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: white;
+  background-color: #F8FAFB;
   overflow-x: hidden;
   padding-top: 10px;
   color:#585858;
+     @media (max-width: 1300px) {
+       left:10px;
+    }
+}
+.userInfo{
+  text-align: center;
+  font-weight: 500;
+  margin: 10px 0px;
+  font-size: 15px;
+  p{
+    display:block;
+    line-height:1.5em;
+  }
+  button{
+  background-color: #F8FAFB;
+  line-height: 3em;
+  cursor:pointer;
+  }
+}
+
+.logo{
+  border-radius:10px;
+  background-color:#ebebeb;
+  width: 100%;
+  height: 63px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .arrow-color{
     color:#898D90;
@@ -117,9 +147,7 @@ onMount(()=>{
   cursor: pointer;
   outline: none;
     background-color:#F5F8FC;
-
-
-
+    
 }
 
 /* Main content */
@@ -127,6 +155,9 @@ onMount(()=>{
   margin-left: 200px; /* Same as the width of the sidenav */
   font-size: 20px; /* Increased text to enable scrolling */
   padding: 0px 10px;
+       @media (max-width: 1300px) {
+       margin-left: 210px; 
+    }
   
 }
 
@@ -155,12 +186,6 @@ onMount(()=>{
   }
 }
 
-/* Optional: Style the caret down icon */
 
 
-/* Some media queries for responsiveness */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
 </style>

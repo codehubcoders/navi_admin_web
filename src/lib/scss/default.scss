@@ -384,8 +384,13 @@ input[type=text], select {
     color:white;
 }
 
-.container {
+.container_layout {
+    
+    max-width: 1300px;
     background-color: #F8FAFB;
     width: 100vw;
     height: 100vh;
+    margin: 0 auto;
+    position: relative;
+ 
 }

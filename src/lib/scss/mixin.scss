@@ -77,8 +77,9 @@
 
 // 노트북
 @include laptop {
-
-
+  .container_layout{
+    padding-left: 0px;
+  }
     // .section {
     // }
     
