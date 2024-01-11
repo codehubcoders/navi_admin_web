@@ -2,15 +2,21 @@
 
 <script>
 	import { onMount } from 'svelte';
+  import { page } from '$app/stores';
     import Icon from '@iconify/svelte';
     import MainIcon from "../../assets/icons/main_icon.svg";
     import Service from "../../assets/icons/service_icon.svg";
     import Contents from "../../assets/icons/contents_icon.svg";
 
+    
+    let path;
+
+    $: path = $page.url.pathname;
+
 onMount(()=>{
     var dropdown = document.getElementsByClassName("dropdown-btn");
     var i;
-
+   
     for (i = 0; i < dropdown.length; i++) {
     dropdown[i].addEventListener("click", function() {
         this.classList.toggle("active");
@@ -24,6 +30,22 @@ onMount(()=>{
     });
     
     }
+
+    const nonClick = document.querySelectorAll(".non-click");
+
+    function handleClick(event) {
+      // div에서 모든 "click" 클래스 제거
+      nonClick.forEach((e) => {
+        e.classList.remove("click");
+      });
+      // 클릭한 div만 "click"클래스 추가
+      event.target.classList.add("click");
+    }
+
+    nonClick.forEach((e) => {
+      e.addEventListener("click", handleClick);
+    });
+
 })
 
 
@@ -39,13 +61,13 @@ onMount(()=>{
 <button class="m-auto">로그아웃</button>
 </div>
 <div class="box-w">
-  <button class="dropdown-btn"><div class="center"><MainIcon class="pr-10" /> 메인</div> 
+  <button class="dropdown-btn {path == '/dashboard' || '/statistics' || '/localmonitoring' ?  '' : 'active'}"><div class="center"><MainIcon class="pr-10" /> 메인</div> 
  <Icon class="arrow-color" icon="mdi:chevron-up" />
   </button>
-  <div class="dropdown-container" >
-    <a href={"#"}>대시보드</a>
-    <a href={"#"}>통계현황</a>
-    <a href={"#"}>지역 모니터링 보기</a>
+  <div class="dropdown-container"  >
+    <a href={"/dashboard" } class='non-click {path == '/dashboard'  ?  'click' : ''}'>대시보드</a>
+    <a href={"/statistics"} class='non-click {path == '/statistics'  ?  'click' : ''}' >통계현황</a>
+    <a href={"/localmonitoring"} class='non-click {path == '/localmonitoring'  ?  'click' : ''}'>지역 모니터링 보기</a>
   </div>
     <button class="dropdown-btn sevice aling-bt">
     <div class="center">
@@ -87,14 +109,14 @@ onMount(()=>{
 
 /* Fixed sidenav, full height */
 .sidenav {
-  height: 100%;
+  height: 100vh;
   width: 180px;
   position: absolute;
   z-index: 1;
   top: 0;
   left: 0;
   background-color: #F8FAFB;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   padding-top: 10px;
   color:#585858;
      @media (max-width: 1300px) {
@@ -155,21 +177,10 @@ onMount(()=>{
     
 }
 
-/* Main content */
-// .contain {
-//   margin-left: 200px; /* Same as the width of the sidenav */
-//   font-size: 20px; /* Increased text to enable scrolling */
-//   padding: 0px 10px;
-//        @media (max-width: 1300px) {
-//        margin-left: 210px; 
-//     }
-  
-// }
-
 /* Add an active class to the active dropdown button */
 .active {
-  background-color: green;
-  color: white;
+  background-color: white;
+  // color: white;
 }
 
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
@@ -180,15 +191,19 @@ onMount(()=>{
     padding-bottom: 10px;
   a{
      background-color: white;
-       font-weight: 300;
+      font-weight: 300;
      font-size:15px;
      padding: 12px 0px;
      height:auto;
      color:#A9ABAD;
-       justify-content: flex-start;
+      justify-content: flex-start;
 
 
   }
+  .click{
+  color: #333333;
+   background-color: white;
+}
 }
 
 .box-w{

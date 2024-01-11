@@ -5,20 +5,21 @@
     import MainIcon from "../../assets/icons/main_icon.svg";
     import Service from "../../assets/icons/service_icon.svg";
     import Contents from "../../assets/icons/contents_icon.svg";
-
-
+	import { onMount } from 'svelte';
+  import { page } from '$app/stores';
+   let path;
 
 </script>
 
 <div class="sidenav">
 <div class="box-w">
-  <button class="dropdown-btn"><div class="center"><MainIcon class="pr-10" /> 메인</div> 
+  <button class="dropdown-btn {path == '/dashboard' || '/statistics' || '/localmonitoring' ?  '' : 'active'}"><div class="center"><MainIcon class="pr-10" /> 메인</div> 
  <Icon class="arrow-color" icon="mdi:chevron-up" />
   </button>
-  <div class="dropdown-container" >
-    <a href={"#"}>대시보드</a>
-    <a href={"#"}>통계현황</a>
-    <a href={"#"}>지역 모니터링 보기</a>
+  <div class="dropdown-container"  >
+    <a href={"/dashboard" } class='non-click {path == '/dashboard'  ?  'click' : ''}'>대시보드</a>
+    <a href={"/statistics"} class='non-click' >통계현황</a>
+    <a href={"/localmonitoring"} class='non-click'>지역 모니터링 보기</a>
   </div>
     <button class="dropdown-btn sevice aling-bt">
     <div class="center">

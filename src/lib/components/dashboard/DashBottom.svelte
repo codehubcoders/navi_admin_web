@@ -1,9 +1,9 @@
 
 <script>
-	import CollapsibleSection from '../expand/Expand.svelte'
+	import CollapsibleSection from '../customitems/expand/Expand.svelte'
 
  let firstData = ['평균약순응도', ' 지연복용', ' 미복용', '과다복용 의심'];
- let memberData = ['스탠다드(00)', ' 플러스(00)', ' 나비 APP(00)'];
+  let memberData = ['스탠다드(00)', ' 플러스(00)', ' 나비 APP(00)'];
 
   let useData = ['실시간 이용률', ' 사용률', ' 서비스 사용현황'];
 
