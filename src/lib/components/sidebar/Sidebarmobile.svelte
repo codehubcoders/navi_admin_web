@@ -1,30 +1,11 @@
 
 
 <script>
-	import { onMount } from 'svelte';
     import Icon from '@iconify/svelte';
     import MainIcon from "../../assets/icons/main_icon.svg";
     import Service from "../../assets/icons/service_icon.svg";
     import Contents from "../../assets/icons/contents_icon.svg";
 
-onMount(()=>{
-    var dropdown = document.getElementsByClassName("dropdown-btn");
-    var i;
-
-    for (i = 0; i < dropdown.length; i++) {
-    dropdown[i].addEventListener("click", function() {
-        this.classList.toggle("active");
- 
-        var dropdownContent = this.nextElementSibling;
-        if (dropdownContent.style.display === "none") {
-        dropdownContent.style.display = "block";
-        } else {
-        dropdownContent.style.display = "none";
-        }
-    });
-    
-    }
-})
 
 
 </script>
@@ -69,30 +50,20 @@ onMount(()=>{
   </div>
 </div>
 </div>
-<!-- <div class="contain">
 
-<slot />
-</div> -->
 
 <style lang="scss">
 
 
-/* Fixed sidenav, full height */
 .sidenav {
   height: 100vh;
   width: 300px;
-  padding-top: 10px;
+  padding-top: 0px;
   color:#585858;
+  margin: 0 auto;
+
 }
 
-
-
-// .arrow-color{
-//     color:#898D90;
-//     margin-left: auto;
-
-// }
-/* Style the sidenav links and the dropdown button */
 .sidenav a, .dropdown-btn {
   border-radius:10px;
   padding: 6px 16px 6px 16px;
@@ -115,13 +86,7 @@ onMount(()=>{
 
 
 
-/* Add an active class to the active dropdown button */
-.active {
-  background-color: green;
-  color: white;
-}
 
-/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
   display: block;
    background-color: white;

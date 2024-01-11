@@ -14,11 +14,6 @@
 	
 </script>
 
-<sl-drawer class="drawer menu" bind:this={drawer}>
-<SidebarMobile />
-</sl-drawer>
-
-
 <svelte:head>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.34/dist/themes/base.css">
@@ -35,8 +30,11 @@
 	<Replaytxt />
 			<slot />
 	</section>
-	
+	<sl-drawer class="drawer menu" bind:this={drawer}>
+<SidebarMobile />
+</sl-drawer>
 </main>
+
 <style lang="scss">
 .drawer-btn{
 	display:none;
