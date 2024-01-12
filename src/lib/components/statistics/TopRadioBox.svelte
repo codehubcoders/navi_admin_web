@@ -83,7 +83,7 @@
             grid-template-columns: 2fr 10fr ;
             
             .radio-title{
-                height:50px;
+                min-height:50px;
                 display:flex;
                 font-size: 13px;
                 align-items:center;
@@ -91,10 +91,11 @@
                 padding-left: 20px;
             }
             .radio{
-                height:50px;
+                min-height:50px;
                 background-color:white;
                 align-items:center;
                 display:flex;
+                flex-wrap: wrap;
                 padding-left: 20px;
                 label {
                     font-size: 13px;
