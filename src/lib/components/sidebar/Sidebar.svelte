@@ -113,14 +113,15 @@ onMount(()=>{
   width: 180px;
   position: absolute;
   z-index: 1;
-  top: 0;
+  top: 20px;
   left: 0;
   background-color: #F8FAFB;
-  // overflow-x: hidden;
+
   padding-top: 10px;
+  margin-bottom: 20px;
   color:#585858;
      @media (max-width: 1300px) {
-       left:10px;
+       left: 10px;
     }
       @media (max-width: 960px) {
       display:none;

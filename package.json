@@ -23,7 +23,22 @@
     "vite": "^5.0.3"
   },
   "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "svelte": "dist/index.js",
   "dependencies": {
-    "svelte-awesome": "^3.3.1"
+    "@okrad/svelte-progressbar": "^2.2.0",
+    "chart.js": "^4.4.1",
+    "postcss-load-config": "^5.0.2",
+    "prettier-plugin-svelte": "^3.1.2",
+    "svelte-awesome": "^3.3.1",
+    "svelte-chartjs": "^3.1.2"
   }
 }
