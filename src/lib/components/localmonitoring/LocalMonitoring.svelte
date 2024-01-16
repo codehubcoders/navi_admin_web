@@ -1,6 +1,6 @@
 <script>
-	import RowBar from './../globalComponents/RowBar.svelte';
-	import LocalCard from './../globalComponents/LocalCard.svelte';
+    import RowBar from "./RowBar.svelte";
+    import LocalCard from "./../globalComponents/LocalCard.svelte";
     import AlarmCard from "./../globalComponents/AlarmCard.svelte";
     import WarningSign from "../../assets/icons/01.svg";
     import Ambulance from "../../assets/icons/02.svg";
@@ -65,6 +65,21 @@
             date: "2023-12-12 09:00",
             alarmText: "경고",
             alarmColor: "#FFD600",
+        },
+    ];
+
+    let list05 = [
+        {
+            title: "3일 이상 연속 미복용",
+            number: 3,
+        },
+        {
+            title: "지연복용",
+            number: 4,
+        },
+        {
+            title: "지연복용",
+            number: 3,
         },
     ];
 </script>
@@ -178,7 +193,7 @@
                                     sub="%"
                                     title="실시간 이용율"
                                 />
-                              <RowBar />
+                                <RowBar />
                             </div>
                         </div>
                     </slot>
@@ -194,12 +209,21 @@
                                     sub="%"
                                     title="실시간 이용율"
                                 />
-                                <CicleProgress
-                                    percentage="72"
-                                    sub="대"
-                                    title="플러스"
-                                    titleNum="120"
-                                />
+                                <div class="list">
+                                    {#each list05 as item}
+                                        <div class="box-list">
+                                            <div class="title">
+                                                <p class="top">
+                                                  {item.title}
+                                                </p>
+                                                <p class="bottom">{item.number}명</p>
+                                            </div>
+                                            <button class="btn-gray"
+                                                >상세보기</button
+                                            >
+                                        </div>
+                                    {/each}
+                                </div>
                             </div>
                         </div>
                     </slot>
@@ -303,5 +327,42 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 15px;
+    }
+    .list {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .box-list {
+            background-color: white;
+            height: 30%;
+            width: 100%;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .title {
+                .top {
+                    font-size: 12px;
+                    font-weight: 500;
+                    padding-left: 15px;
+                }
+                .bottom {
+                    color: #5E72E4;
+                    font-size: 18px;
+                    font-weight: 500;
+                    padding-left: 15px;
+                    padding-top: 3px;
+                }
+            }
+            .btn-gray {
+                background-color: #EFF1F2;
+                border-radius: 4px;
+                padding: 8px 10px;
+                font-size: 12px;
+                height: fit-content;
+                margin-right: 15px;
+            }
+        }
     }
 </style>
