@@ -1,9 +1,9 @@
 <script>
 
-  import CicleBar from "./../customitems/progressbar/CicleBar.svelte";
+  import CicleBar from "./../customComponents/progressbar/CicleBar.svelte";
   import Icon from "@iconify/svelte";
   // import Chart from "../customitems/chart/StatustucsChart.svelte";  export let activeTabValue = 1;
-  import TableTabs from "../customitems/tabs/TableTabs.svelte";
+  import TableTabs from "../customComponents/tabs/TableTabs.svelte";
   import Tab1 from "./useTabs/Tab1.svelte";
   import Tab2 from "./useTabs/Tab2.svelte";
   import Tab3 from "./useTabs/Tab3.svelte";
@@ -53,7 +53,8 @@
           <p>Mobile APP 연동</p>
           <button class="btn-gray">상세보기</button>
         </div>
-        <div class="item__body"><CicleBar /></div>
+        <div class="item__body"><CicleBar />
+        <div class="w-box"></div></div>
       </div>
       <div class="item">
         <div class="item__top">
@@ -139,6 +140,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
+      .w-box{
+      bottom: 0px;
+      position: absolute;
+      width: 85%;
+      height: 15px;
+      background-color: white;
+      border-top:1px solid #EFF1F2 ;
+    }
     }
     &__right{
       height: 60%;

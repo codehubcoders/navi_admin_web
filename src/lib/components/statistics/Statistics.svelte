@@ -1,8 +1,8 @@
 <script>
+	import Tabs from './../customComponents/tabs/Tabs.svelte';
 import TopRadioBox from "./TopRadioBox.svelte";
 import CardList from './CardList.svelte'
 import UseMonth from "./UseMonth.svelte";
-import Tabs from '../customitems/tabs/Tabs.svelte'
 import Tab1 from './statisticsTab/Tab1.svelte'
 import Tab2 from './statisticsTab/Tab2.svelte'
 import Tab3 from './statisticsTab/Tab3.svelte'

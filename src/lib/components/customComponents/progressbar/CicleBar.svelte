@@ -39,7 +39,7 @@ div[role="progressbar"] {
   
 }
 p{  color: #001E91;
-
+margin-top: 10px;
 }
 .txt-per{
     color: var(--bg);

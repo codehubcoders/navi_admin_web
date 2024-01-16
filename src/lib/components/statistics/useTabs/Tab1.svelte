@@ -1,5 +1,5 @@
 <script>
-      import Chart from '../../customitems/chart/StatustucsChart.svelte';
+      import Chart from '../../customComponents/chart/StatustucsChart.svelte';
 </script>
 
 <section>

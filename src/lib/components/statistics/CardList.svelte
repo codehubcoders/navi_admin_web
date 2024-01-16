@@ -1,7 +1,7 @@
 <script>
   import Icon from "@iconify/svelte";
-  import Table from "../customitems/table/statisticsTable.svelte"
-import ChartModal from '../customitems/modal/ChartModal.svelte';
+  import Table from "../customComponents/table/statisticsTable.svelte"
+import ChartModal from '../customComponents/modal/ChartModal.svelte';
 
   let cardList = [
     {

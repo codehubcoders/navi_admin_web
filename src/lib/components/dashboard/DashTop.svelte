@@ -1,5 +1,5 @@
 <script>
-    import { browser } from "$app/environment";
+    
     let topBox = [
         { number: 23, name: "주의", color: "#FFD600" },
         { number: 12, name: "경고", color: "#FF9933" },

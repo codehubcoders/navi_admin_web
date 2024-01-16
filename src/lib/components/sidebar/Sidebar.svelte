@@ -6,7 +6,7 @@
     import Icon from '@iconify/svelte';
     import MainIcon from "../../assets/icons/main_icon.svg";
     import Service from "../../assets/icons/service_icon.svg";
-    import Contents from "../../assets/icons/contents_icon.svg";
+    // import Contents from "../../assets/icons/contents_icon.svg";
 
     
     let path;
