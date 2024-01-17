@@ -2,13 +2,13 @@
 	import LineChart from './../chart/LineChart.svelte';
     import Icon from "@iconify/svelte";
     export let showModal = true;
-    export let isPromo = true;
+    // export let isPromo = true;
     export let title = '';
     
 </script>
 
 {#if showModal}
-    <div class="backdrop" class:promo={isPromo} on:click|self>
+    <div class="backdrop" on:click|self>
         <div class="modal">
             <!-- <div class="modal__close">
                 <button on:click={() => (showModal = false)}>
@@ -41,7 +41,7 @@
         top: 0;
         left: 0;
         background: rgba(0, 0, 0, 0.8);
-        z-index: 1;
+        z-index: 99;
     }
     .modal {
         padding: 10px;

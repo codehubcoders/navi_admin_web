@@ -112,7 +112,7 @@ onMount(()=>{
   height: 100vh;
   width: 180px;
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   top: 20px;
   left: 0;
   background-color: #F8FAFB;

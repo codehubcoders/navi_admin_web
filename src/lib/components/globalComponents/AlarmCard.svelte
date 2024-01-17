@@ -1,15 +1,15 @@
 <script>
-    import Icon from "@iconify/svelte";
+	import DropdowMenu from './DropdowMenu.svelte';
     export let title = "";
     export let iconName = "";
 
-    let slotName = "";
 </script>
 
 <div class="alarm_card">
     <div class="alarm_card__header">
         <p class="title">{title}</p>
-        {#if iconName}    <button>  <Icon icon={iconName} color="#a9abad" /></button>{/if}
+        <!-- {#if iconName}    <button>  <Icon icon={iconName} color="#a9abad" /></button>{/if} -->
+        {#if iconName}    <DropdowMenu />{/if}
     </div>
 
     <div class="body">

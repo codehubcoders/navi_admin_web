@@ -7,7 +7,7 @@
     import Fire from "../../assets/icons/03.svg";
     import CallAmbulance from "../../assets/icons/04.svg";
     import CicleProgress from "../globalComponents/CicleProgress.svelte";
-    let value = 20;
+
     let topBox = [
         { number: 23, name: "주의", color: "#FFD600" },
         { number: 12, name: "경고", color: "#FF9933" },
@@ -103,6 +103,7 @@
                 <!-- 생활반응 감지-->
                 {#if index == 0}
                     <slot>
+                     
                         <div class="alarm-padding">
                             {#each alarmList01 as item}
                                 <div class="alarm-list">
