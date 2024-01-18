@@ -21,5 +21,5 @@
   
   </script>
   
-  <Bar {data} options={{ responsive: true }} />
+  <Bar {data} options={{ responsive: true }}  />
   

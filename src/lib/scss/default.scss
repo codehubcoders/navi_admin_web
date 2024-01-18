@@ -363,14 +363,46 @@ button {
         width: fit-content;
         border-radius: 8px;
         font-size: 13px;
-        ;
         font-weight: 500;
+      
 
         &:hover {
             background-color: $light-primary;
             cursor: pointer;
         }
     }
+
+    &-primary-small {
+        background-color: $primary-color;
+        color: $white-color;
+        padding: 8px 15px;
+        width: fit-content;
+        height: fit-content;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 500;
+      
+
+        &:hover {
+            background-color: $light-primary;
+            cursor: pointer;
+        }
+    }
+    &-primary-border-none {
+        background-color: $primary-color;
+        color: $white-color;
+        padding: 10px 15px;
+        width: fit-content;
+        font-size: 12px;
+        font-weight: 500;
+      
+
+        &:hover {
+            background-color: $light-primary;
+            cursor: pointer;
+        }
+    }
+
 }
 
 
@@ -442,7 +474,10 @@ select {
     box-sizing: border-box;
 
 }
-
+textarea:focus, input:focus{
+    outline: none;
+}
+  
 
 
 .white {

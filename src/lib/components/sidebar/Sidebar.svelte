@@ -77,7 +77,7 @@ onMount(()=>{
      <Icon class="arrow-color" icon="mdi:chevron-up" />
   </button>
   <div class="dropdown-container">
-    <a href={"#"}>회원관리</a>
+    <a  href={"/member"} class='non-click {path == '/member'  ?  'click' : ''}'>회원관리</a>
     <a href={"#"}>제품관리</a>
     <a href={"#"}>CS관리</a>
     <a href={"#"}>지역관리</a>

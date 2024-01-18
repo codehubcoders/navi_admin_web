@@ -12,11 +12,18 @@ export const data = {
           '#596DDF',
         ],
         options: {
+          responsive: true,
+                maintainAspectRatio: false,
           plugins: {
             legend: {
               display: false
             }
-          }
+          },
+          cales: {
+            y: {
+                beginAtZero: true,
+            },
+        },
         }
       },
       

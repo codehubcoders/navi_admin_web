@@ -280,6 +280,9 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
+            @media (max-width: 960px) {
+      grid-template-columns: 1fr;
+    }
         }
     }
 
@@ -328,6 +331,9 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 15px;
+        @media (max-width: 535px) {
+                grid-template-columns: 1fr;
+            }
     }
     .list {
         height: 100%;
@@ -342,6 +348,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            @media (max-width: 960px) {
+    padding: 10px 0;
+    margin-bottom: 8px;
+    }
             .title {
                 .top {
                     font-size: 12px;

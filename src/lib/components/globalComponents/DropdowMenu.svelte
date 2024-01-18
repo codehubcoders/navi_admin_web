@@ -1,7 +1,7 @@
 <script>
     import Icon from "@iconify/svelte";
 
-	let showMenu = false, titleShow = false
+	let showMenu = false
 	function handleMenuOpen() {
 		showMenu = true
 		console.log('open')

@@ -39,6 +39,9 @@
             border-radius: 0px 0px 10px 10px;
             // padding:  30px;
             overflow: auto;
+            @media (max-width: 535px) {
+                height: auto;
+            }
         }
     }
 

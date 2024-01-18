@@ -42,7 +42,7 @@
   </div>
   <div class="card-main">
     <div class="header">
-      <p>월별 사용 현황</p>
+      <p>이용률 현황</p>
 
       <button><Icon icon="ep:more-filled" color="#d9d9d9" /></button>
       <!-- <button><Icon icon="heroicons-outline:save" />그래프 저장</button> -->
@@ -113,8 +113,13 @@
     background: #F5F5F5;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    
     gap: 15px;
     padding: 15px;
+    // @media (max-width: 535px) {
+    //             grid-template-columns: 1fr;
+    
+    //         }
     
   }
   .item {
