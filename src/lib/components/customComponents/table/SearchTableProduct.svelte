@@ -317,6 +317,7 @@
             padding: 10px 0;
             font-size: 13px;
             cursor: pointer;
+            font-weight: 500;
           }
         }
         tbody {

@@ -82,7 +82,7 @@ onMount(()=>{
     <a href={"/cs"} class='non-click {path == '/cs'  ?  'click' : ''}'>CS관리</a>
     <a href={"/local"} class='non-click {path == '/local'  ?  'click' : ''}'>지역관리</a>
     <a href={"/sw"} class='non-click {path == '/sw'  ?  'click' : ''}'>S/W관리</a>
-    <a href={"#"}>권한관리</a>
+    <a href={"/permission" } class='non-click {path == '/permission'  ?  'click' : ''}'>권한관리</a>
   </div>
 
 

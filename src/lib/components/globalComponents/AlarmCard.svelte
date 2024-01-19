@@ -41,7 +41,7 @@
             }
         }
         .body {
-            height: 240px;
+            height: auto;
             border-radius: 0px 0px 10px 10px;
             // padding:  30px;
             overflow: auto;

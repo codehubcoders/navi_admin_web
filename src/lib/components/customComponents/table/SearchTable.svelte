@@ -265,6 +265,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      
       button {
         color: white;
       }
@@ -321,6 +322,7 @@
             padding: 10px 0;
             font-size: 13px;
             cursor: pointer;
+            font-weight: 500;
           }
         }
         tbody {

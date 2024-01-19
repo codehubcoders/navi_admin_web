@@ -276,6 +276,7 @@
             }
         }
         &__card {
+          
             margin-top: 30px;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -285,8 +286,11 @@
     }
         }
     }
-
+.alarm-padding{
+    height: 250px;
+}
     .alarm-list {
+ 
         display: flex;
         align-items: center;
         gap: 15px;

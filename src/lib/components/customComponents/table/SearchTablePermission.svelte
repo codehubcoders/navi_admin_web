@@ -3,86 +3,108 @@
   import { onMount } from "svelte";
   import Icon from "@iconify/svelte";
 
-  let csTable = [
+  let permissionTable = [
     {
-      service: "스탠다드",
-      cs: "어르신",
-      member: "어르신",
-      memberName: "홍길동",
-      phone: "010-1234-5678",
       local: "서울시 OO구",
-      registration: "2023.03.01",
-      addFile: "2023.04.01",
-      status: "처리중",
-      csCode: "148559896",
+      permission: "지역관리자",
+      area: "OO노인복지관",
+      id: "ASDF",
+      
     },
     {
-      service: "스탠다드",
-      cs: "어르신",
-      member: "어르신",
-      memberName: "홍길동",
-      phone: "010-1234-5678",
       local: "서울시 OO구",
-      registration: "2023.03.01",
-      addFile: "2023.04.01",
-      status: "첩수완료",
-      csCode: "148559896",
+      permission: "운영자",
+      area: "OO노인복지관",
+      id: "qwer",
+      
     },
     {
-      service: "스탠다드",
-      cs: "어르신",
-      member: "어르신",
-      memberName: "홍길동",
-      phone: "010-1234-5678",
       local: "서울시 OO구",
-      registration: "2023.03.01",
-      addFile: "2023.04.01",
-      status: "해결불가",
-      csCode: "148559896",
+      permission: "담당자",
+      area: "OO노인복지관",
+      id: "zxcv",
+      
     },
     {
-      service: "스탠다드",
-      cs: "어르신",
-      member: "어르신",
-      memberName: "홍길동",
-      phone: "010-1234-5678",
       local: "서울시 OO구",
-      registration: "2023.03.01",
-      addFile: "2023.04.01",
-      status: "처리완료",
-      csCode: "148559896",
+      permission: "어르신",
+      area: "OO노인복지관",
+      id: "tyui",
+      
     },
+    {
+      local: "서울시 OO구",
+      permission: "어르신",
+      area: "OO노인복지관",
+      id: "tyui",
+      
+    },  {
+      local: "서울시 OO구",
+      permission: "지역관리자",
+      area: "OO노인복지관",
+      id: "ASDF",
+      
+    },
+    {
+      local: "서울시 OO구",
+      permission: "운영자",
+      area: "OO노인복지관",
+      id: "qwer",
+      
+    },
+    {
+      local: "서울시 OO구",
+      permission: "담당자",
+      area: "OO노인복지관",
+      id: "zxcv",
+      
+    },
+    {
+      local: "서울시 OO구",
+      permission: "어르신",
+      area: "OO노인복지관",
+      id: "tyui",
+      
+    },
+    {
+      local: "서울시 OO구",
+      permission: "어르신",
+      area: "OO노인복지관",
+      id: "tyui",
+      
+    },
+    
   ];
-  let current = "name";
+  // let current = "name";
   onMount(() => {
-    var btnStatus = document.getElementById("statusSort");
-    var btnCs = document.getElementById("csSort");
-    var btnMember = document.getElementById("memberSort");
-    var btnLocal = document.getElementById("localSort");
+    // var btnStatus = document.getElementById("statusSort");
+    // var btnCs = document.getElementById("csSort");
+    // var btnMember = document.getElementById("memberSort");
+    // var btnLocal = document.getElementById("localSort");
 
-    btnStatus.addEventListener("click", (e) => {
-      current = "status";
-      sortCsTable(7);
-    });
-    btnCs.addEventListener("click", (e) => {
-      current = "cs";
-      sortCsTable(1);
-    });
-    btnMember.addEventListener("click", (e) => {
-      current = "member";
-      sortCsTable(3);
-    });
-    btnLocal.addEventListener("click", (e) => {
-      current = "local";
-      sortCsTable(4);
-    });
+    // btnStatus.addEventListener("click", (e) => {
+    //   current = "status";
+    //   sortCsTable(7);
+    // });
+    // btnCs.addEventListener("click", (e) => {
+    //   current = "cs";
+    //   sortCsTable(1);
+    // });
+    // btnMember.addEventListener("click", (e) => {
+    //   current = "member";
+    //   sortCsTable(3);
+    // });
+    // btnLocal.addEventListener("click", (e) => {
+    //   current = "local";
+    //   sortCsTable(4);
+    // });
   });
 
-  function searchCsTable() {
+  function searchPermissionTable() {
     var input, filter, table, tr, i;
-    input = document.getElementById("searchCs");
+    input = document.getElementById("searchPermission");
     filter = input.value.toUpperCase().split(" ");
-    table = document.getElementById("cs-data-table");
+    table = document.getElementById("permission-data-table");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
       const tableData = tr[i].getElementsByTagName("td");
@@ -101,7 +123,7 @@
     }
   }
 
-  function sortCsTable(n) {
+  function sortPermissionTable(n) {
     var table,
       rows,
       switching,
@@ -111,7 +133,7 @@
       shouldSwitch,
       dir,
       switchcount = 0;
-    table = document.getElementById("cs-data-table");
+    table = document.getElementById("permission-data-table");
     switching = true;
     dir = "asc";
     while (switching) {
@@ -153,22 +175,22 @@
 
 <section class="seach-sort-table">
   <div class="seach-sort-table__header">
-    <p class="title">제품리스트</p>
+    <p class="title">관리자 (00명)</p>
     <div class="right">
       <div class="search-input">
-        <input type="text" id="searchCs" placeholder="검색" />
+        <input type="text" id="searchPermission" placeholder="검색" />
         <Icon icon="iconamoon:search" color="#c5c7c8" width="18" />
       </div>
       <button
         class="btn-primary-border-none"
         id="search-btn"
-        on:click={searchCsTable}>검색</button
+        on:click={searchPermissionTable}>검색</button
       >
     </div>
   </div>
   <div class="seach-sort-table__sortBtns">
     <div class="buttons">
-      <button class:active={current === "status"} id="statusSort"
+      <!-- <button class:active={current === "status"} id="statusSort"
         >처리현황</button
       >|
       <button class:active={current === "cs"} id="csSort">CS구분</button>|
@@ -176,79 +198,75 @@
         >회원구분</button
       >|
       <button class:active={current === "local"} id="localSort">설치지역</button
-      >
+      > -->
     </div>
-    <SelectBox {items} />
+    <!-- <SelectBox {items} /> -->
   </div>
   <div id="data-table" class="seach-sort-table__table">
-    <table id="cs-data-table">
+    <table id="permission-data-table">
       <thead>
         <tr>
-          <th on:click={() => sortCsTable(0)}
-            >서비스 <Icon
+          <th on:click={() => sortPermissionTable(0)}
+            >지역 <Icon
               icon="fluent:arrow-fit-16-filled"
               color="#e1e3e4"
               width="15"
               rotate={1}
             /></th
           >
-          <th on:click={() => sortCsTable(1)}
-            >CS구분 <Icon
+          <th on:click={() => sortPermissionTable(1)}
+            >권한 <Icon
               icon="fluent:arrow-fit-16-filled"
               color="#e1e3e4"
               width="15"
               rotate={1}
             /></th
           >
-          <th on:click={() => sortCsTable(2)}
-            >회원구분 <Icon
+          <th on:click={() => sortPermissionTable(2)}
+            >구역 <Icon
               icon="fluent:arrow-fit-16-filled"
               color="#e1e3e4"
               width="15"
               rotate={1}
             /></th
           >
-          <th>회원이름</th>
-          <th on:click={() => sortCsTable(3)}
-            >설치지역 <Icon
-              icon="fluent:arrow-fit-16-filled"
-              color="#e1e3e4"
-              width="15"
-              rotate={1}
-            /></th
+          <th>아이디</th>
+          <th 
+            >상세보기 </th
           >
-          <th>등록날짜</th>
-          <th>첨부파일</th>
-          <th on:click={() => sortCsTable(7)}
-            >처리현황 <Icon
-              icon="fluent:arrow-fit-16-filled"
-              color="#e1e3e4"
-              width="15"
-              rotate={1}
-            /></th
-          >
-          <th>CS 코드</th>
+         
         </tr>
       </thead>
       <tbody>
-        {#each csTable as item}
+        {#each permissionTable as item}
           <tr>
-            <td>{item.service}</td>
-            <td>{item.cs}</td>
-            <td>{item.member}</td>
-            <td
-              ><p>{item.memberName}</p>
-              <p>{item.phone}</p></td
-            >
             <td>{item.local}</td>
-            <td>{item.registration}</td>
-            <td>{item.addFile}</td>
-            <td>{item.status}</td>
-            <td>{item.csCode}</td>
+            <td>{item.permission}</td>
+            <td>{item.area}</td>
+            <td
+              >{item.id}</td>
+            
+            <td><button class="btn-detaile-gray m-auto">상세보기</button></td>
+     
           </tr>
         {/each}
       </tbody>
     </table>
+    <div class="pagenation">
+      <button class="round-box">
+         <Icon icon="ep:arrow-left-bold" />
+      </button>
+      <button class="round-box">
+          1
+      </button>
+      <button class="round-box">
+          2
+      </button>
+      <button class="round-box">
+            <Icon icon="ep:arrow-right-bold" />
+      </button>
+  </div>
+
   </div>
 </section>
 
@@ -316,14 +334,14 @@
           th {
             padding: 10px 0;
             font-size: 13px;
-            font-weight: 500;
             cursor: pointer;
+            font-weight: 500;
           }
         }
         tbody {
           tr td {
             vertical-align: middle;
-            padding: 20px 0;
+            padding:15px 0;
             text-align: center;
             font-size: 13px;
             p {
@@ -340,9 +358,9 @@
     font-weight: 500;
   }
 
-  button {
-    display: block;
-    color: #E1E3E4;
-    font-size: 12px;
-  }
+  // button {
+  //   display: block;
+  //   color: #E1E3E4;
+  //   font-size: 12px;
+  // }
 </style>

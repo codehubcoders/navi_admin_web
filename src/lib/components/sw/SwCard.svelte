@@ -33,7 +33,7 @@
         <div>
             <div class="w-box">
                 <p>{item.title}</p>
-                <button class="btn-detail-gray" on:click>상세내역</button>
+                <button class="btn-detaile-gray" on:click>상세내역</button>
             </div>
             <div class="content">
                 <p class="txt">
@@ -77,6 +77,7 @@
         background-color: #F8FAFB;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         .txt {
             padding: 10px 0px;
             font-size: 14px;
