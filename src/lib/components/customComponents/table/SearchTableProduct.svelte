@@ -3,66 +3,82 @@
   import { onMount } from "svelte";
   import Icon from "@iconify/svelte";
 
-  let newData = [
+  let productTable = [
     {
-      user: "정준범",
-      gender: "남",
-      birth: "1988.02.01",
-      phone: "010-1234-5678",
-      email: "test@email.com",
-      name: "정길동",
+      division: "스탠다드",
+      code: "4653258",
+      SWversion: "Ver2.1",
+      FWversion: "2.01",
+      local: "서울시 OO구",
+      state: "연동",
+      member: "정군수",
+      create: "2023.03.01",
+      ShippingDate: "2023.04.01",
+      installDate: "2023.03.10",
     },
     {
-      user: "정준범",
-      gender: "여",
-      birth: "1979.02.01",
-      phone: "010-1234-5678",
-      email: "test3@email.com",
-      name: "박길동",
+      division: "고급형",
+      code: "4653258",
+      SWversion: "Ver2.1",
+      FWversion: "2.01",
+      local: "서울시 OO구",
+      state: "연동",
+      member: "정군수",
+      create: "2023.03.01",
+      ShippingDate: "2023.05.01",
+      installDate: "2023.03.10",
     },
     {
-      user: "정준범",
-      gender: "여",
-      birth: "1956.02.01",
-      phone: "010-1234-5678",
-      email: "test2@email.com",
-      name: "홍길동",
+      division: "스탠다드",
+      code: "4653258",
+      SWversion: "Ver2.1",
+      FWversion: "2.01",
+      local: "서울시 OO구",
+      state: "연동",
+      member: "정군수",
+      create: "2023.04.01",
+      ShippingDate: "2023.06.01",
+      installDate: "2023.03.10",
     },
     {
-      user: "정준범",
-      gender: "남",
-      birth: "1956.02.01",
-      phone: "010-1234-5678",
-      email: "test1@email.com",
-      name: "김길동",
+      division: "고급형",
+      code: "4653258",
+      SWversion: "Ver2.1",
+      FWversion: "2.01",
+      local: "서울시 OO구",
+      state: "연동",
+      member: "정군수",
+      create: "2023.03.01",
+      ShippingDate: "2023.07.01",
+      installDate: "2023.06.10",
     },
   ];
-  let current = "user";
+  let current = "name";
   onMount(() => {
-    var btnSortUser= document.getElementById("sortUser");
-    var btnsortUserAge = document.getElementById("sortUserAge");
+    var btnproducName= document.getElementById("productName");
+    // var btnsortUserAge = document.getElementById("sortUserAge");
     // var btnSortlocal = document.getElementById("sortLocal");
 
     btnSortUser.addEventListener("click", (e) => {
       current = "user";
       sortMemberTable(0);
     });
-    btnsortUserAge.addEventListener("click", (e) => {
-      current = "birth";
-      sortMemberTable(1);
-    });
+    // btnsortUserAge.addEventListener("click", (e) => {
+    //   current = "birth";
+    //   sortMemberTable(1);
+    // });
     // btnSortlocal.addEventListener("click", (e) => {
     //   current = "local";
     //   sortTable(0);
     // });
   });
 
-  function searchTable() {
+  function searchProductTable() {
 
   var input, filter, table, tr,  i;
-  input = document.getElementById("searchMember");
+  input = document.getElementById("searchProduct");
   filter = input.value.toUpperCase().split(' ');
-  table = document.getElementById("member-data-table");
+  table = document.getElementById("product-data-table");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
     const tableData = tr[i].getElementsByTagName("td");
@@ -82,7 +98,7 @@
   }
 
   
-  function sortMemberTable(n) {
+  function sortProductTable(n) {
     var table,
       rows,
       switching,
@@ -92,7 +108,7 @@
       shouldSwitch,
       dir,
       switchcount = 0;
-    table = document.getElementById("member-data-table");
+    table = document.getElementById("product-data-table");
     switching = true;
     dir = "asc";
     while (switching) {
@@ -134,73 +150,105 @@
 
 <section class="seach-sort-table">
   <div class="seach-sort-table__header">
-    <p class="title">회원리스트(Mobile App)</p>
+    <p class="title">제품리스트</p>
     <div class="right">
    
       <div class="search-input">
-        <input type="text" id="searchMember" placeholder="검색" />
+        <input type="text" id="searchProduct" placeholder="검색" />
         <Icon icon="iconamoon:search" color="#c5c7c8" width="18" />
       </div>
       <button
         class="btn-primary-border-none"
         id="search-btn"
-        on:click={searchTable}>검색</button
+        on:click={searchProductTable}>검색</button
       >
     </div>
   </div>
   <div class="seach-sort-table__sortBtns">
     <div class="buttons">
-      <button class:active={current === "user"} id="sortUser">이름순</button>|
-      <button class:active={current === "birth"} id="sortUserAge">나이순</button>
+      <!-- <button class:active={current === "user"} id="sortUser">이름순</button>|
+      <button class:active={current === "birth"} id="sortUserAge">나이순</button> -->
       <!-- <button class:active={current === "local"} id="sortLocal">지역순</button> -->
     </div>
     <SelectBox {items} />
   </div>
   <div id="data-table" class="seach-sort-table__table">
-    <table id="member-data-table">
+    <table id="product-data-table">
       <thead>
         <tr>
-          <th 
-            >사용자 </th
-          >
-          <th on:click={() => sortMemberTable(1)}
-            >성별 <Icon
-              icon="fluent:arrow-fit-16-filled"
-              color="#e1e3e4"
-              width="15"
-              rotate={1}
-            /></th
-          >
-          <th on:click={() => sortMemberTable(2)}
-            >생년월일 <Icon
-              icon="fluent:arrow-fit-16-filled"
-              color="#e1e3e4"
-              width="15"
-              rotate={1}
-            /></th
+          <th  on:click={() => sortProductTable(0)}
+            >제품구분  <Icon
+            icon="fluent:arrow-fit-16-filled"
+            color="#e1e3e4"
+            width="15"
+            rotate={1}
+          /></th
           >
           <th 
-            >전화번호</th
+            >제품코드</th
           >
           <th 
-            >이메일</th
+            >S/W 버전</th
           >
-          <th>대상자</th>
+          <th 
+            >F/W 버전</th
+          >
+          <th on:click={() => sortProductTable(4)}
+            >설치지역  <Icon
+            icon="fluent:arrow-fit-16-filled"
+            color="#e1e3e4"
+            width="15"
+            rotate={1}
+          /></th
+          >
+          <th on:click={() => sortProductTable(5)}>연동상태  <Icon
+            icon="fluent:arrow-fit-16-filled"
+            color="#e1e3e4"
+            width="15"
+            rotate={1}
+          /></th>
+          <th>연동회원 </th>
+          <th on:click={() => sortProductTable(7)}>제품등록일  <Icon
+            icon="fluent:arrow-fit-16-filled"
+            color="#e1e3e4"
+            width="15"
+            rotate={1}
+          /></th>
+          <th on:click={() => sortProductTable(8)}>출고일  <Icon
+            icon="fluent:arrow-fit-16-filled"
+            color="#e1e3e4"
+            width="15"
+            rotate={1}
+          /></th>
+          <th on:click={() => sortProductTable(9)}>설치일  <Icon
+            icon="fluent:arrow-fit-16-filled"
+            color="#e1e3e4"
+            width="15"
+            rotate={1}
+          /></th>
         </tr>
       </thead>
       <tbody>
-        {#each newData as item}
+        {#each productTable as item}
           <tr>
-            <td>{item.user}</td>
-            <td>{item.gender}</td>
-            <td>{item.birth}</td>
-            <td>{item.phone}</td>
-            <td>{item.email}</td>
-            <td>{item.name}</td>
+            <td>{item.division}</td>
+            <td>{item.code}</td>
+            <td>{item.SWversion}</td>
+            <td>{item.FWversion}</td>
+            <td>{item.local}</td>
+            <td>{item.state}</td>
+            <td>{item.member}</td>
+            <td>{item.create}</td>
+            <td>{item.ShippingDate}</td>
+            <td>{item.installDate}</td>
           </tr>
         {/each}
       </tbody>
     </table>
+    <div class="excel-btn">
+      <button class="btn-primary">Excel 양식 다운로드</button>
+    </div>
+
   </div>
 </section>
 
@@ -294,4 +342,12 @@
     font-size: 12px;
   }
 
+.excel-btn{
+padding: 20px;
+  button{
+    margin: 0 auto;
+    display: block;
+    color: white;
+  }
+}
 </style>

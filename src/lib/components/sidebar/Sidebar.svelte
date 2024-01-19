@@ -78,7 +78,7 @@ onMount(()=>{
   </button>
   <div class="dropdown-container">
     <a  href={"/member"} class='non-click {path == '/member'  ?  'click' : ''}'>회원관리</a>
-    <a href={"#"}>제품관리</a>
+    <a href={"/product"} class='non-click {path == '/product'  ?  'click' : ''}'>제품관리</a>
     <a href={"#"}>CS관리</a>
     <a href={"#"}>지역관리</a>
     <a href={"#"}>S/W관리</a>

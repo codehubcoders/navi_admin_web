@@ -346,7 +346,6 @@ button {
 }
 
 .btn {
-
     &-gray {
         padding: 10px 20px;
         width: fit-content;
@@ -354,6 +353,15 @@ button {
         background-color: #EFF1F2;
         color: #2E3132;
         cursor: pointer;
+    }
+    &-detail-gray {
+        padding: 7px 13px;
+        width: fit-content;
+        border-radius: 4px;
+        background-color: #EFF1F2;
+        color: #2E3132;
+        cursor: pointer;
+        font-size: 12px;
     }
 
     &-primary {

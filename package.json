@@ -34,6 +34,7 @@
   ],
   "svelte": "dist/index.js",
   "dependencies": {
+    "chart.js": "^4.4.1",
     "postcss-load-config": "^5.0.2",
     "prettier-plugin-svelte": "^3.1.2",
     "svelte-awesome": "^3.3.1",

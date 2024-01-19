@@ -1,5 +1,5 @@
 <script>
-    let selectedAge = '';
+    let selectedAge = '전체';
 	let ageRadio=[
         {value:'전체',total:123},
         {value:'60대',total:50},
@@ -12,7 +12,7 @@
 		selectedAge = event.currentTarget.value;
 	}
 
-    let selectedGender = '';
+    let selectedGender = '전체';
 	let genderRadio=[
         '전체',
         '남성',
@@ -34,10 +34,10 @@
             <div class="radio">
             {#each ageRadio as item, index}
                 <label>
-                <input checked={selectedAge===item.value} 
+                <input checked={selectedAge==item.value} 
                 on:change={onChangeAge} 
                 type="radio" 
-                name="amount" 
+                name="age" 
                 value={item.value} 
                 />
                 <span class="fw-500"> {item.value}({item.total})</span>
@@ -50,10 +50,10 @@
                 <div class="radio">
                 {#each genderRadio as item, index}
                     <label>
-                    <input checked={selectedGender===item} 
+                    <input checked={selectedGender==item} 
                     on:change={onChangeGender} 
                     type="radio" 
-                    name="amount" 
+                    name="gender" 
                     value={item} 
                     />
                     <span class="fw-500"> {item}</span>

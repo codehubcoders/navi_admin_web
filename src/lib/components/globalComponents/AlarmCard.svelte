@@ -2,6 +2,7 @@
 	import DropdowMenu from './DropdowMenu.svelte';
     export let title = "";
     export let iconName = "";
+    export let heightLong = false;
 
 </script>
 
@@ -12,7 +13,7 @@
         {#if iconName}    <DropdowMenu />{/if}
     </div>
 
-    <div class="body">
+    <div class={heightLong ? 'logn-body' : 'body'}>
         <slot/>
     </div>
 
@@ -23,6 +24,7 @@
         border-radius: 10px;
         box-shadow: 0 5px 20px rgba(173, 181, 217, 0.2);
         background-color: #F5F5F5;
+        position: relative;
         &__header {
             display: flex;
             justify-content: space-between;
@@ -36,6 +38,15 @@
         }
         .body {
             height: 240px;
+            border-radius: 0px 0px 10px 10px;
+            // padding:  30px;
+            overflow: auto;
+            @media (max-width: 535px) {
+                height: auto;
+            }
+        }
+        .long_body {
+            max-height: 500px;
             border-radius: 0px 0px 10px 10px;
             // padding:  30px;
             overflow: auto;

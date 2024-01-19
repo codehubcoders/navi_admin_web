@@ -26,6 +26,9 @@
         showDatePicker = false;
         document.body.removeEventListener("click", handleDatePickerClose);
     }
+    function datePickerOnOff(){
+        showDatePicker = !showDatePicker;
+    }
 </script>
 
 <div class="date-picker">
@@ -38,7 +41,7 @@
     </button>
     {#if showDatePicker}
     <div class="date-picker__body" on:click|stopPropagation={()=>{}}>
-        <DatePicker bind:value={startDate} {...locale[culture]} />
+        <DatePicker bind:value={startDate} {...locale[culture]}  />
     </div>
     {/if}
 </div>
@@ -46,8 +49,8 @@
 <style lang="scss">
     .date-picker {
         &__btn {
-            min-width: 110px;
-            height: 35px;
+            min-width: 120px;
+            height: 30px;
             background-color: #F5F5F5;
             border-radius: 4px;
             font-size: 13px;
