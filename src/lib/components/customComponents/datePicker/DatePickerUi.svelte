@@ -40,7 +40,7 @@
         {/if}
     </button>
     {#if showDatePicker}
-    <div class="date-picker__body" on:click|stopPropagation={()=>{}}>
+    <div class="date-picker__body" on:click|stopPropagation={handleDatePickerClose}>
         <DatePicker bind:value={startDate} {...locale[culture]}  />
     </div>
     {/if}

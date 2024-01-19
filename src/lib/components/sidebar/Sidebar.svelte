@@ -80,8 +80,8 @@ onMount(()=>{
     <a  href={"/member"} class='non-click {path == '/member'  ?  'click' : ''}'>회원관리</a>
     <a href={"/product"} class='non-click {path == '/product'  ?  'click' : ''}'>제품관리</a>
     <a href={"/cs"} class='non-click {path == '/cs'  ?  'click' : ''}'>CS관리</a>
-    <a href={"#"}>지역관리</a>
-    <a href={"#"}>S/W관리</a>
+    <a href={"/local"} class='non-click {path == '/local'  ?  'click' : ''}'>지역관리</a>
+    <a href={"/sw"} class='non-click {path == '/sw'  ?  'click' : ''}'>S/W관리</a>
     <a href={"#"}>권한관리</a>
   </div>
 

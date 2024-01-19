@@ -41,6 +41,8 @@
         date = newValue;
         value = newValue;
         offset = 0;
+        
+
     }
 
     $: viewDate = viewDateFrom(date, offset);
