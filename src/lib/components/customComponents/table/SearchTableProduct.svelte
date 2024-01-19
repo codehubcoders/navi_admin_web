@@ -55,14 +55,14 @@
   ];
   let current = "name";
   onMount(() => {
-    var btnproducName= document.getElementById("productName");
+    // var btnproducName= document.getElementById("productName");
     // var btnsortUserAge = document.getElementById("sortUserAge");
     // var btnSortlocal = document.getElementById("sortLocal");
 
-    btnSortUser.addEventListener("click", (e) => {
-      current = "user";
-      sortMemberTable(0);
-    });
+    // btnSortUser.addEventListener("click", (e) => {
+    //   current = "user";
+    //   sortMemberTable(0);
+    // });
     // btnsortUserAge.addEventListener("click", (e) => {
     //   current = "birth";
     //   sortMemberTable(1);
@@ -310,7 +310,7 @@
     &__table {
       table {
         width: 100%;
-
+        color: #5C5F60;
         thead {
           background-color: #F4F4F4;
           th {
@@ -331,10 +331,10 @@
     }
   }
 
-  .active {
-    color: #333;
-    font-weight: 500;
-  }
+  // .active {
+  //   color: #333;
+  //   font-weight: 500;
+  // }
 
   button {
     display: block;

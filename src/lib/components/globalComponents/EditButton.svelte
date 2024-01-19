@@ -1,9 +1,15 @@
 <script>
     import EditIcon from "../../assets/icons/edit-icon.svg";
+    import OxyIcon from "../../assets/icons/cs-oxy_icon.svg";
+    export let editIcon = true;
 </script>
 
 <button on:click class="edit-btn">
+    {#if editIcon}
     <EditIcon />
+    {:else}
+    <OxyIcon />
+    {/if}
 </button>
 
 <style lang="scss">

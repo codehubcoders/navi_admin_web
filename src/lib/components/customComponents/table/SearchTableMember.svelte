@@ -262,7 +262,7 @@
     &__table {
       table {
         width: 100%;
-
+        color: #5C5F60;
         thead {
           background-color: #F4F4F4;
           th {

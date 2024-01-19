@@ -67,6 +67,7 @@
         border: 1px solid #A9ABAD;
         border-collapse: collapse;
         tr {
+            
             border: 1px solid #A9ABAD;
             border-collapse: collapse;
         }

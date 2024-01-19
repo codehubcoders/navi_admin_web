@@ -472,18 +472,21 @@ textarea,
 }
 
 input[type=text],
-select {
+select, 
+textarea{
     width: 100%;
     padding: 12px 10px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid var(--border-color);
+    border: 1px solid #E1E3E4;
     border-radius: 8px;
     box-sizing: border-box;
 
 }
+
 textarea:focus, input:focus{
     outline: none;
+    
 }
   
 

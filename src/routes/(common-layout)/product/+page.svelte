@@ -5,5 +5,4 @@
 <Product />
 
 <style lang="scss">
-    /* your styles go here */
 </style>

@@ -4,6 +4,7 @@
     export let iconName = "";
     export let heightLong = false;
 
+
 </script>
 
 <div class="alarm_card">
@@ -11,6 +12,9 @@
         <p class="title">{title}</p>
         <!-- {#if iconName}    <button>  <Icon icon={iconName} color="#a9abad" /></button>{/if} -->
         {#if iconName}    <DropdowMenu />{/if}
+     
+        <slot name="topicon"/>
+
     </div>
 
     <div class={heightLong ? 'logn-body' : 'body'}>

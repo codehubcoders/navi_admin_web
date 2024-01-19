@@ -3,113 +3,105 @@
   import { onMount } from "svelte";
   import Icon from "@iconify/svelte";
 
-  let newData = [
+  let csTable = [
     {
-      local: "개포동",
-      name: "홍길동",
-      age: 72,
-      birth: "1956.02.01",
-      charge: "ON",
+      service: "스탠다드",
+      cs: "어르신",
+      member: "어르신",
+      memberName: "홍길동",
       phone: "010-1234-5678",
-      sign: "경고",
-      detail: "",
+      local: "서울시 OO구",
+      registration: "2023.03.01",
+      addFile: "2023.04.01",
+      status: "처리중",
+      csCode: "148559896",
     },
     {
-      local: "봉천동",
-      name: "김길동",
-      age: 80,
-      birth: "1956.02.01",
-      charge: "OFF",
+      service: "스탠다드",
+      cs: "어르신",
+      member: "어르신",
+      memberName: "홍길동",
       phone: "010-1234-5678",
-      sign: "",
-      detail: "",
+      local: "서울시 OO구",
+      registration: "2023.03.01",
+      addFile: "2023.04.01",
+      status: "첩수완료",
+      csCode: "148559896",
     },
     {
-      local: "월계동",
-      name: "이길동",
-      age: 90,
-      birth: "1956.02.01",
-      charge: "OFF",
+      service: "스탠다드",
+      cs: "어르신",
+      member: "어르신",
+      memberName: "홍길동",
       phone: "010-1234-5678",
-      sign: "위험",
-      detail: "",
+      local: "서울시 OO구",
+      registration: "2023.03.01",
+      addFile: "2023.04.01",
+      status: "해결불가",
+      csCode: "148559896",
     },
     {
-      local: "개포동",
-      name: "전길동",
-      age: 100,
-      birth: "1956.02.01",
-      charge: "ON",
+      service: "스탠다드",
+      cs: "어르신",
+      member: "어르신",
+      memberName: "홍길동",
       phone: "010-1234-5678",
-      sign: "",
-      detail: "",
+      local: "서울시 OO구",
+      registration: "2023.03.01",
+      addFile: "2023.04.01",
+      status: "처리완료",
+      csCode: "148559896",
     },
   ];
   let current = "name";
   onMount(() => {
-    var btnSortName = document.getElementById("sortName");
-    var btnSortAge = document.getElementById("sortAge");
-    var btnSortlocal = document.getElementById("sortLocal");
+    var btnStatus = document.getElementById("statusSort");
+    var btnCs = document.getElementById("csSort");
+    var btnMember = document.getElementById("memberSort");
+    var btnLocal = document.getElementById("localSort");
 
-    btnSortName.addEventListener("click", (e) => {
-      current = "name";
-      sortTable(1);
+    btnStatus.addEventListener("click", (e) => {
+      current = "status";
+      sortCsTable(7);
     });
-    btnSortAge.addEventListener("click", (e) => {
-      current = "age";
-      sortTable(2);
+    btnCs.addEventListener("click", (e) => {
+      current = "cs";
+      sortCsTable(1);
     });
-    btnSortlocal.addEventListener("click", (e) => {
+    btnMember.addEventListener("click", (e) => {
+      current = "member";
+      sortCsTable(3);
+    });
+    btnLocal.addEventListener("click", (e) => {
       current = "local";
-      sortTable(0);
+      sortCsTable(4);
     });
   });
 
-  function searchTable() {
-    // var input, filter, found, table, tr, td, i, j;
-    // input = document.getElementById("search");
-    // filter = input.value.toUpperCase();
-    // table = document.getElementById("html-data-table");
-    // tr = table.getElementsByTagName("tr");
-    // for (i = 0; i < tr.length; i++) {
-    //   td = tr[i].getElementsByTagName("td");
-    //   for (j = 0; j < td.length; j++) {
-    //     if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
-    //       found = true;
-    //     }
-    //   }
-    //   if (found) {
-    //     tr[i].style.display = "";
-    //     found = false;
-    //   } else {
-    //     tr[i].style.display = "none";
-    //   }
-    // }
-
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("search");
-  filter = input.value.toUpperCase().split(' ');
-  table = document.getElementById("html-data-table");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    const tableData = tr[i].getElementsByTagName("td");
-    let allTextContent = '';
-    for (let ind = 0; ind < tableData.length; ind++) {
+  function searchCsTable() {
+    var input, filter, table, tr, i;
+    input = document.getElementById("searchCs");
+    filter = input.value.toUpperCase().split(" ");
+    table = document.getElementById("cs-data-table");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      const tableData = tr[i].getElementsByTagName("td");
+      let allTextContent = "";
+      for (let ind = 0; ind < tableData.length; ind++) {
         allTextContent += tableData[ind].innerText;
-    }
-    
-    if (allTextContent) {
-      if (allTextContent.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
       }
-    }       
-  }
+
+      if (allTextContent) {
+        if (allTextContent.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
   }
 
-  
-  function sortTable(n) {
+  function sortCsTable(n) {
     var table,
       rows,
       switching,
@@ -119,7 +111,7 @@
       shouldSwitch,
       dir,
       switchcount = 0;
-    table = document.getElementById("html-data-table");
+    table = document.getElementById("cs-data-table");
     switching = true;
     dir = "asc";
     while (switching) {
@@ -161,93 +153,98 @@
 
 <section class="seach-sort-table">
   <div class="seach-sort-table__header">
-    <p class="title">대상자(00명)</p>
+    <p class="title">제품리스트</p>
     <div class="right">
-      <button class="btn-primary-small">등록</button>
       <div class="search-input">
-        <input type="text" id="search" placeholder="검색" />
+        <input type="text" id="searchCs" placeholder="검색" />
         <Icon icon="iconamoon:search" color="#c5c7c8" width="18" />
       </div>
       <button
         class="btn-primary-border-none"
         id="search-btn"
-        on:click={searchTable}>검색</button
+        on:click={searchCsTable}>검색</button
       >
     </div>
   </div>
   <div class="seach-sort-table__sortBtns">
     <div class="buttons">
-      <button class:active={current === "name"} id="sortName">이름순</button>|
-      <button class:active={current === "age"} id="sortAge">나이순</button>|
-      <button class:active={current === "local"} id="sortLocal">지역순</button>
+      <button class:active={current === "status"} id="statusSort"
+        >처리현황</button
+      >|
+      <button class:active={current === "cs"} id="csSort">CS구분</button>|
+      <button class:active={current === "member"} id="memberSort"
+        >회원구분</button
+      >|
+      <button class:active={current === "local"} id="localSort">설치지역</button
+      >
     </div>
     <SelectBox {items} />
   </div>
   <div id="data-table" class="seach-sort-table__table">
-    <table id="html-data-table">
+    <table id="cs-data-table">
       <thead>
         <tr>
-          <th on:click={() => sortTable(0)}
-            >지역 <Icon
+          <th on:click={() => sortCsTable(0)}
+            >서비스 <Icon
               icon="fluent:arrow-fit-16-filled"
               color="#e1e3e4"
               width="15"
               rotate={1}
             /></th
           >
-          <th on:click={() => sortTable(1)}
-            >사용자(나이) <Icon
+          <th on:click={() => sortCsTable(1)}
+            >CS구분 <Icon
               icon="fluent:arrow-fit-16-filled"
               color="#e1e3e4"
               width="15"
               rotate={1}
             /></th
           >
-          <th on:click={() => sortTable(2)}
-            >생년월일 <Icon
+          <th on:click={() => sortCsTable(2)}
+            >회원구분 <Icon
               icon="fluent:arrow-fit-16-filled"
               color="#e1e3e4"
               width="15"
               rotate={1}
             /></th
           >
-          <th on:click={() => sortTable(3)}
-            >충전 <Icon
+          <th>회원이름</th>
+          <th on:click={() => sortCsTable(3)}
+            >설치지역 <Icon
               icon="fluent:arrow-fit-16-filled"
               color="#e1e3e4"
               width="15"
               rotate={1}
             /></th
           >
-          <th on:click={() => sortTable(4)}
-            >전화번호 <Icon
+          <th>등록날짜</th>
+          <th>첨부파일</th>
+          <th on:click={() => sortCsTable(7)}
+            >처리현황 <Icon
               icon="fluent:arrow-fit-16-filled"
               color="#e1e3e4"
               width="15"
               rotate={1}
             /></th
           >
-          <th on:click={() => sortTable(5)}>경고/위험해제  <Icon
-            icon="fluent:arrow-fit-16-filled"
-            color="#e1e3e4"
-            width="15"
-            rotate={1}
-          /></th>
-          <th>세부정보</th>
+          <th>CS 코드</th>
         </tr>
       </thead>
       <tbody>
-        {#each newData as item}
-          <tr class={item.sign === "경고" ? 'bg_yellow' : item.sign === "위험" ?'bg_red': ''} >
-            <td >{item.local}</td>
-            <td>{item.name}({item.age}세)</td>
-            <td>{item.birth}</td>
-            <td class={item.charge === "ON" ? 'green' : 'gray'}>{item.charge}</td>
-            <td>{item.phone}</td>
-            <td >{#if item.sign != ''}
-                <button class="btn-gray">확인</button>
-            {/if}</td>
-            <td ><button class="btn-gray">상세내역</button></td>
+        {#each csTable as item}
+          <tr>
+            <td>{item.service}</td>
+            <td>{item.cs}</td>
+            <td>{item.member}</td>
+            <td
+              ><p>{item.memberName}</p>
+              <p>{item.phone}</p></td
+            >
+            <td>{item.local}</td>
+            <td>{item.registration}</td>
+            <td>{item.addFile}</td>
+            <td>{item.status}</td>
+            <td>{item.csCode}</td>
           </tr>
         {/each}
       </tbody>
@@ -313,8 +310,7 @@
     &__table {
       table {
         width: 100%;
-  color: #5C5F60;
-
+        color: #5C5F60;
         thead {
           background-color: #F4F4F4;
           th {
@@ -325,14 +321,12 @@
         }
         tbody {
           tr td {
-            padding: 15px 0;
+            vertical-align: middle;
+            padding: 20px 0;
             text-align: center;
             font-size: 13px;
-            .btn-gray{
-              display: inline-block;
-              color: #333;
-              font-size: 12px;
-              padding: 7px 15px;
+            p {
+              color: #5C5F60;
             }
           }
         }
@@ -349,18 +343,5 @@
     display: block;
     color: #E1E3E4;
     font-size: 12px;
-  }
-  .green {
-    color: #2DCE89;
-  }
-  .gray {
-    color: #C5C7C8;
-  }
-  .bg_yellow{
-    background-color: #FFFF00;
-  }
-  .bg_red{
-    background-color: #F5365C;
-    color: white;
   }
 </style>

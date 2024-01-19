@@ -1,5 +1,8 @@
 <script>
-    import DetailButtonCardBox from "./../globalComponents/DetailButtonCardBox.svelte";
+	import DetailButtonCardBox from './DetailButtonCardBox.svelte';
+    import AsDetailModal from "./AsDetailModal.svelte";
+    // import DefalutDialog from './../globalComponents/defalutDialog.svelte';
+    // import DetailButtonCardBox from "./../globalComponents/DetailButtonCardBox.svelte";
     import DetailButtonBox from "./../globalComponents/DetailButtonBox.svelte";
     import EditButton from "./../globalComponents/EditButton.svelte";
     import AlarmCard from "./../globalComponents/AlarmCard.svelte";
@@ -25,6 +28,11 @@
             total: 30,
         },
     ];
+
+    let showAsDetailModal = false;
+    const toggleAsDetailModal = () => {
+        showAsDetailModal = !showAsDetailModal;
+    };
 </script>
 
 <section class="product">
@@ -39,9 +47,11 @@
             iconName="uiw:more"
             heightLong="true"
         >
-            <DetailButtonCardBox />
+            <DetailButtonCardBox on:click={toggleAsDetailModal} />
             <EditButton />
         </AlarmCard>
+        <AsDetailModal {showAsDetailModal} on:click={toggleAsDetailModal} />
+        <!-- <DefalutDialog  {showDialog}  on:click={toggleDialog}/> -->
     </div>
 </section>
 
@@ -50,14 +60,13 @@
         margin: 0 0 0 auto;
     }
 
-           .product__top {
-            margin-top: 10px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            @media (max-width: 535px) {
-                grid-template-columns: 1fr;
-            }
+    .product__top {
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        @media (max-width: 535px) {
+            grid-template-columns: 1fr;
         }
-    
+    }
 </style>
