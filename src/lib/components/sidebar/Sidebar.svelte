@@ -150,7 +150,7 @@
       <a href={"/video"} class="non-click {path == '/video' ? 'click' : ''}">미디어관리</a>
       <a href={"/information"} class="non-click {path == '/information' ? 'click' : ''}">이용안내관리</a>
       <a href={"#"}>약관관리</a>
-      <a href={"#"}>문자관리</a>
+      <a href={"/message"} class="non-click {path == '/message' ? 'click' : ''}">문자관리</a>
     </div>
   </div>
 </div>
