@@ -96,11 +96,9 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
-            background-color: #F5F5F5;
             .content {
                 height: 100%;
                 padding: 15px;
-                background-color: #F5F5F5;
                 .box {
                        height: 100%;
                     background-color: #F8FAFB;
