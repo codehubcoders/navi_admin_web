@@ -14,7 +14,7 @@
                     <p>{item.productName}</p>
                 {/if}
             </div>
-            <button on:click class="btn-detaile-gray">상세내역</button>
+            <button on:click class="btn-detail-gray">상세내역</button>
         </div>
     {/each}
 </div>

@@ -246,7 +246,7 @@
             <td
               >{item.id}</td>
             
-            <td><button class="btn-detaile-gray m-auto">상세보기</button></td>
+            <td><button class="btn-detail-gray m-auto">상세보기</button></td>
      
           </tr>
         {/each}

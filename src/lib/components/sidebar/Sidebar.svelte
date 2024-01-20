@@ -4,7 +4,7 @@
   import Icon from "@iconify/svelte";
   import MainIcon from "../../assets/icons/main_icon.svg";
   import Service from "../../assets/icons/service_icon.svg";
-  // import Contents from "../../assets/icons/contents_icon.svg";
+  import Notice from "../../assets/icons/notification_icon.svg";
 
   let path;
 
@@ -134,7 +134,7 @@
     </div>
 
     <button class="dropdown-btn" id="notice" on:click={arrowActive3}>
-      <div class="center"><MainIcon class="pr-10" /> 컨텐츠 관리</div>
+      <div class="center"><Notice class="pr-10" /> 공지관리</div>
       {#if arrowUpDw3 == true}
         <Icon class="arrow-color" icon="mdi:chevron-up" />
       {:else}
@@ -146,9 +146,9 @@
         href={"/notification"}
         class="non-click {path == '/notification' ? 'click' : ''}">공지관리</a
       >
-      <a href={"#"}>소식관리</a>
-      <a href={"#"}>미디어관리</a>
-      <a href={"#"}>이용안내관리</a>
+      <a href={"/news"} class="non-click {path == '/news' ? 'click' : ''}">소식관리</a>
+      <a href={"/video"} class="non-click {path == '/video' ? 'click' : ''}">미디어관리</a>
+      <a href={"/information"} class="non-click {path == '/information' ? 'click' : ''}">이용안내관리</a>
       <a href={"#"}>약관관리</a>
       <a href={"#"}>문자관리</a>
     </div>

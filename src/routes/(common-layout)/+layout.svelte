@@ -1,7 +1,8 @@
 <script>
+	import Replaytxt from './../../lib/components/globalComponents/Replaytxt.svelte';
 	import Sidebar from "/src/lib/components/sidebar/Sidebar.svelte";
 	import SidebarMobile from "/src/lib/components/sidebar/Sidebarmobile.svelte";
-	import Replaytxt from "/src/lib/components/dashboard/Replaytxt.svelte";
+
 	import Icon from "@iconify/svelte";
 	let drawer;
 
@@ -27,7 +28,7 @@
 		<button on:click={openDrawer} class="drawer-btn">
 			<Icon icon="ic:sharp-table-rows" width="30" />
 		</button>
-		<Replaytxt />
+<Replaytxt />
 		<slot />
 	</section>
 	<sl-drawer class="drawer menu" bind:this={drawer}>

@@ -32,6 +32,7 @@
         &__header {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             border-radius: 10px 10px 0px 0px;
             padding: 15px 20px;
             background-color: white;

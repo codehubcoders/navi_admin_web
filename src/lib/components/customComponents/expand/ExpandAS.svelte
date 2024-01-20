@@ -9,7 +9,7 @@
 <div class="collapsible">
     <h3>
         <button class="expand" aria-expanded={expanded} on:click={() => expanded = !expanded}>{headerText}
-<button class="btn-detaile-gray">상세보기</button>
+<button class="btn-detail-gray">상세보기</button>
         </button>
     </h3>
     

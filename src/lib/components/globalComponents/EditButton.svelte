@@ -2,9 +2,16 @@
     import EditIcon from "../../assets/icons/edit-icon.svg";
     import OxyIcon from "../../assets/icons/cs-oxy_icon.svg";
     export let editIcon = true;
+    import { createEventDispatcher } from "svelte";
+
+const dispatch = createEventDispatcher();
+
+const sendEvent = () => {
+  dispatch("buttonClick", "Hello");
+}
 </script>
 
-<button on:click class="edit-btn">
+<button on:click={sendEvent} class="edit-btn">
     {#if editIcon}
     <EditIcon />
     {:else}

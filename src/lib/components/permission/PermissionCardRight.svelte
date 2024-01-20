@@ -24,7 +24,7 @@
                 <p class="sub mt-20">{item.date}</p>
             </div>
 
-            <button class="btn-detaile-gray" on:click>모니터링</button>
+            <button class="btn-detail-gray" on:click>모니터링</button>
         </div>
     {/each}
 </div>

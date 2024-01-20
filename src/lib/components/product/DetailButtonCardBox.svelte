@@ -32,7 +32,7 @@
         <div>
             <div class="w-box">
                 <p>{item.title} - {item.name}</p>
-                <button class="btn-detaile-gray" on:click>상세내역</button>
+                <button class="btn-detail-gray" on:click>상세내역</button>
             </div>
             <div class="content">
                 <p class="txt">
@@ -54,7 +54,7 @@
 <!-- {#each detaileCardBoxItems as item}
 <div class="w-box">
     <p>{item.localName}({item.total})</p>
-    <button on:click class="btn-detaile-gray">상세내역</button>
+    <button on:click class="btn-detail-gray">상세내역</button>
 </div>
 {/each} -->
 <style lang="scss">
