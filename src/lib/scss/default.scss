@@ -502,13 +502,12 @@ textarea:focus, input:focus{
     height: 100vh;
     margin: 0 auto;
     position: relative;
-
-
 }
 
 .container-main {
     padding-left: 210px;
     padding-bottom: 5em;
+    
 
     @media (max-width: 1280px) {
 

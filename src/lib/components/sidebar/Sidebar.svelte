@@ -169,9 +169,8 @@
     top: 20px;
     left: 0;
     background-color: #F8FAFB;
-
+  
     padding-top: 10px;
-    margin-bottom: 20px;
     color: #585858;
     @media (max-width: 1300px) {
       left: 10px;

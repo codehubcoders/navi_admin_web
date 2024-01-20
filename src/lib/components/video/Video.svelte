@@ -44,11 +44,11 @@
 <style lang="scss">
     section{
         margin-top: 10px;
+        margin-bottom: 2em;
     }
     .video {
 
         &__card {
-            height: 500px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
