@@ -8,6 +8,11 @@
 
     export let showDrawer = true;
 
+	function handleMenuClose() {
+		showDrawer = false
+		console.log('close')
+		document.body.removeEventListener('click', handleMenuClose)
+	}
     let path;
 
     $: path = $page.url.pathname;
@@ -61,7 +66,7 @@
 </script>
 
 {#if showDrawer}
-    <div class="backdrop" on:click|self>
+    <div class="backdrop" on:click|stopPropagation={handleMenuClose}>
         <div class="modal">
             <div class="box-w">
                 <button
