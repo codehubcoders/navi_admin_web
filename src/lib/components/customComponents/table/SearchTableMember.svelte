@@ -39,7 +39,7 @@
   ];
   let current = "user";
   onMount(() => {
-    var btnSortUser= document.getElementById("sortUser");
+    var btnSortUser = document.getElementById("sortUser");
     var btnsortUserAge = document.getElementById("sortUserAge");
     // var btnSortlocal = document.getElementById("sortLocal");
 
@@ -58,30 +58,28 @@
   });
 
   function searchTable() {
-
-  var input, filter, table, tr,  i;
-  input = document.getElementById("searchMember");
-  filter = input.value.toUpperCase().split(' ');
-  table = document.getElementById("member-data-table");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    const tableData = tr[i].getElementsByTagName("td");
-    let allTextContent = '';
-    for (let ind = 0; ind < tableData.length; ind++) {
+    var input, filter, table, tr, i;
+    input = document.getElementById("searchMember");
+    filter = input.value.toUpperCase().split(" ");
+    table = document.getElementById("member-data-table");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      const tableData = tr[i].getElementsByTagName("td");
+      let allTextContent = "";
+      for (let ind = 0; ind < tableData.length; ind++) {
         allTextContent += tableData[ind].innerText;
-    }
-    
-    if (allTextContent) {
-      if (allTextContent.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
       }
-    }       
-  }
+
+      if (allTextContent) {
+        if (allTextContent.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
   }
 
-  
   function sortMemberTable(n) {
     var table,
       rows,
@@ -136,7 +134,6 @@
   <div class="seach-sort-table__header">
     <p class="title">회원리스트(Mobile App)</p>
     <div class="right">
-   
       <div class="search-input">
         <input type="text" id="searchMember" placeholder="검색" />
         <Icon icon="iconamoon:search" color="#c5c7c8" width="18" />
@@ -151,7 +148,8 @@
   <div class="seach-sort-table__sortBtns">
     <div class="buttons">
       <button class:active={current === "user"} id="sortUser">이름순</button>|
-      <button class:active={current === "birth"} id="sortUserAge">나이순</button>
+      <button class:active={current === "birth"} id="sortUserAge">나이순</button
+      >
       <!-- <button class:active={current === "local"} id="sortLocal">지역순</button> -->
     </div>
     <SelectBox {items} />
@@ -160,9 +158,7 @@
     <table id="member-data-table">
       <thead>
         <tr>
-          <th 
-            >사용자 </th
-          >
+          <th>사용자 </th>
           <th on:click={() => sortMemberTable(1)}
             >성별 <Icon
               icon="fluent:arrow-fit-16-filled"
@@ -179,12 +175,8 @@
               rotate={1}
             /></th
           >
-          <th 
-            >전화번호</th
-          >
-          <th 
-            >이메일</th
-          >
+          <th>전화번호</th>
+          <th>이메일</th>
           <th>대상자</th>
         </tr>
       </thead>
@@ -214,8 +206,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      @media (max-width: 535px) {
+        display: inline-block;
+      }
       button {
         color: white;
+        @media (max-width: 535px) {
+          margin-top: 10px;
+        }
       }
       .title {
         font-size: 18px;
@@ -232,6 +230,10 @@
           width: 200px;
           height: 30px;
           padding: 0 10px;
+          @media (max-width: 535px) {
+            width: 50%;
+            margin-top: 10px;
+          }
           input[type="text"] {
             padding: 0px;
             width: 200px;
@@ -277,7 +279,6 @@
             padding: 20px 0;
             text-align: center;
             font-size: 13px;
-           
           }
         }
       }
@@ -294,5 +295,4 @@
     color: #E1E3E4;
     font-size: 12px;
   }
-
 </style>

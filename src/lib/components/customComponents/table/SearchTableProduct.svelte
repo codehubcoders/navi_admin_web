@@ -262,8 +262,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      @media (max-width: 535px) {
+        display: inline-block;
+      
+      }
       button {
         color: white;
+   
       }
       .title {
         font-size: 18px;
@@ -273,6 +278,10 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        @media (max-width: 535px) {
+     
+            margin-top: 10px;
+        }
         .search-input {
           display: flex;
           align-items: center;
@@ -280,6 +289,10 @@
           width: 200px;
           height: 30px;
           padding: 0 10px;
+          @media (max-width: 535px) {
+            width: 50%;
+            
+        }
           input[type="text"] {
             padding: 0px;
             width: 200px;

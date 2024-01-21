@@ -12,6 +12,7 @@
 		console.log('close')
 		document.body.removeEventListener('click', handleMenuClose)
 	}
+
 </script>
 
 <div class="more-menu">
@@ -20,9 +21,9 @@
     >
     {#if showMenu}
         <div class="menu" on:click|stopPropagation={()=>{}}>
-            <p>
-                <span><Icon icon="mynaui:send" width="15" /></span>공지등록
-            </p>
+            <a href="/notification/notice-register">  <p>
+               <span><Icon icon="mynaui:send" width="15" /></span>공지등록
+            </p></a>
             <p>
                 <span class="mr-10"><Icon icon="gg:check-r" width="13" /></span
                 >정보변경하기

@@ -125,7 +125,9 @@
         .radio-box {
             display: grid;
             grid-template-columns: 2fr 10fr;
-
+            @media (max-width: 535px) {
+                grid-template-columns: 1fr;
+            }
             .radio-title {
                 min-height: 50px;
                 display: flex;

@@ -66,49 +66,28 @@
   });
 
   function searchTable() {
-    // var input, filter, found, table, tr, td, i, j;
-    // input = document.getElementById("search");
-    // filter = input.value.toUpperCase();
-    // table = document.getElementById("html-data-table");
-    // tr = table.getElementsByTagName("tr");
-    // for (i = 0; i < tr.length; i++) {
-    //   td = tr[i].getElementsByTagName("td");
-    //   for (j = 0; j < td.length; j++) {
-    //     if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
-    //       found = true;
-    //     }
-    //   }
-    //   if (found) {
-    //     tr[i].style.display = "";
-    //     found = false;
-    //   } else {
-    //     tr[i].style.display = "none";
-    //   }
-    // }
-
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("search");
-  filter = input.value.toUpperCase().split(' ');
-  table = document.getElementById("html-data-table");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    const tableData = tr[i].getElementsByTagName("td");
-    let allTextContent = '';
-    for (let ind = 0; ind < tableData.length; ind++) {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase().split(" ");
+    table = document.getElementById("html-data-table");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      const tableData = tr[i].getElementsByTagName("td");
+      let allTextContent = "";
+      for (let ind = 0; ind < tableData.length; ind++) {
         allTextContent += tableData[ind].innerText;
-    }
-    
-    if (allTextContent) {
-      if (allTextContent.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
       }
-    }       
-  }
+
+      if (allTextContent) {
+        if (allTextContent.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
   }
 
-  
   function sortTable(n) {
     var table,
       rows,
@@ -164,15 +143,19 @@
     <p class="title">대상자(00명)</p>
     <div class="right">
       <button class="btn-primary-small">등록</button>
-      <div class="search-input">
-        <input type="text" id="search" placeholder="검색" />
-        <Icon icon="iconamoon:search" color="#c5c7c8" width="18" />
-      </div>
-      <button
-        class="btn-primary-border-none"
+      <div class="search-box">
+        <div class="search-input">
+          <input type="text" id="search" placeholder="검색" />
+          <Icon icon="iconamoon:search" color="#c5c7c8" width="18" />
+        </div>
+        <button
+        class="btn-primary-border-none ml-10"
         id="search-btn"
         on:click={searchTable}>검색</button
       >
+      </div>
+
+
     </div>
   </div>
   <div class="seach-sort-table__sortBtns">
@@ -227,27 +210,39 @@
               rotate={1}
             /></th
           >
-          <th on:click={() => sortTable(5)}>경고/위험해제  <Icon
-            icon="fluent:arrow-fit-16-filled"
-            color="#e1e3e4"
-            width="15"
-            rotate={1}
-          /></th>
+          <th on:click={() => sortTable(5)}
+            >경고/위험해제 <Icon
+              icon="fluent:arrow-fit-16-filled"
+              color="#e1e3e4"
+              width="15"
+              rotate={1}
+            /></th
+          >
           <th>세부정보</th>
         </tr>
       </thead>
       <tbody>
         {#each newData as item}
-          <tr class={item.sign === "경고" ? 'bg_yellow' : item.sign === "위험" ?'bg_red': ''} >
-            <td >{item.local}</td>
+          <tr
+            class={item.sign === "경고"
+              ? "bg_yellow"
+              : item.sign === "위험"
+              ? "bg_red"
+              : ""}
+          >
+            <td>{item.local}</td>
             <td>{item.name}({item.age}세)</td>
             <td>{item.birth}</td>
-            <td class={item.charge === "ON" ? 'green' : 'gray'}>{item.charge}</td>
+            <td class={item.charge === "ON" ? "green" : "gray"}
+              >{item.charge}</td
+            >
             <td>{item.phone}</td>
-            <td >{#if item.sign != ''}
+            <td
+              >{#if item.sign != ""}
                 <button class="btn-gray">확인</button>
-            {/if}</td>
-            <td ><button class="btn-gray">상세내역</button></td>
+              {/if}</td
+            >
+            <td><button class="btn-gray">상세내역</button></td>
           </tr>
         {/each}
       </tbody>
@@ -265,9 +260,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      
+      @media (max-width: 535px) {
+        display: inline-block;
+      }
       button {
         color: white;
+        @media (max-width: 535px) {
+            margin-top: 5px;
+         
+          }
       }
       .title {
         font-size: 18px;
@@ -277,13 +278,27 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        @media (max-width: 535px) {
+          display: inline-block;
+        
+        }
+        .search-box{
+          display: flex;
+
+        }
         .search-input {
           display: flex;
           align-items: center;
+    
           border: 1px solid #C5C7C8;
           width: 200px;
           height: 30px;
           padding: 0 10px;
+
+          @media (max-width: 535px) {
+            margin-top: 5px;
+            width: 50%;
+          }
           input[type="text"] {
             padding: 0px;
             width: 200px;
@@ -303,6 +318,7 @@
       align-items: center;
       color: #E1E3E4;
       padding: 0 15px;
+
       .buttons {
         display: flex;
         gap: 10px;
@@ -314,7 +330,7 @@
     &__table {
       table {
         width: 100%;
-  color: #5C5F60;
+        color: #5C5F60;
 
         thead {
           background-color: #F4F4F4;
@@ -330,7 +346,7 @@
             padding: 15px 0;
             text-align: center;
             font-size: 13px;
-            .btn-gray{
+            .btn-gray {
               display: inline-block;
               color: #333;
               font-size: 12px;
@@ -358,10 +374,10 @@
   .gray {
     color: #C5C7C8;
   }
-  .bg_yellow{
+  .bg_yellow {
     background-color: #FFFF00;
   }
-  .bg_red{
+  .bg_red {
     background-color: #F5365C;
     color: white;
   }

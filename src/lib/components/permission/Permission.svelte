@@ -101,6 +101,9 @@ import PermissionCard from './PermissionCard.svelte';
         .radio-box {
             display: grid;
             grid-template-columns: 2fr 10fr;
+            @media (max-width: 535px) {
+                grid-template-columns: 1fr;
+        }
 
             .radio-title {
                 min-height: 50px;
@@ -138,5 +141,8 @@ import PermissionCard from './PermissionCard.svelte';
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 20px;
+        @media (max-width: 535px) {
+                grid-template-columns: 1fr;
+        }
     }
 </style>

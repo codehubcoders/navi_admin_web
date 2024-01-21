@@ -38,7 +38,9 @@ import CardInfo from "../information/CardInfo.svelte";
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
-        
+            @media (max-width: 535px) {
+                grid-template-columns: 1fr;
+            }
             .content {
                 height: 500px;
                 padding: 15px;

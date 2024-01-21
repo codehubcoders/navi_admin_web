@@ -144,13 +144,29 @@
     <div class="dropdown-container">
       <a
         href={"/notification"}
-        class="non-click {path == '/notification' ? 'click' : ''}">공지관리</a
+        class="non-click {path == '/notification' ||
+        path == '/notification/notice-register'
+          ? 'click'
+          : ''}">공지관리</a
       >
-      <a href={"/news"} class="non-click {path == '/news' ? 'click' : ''}">소식관리</a>
-      <a href={"/video"} class="non-click {path == '/video' ? 'click' : ''}">미디어관리</a>
-      <a href={"/information"} class="non-click {path == '/information' ? 'click' : ''}">이용안내관리</a>
+      <a
+        href={"/news"}
+        class="non-click {path == '/news' || path == '/news/register'
+          ? 'click'
+          : ''}">소식관리</a
+      >
+      <a href={"/video"} class="non-click {path == '/video' ? 'click' : ''}"
+        >미디어관리</a
+      >
+      <a
+        href={"/information"}
+        class="non-click {path == '/information' ? 'click' : ''}"
+        >이용안내관리</a
+      >
       <a href={"#"}>약관관리</a>
-      <a href={"/message"} class="non-click {path == '/message' ? 'click' : ''}">문자관리</a>
+      <a href={"/message"} class="non-click {path == '/message' ? 'click' : ''}"
+        >문자관리</a
+      >
     </div>
   </div>
 </div>
@@ -169,7 +185,7 @@
     top: 20px;
     left: 0;
     background-color: #F8FAFB;
-  
+
     padding-top: 10px;
     color: #585858;
     @media (max-width: 1300px) {

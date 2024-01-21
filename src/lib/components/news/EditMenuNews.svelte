@@ -1,29 +1,31 @@
 <script>
-	import EditButton from './../globalComponents/EditButton.svelte';
+    import EditButton from "./../globalComponents/EditButton.svelte";
     import Icon from "@iconify/svelte";
 
-	let showMenu = false
-export	function handleMenuOpen() {
-		showMenu = true
-		console.log('open')
-		document.body.addEventListener('click', handleMenuClose)
-	}
-	function handleMenuClose() {
-		showMenu = false
-		console.log('close')
-		document.body.removeEventListener('click', handleMenuClose)
-	}
+    let showMenu = false;
+    export function handleMenuOpen() {
+        showMenu = true;
+        console.log("open");
+        document.body.addEventListener("click", handleMenuClose);
+    }
+    function handleMenuClose() {
+        showMenu = false;
+        console.log("close");
+        document.body.removeEventListener("click", handleMenuClose);
+    }
 </script>
 
 <div class="more-menu">
-    <button  on:click|stopPropagation={handleMenuOpen} class="icon"
-    ><EditButton /></button
+    <button on:click|stopPropagation={handleMenuOpen} class="icon"
+        ><EditButton /></button
     >
     {#if showMenu}
         <div class="menu" on:click|stopPropagation={handleMenuClose}>
-            <p>
-                <span><Icon icon="mynaui:send" width="15" /></span>공지등록
-            </p>
+            <a href="/news/register">
+                <p>
+                    <span><Icon icon="mynaui:send" width="15" /></span>공지등록
+                </p>
+            </a>
             <p>
                 <span class="mr-10"><Icon icon="gg:check-r" width="13" /></span
                 >정보변경하기
