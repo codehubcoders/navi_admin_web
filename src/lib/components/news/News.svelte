@@ -1,5 +1,5 @@
 <script>
-	import EditMenuNews from './EditMenuNews.svelte';
+    import EditMenuNews from "./EditMenuNews.svelte";
     import CardNews from "./CardNews.svelte";
     import AlarmCard from "./../globalComponents/AlarmCard.svelte";
     import Icon from "@iconify/svelte";
@@ -20,7 +20,7 @@
             <div class="content">
                 <CardNews />
             </div>
-           <EditMenuNews />
+            <EditMenuNews />
         </AlarmCard>
         <AlarmCard title="지역소식(5)">
             <div slot="topicon" class="search-area">
@@ -35,7 +35,7 @@
             <div class="content">
                 <CardNews />
             </div>
-           <EditMenuNews />
+            <EditMenuNews />
         </AlarmCard>
     </div>
 </section>
@@ -44,12 +44,17 @@
     .news {
         margin-top: 10px;
         &__card {
-            height: 600px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-            .content{
+      
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            @media (max-width: 535px) {
+                grid-template-columns: 1fr;
+           
+        }
+            .content {
                 padding: 15px;
+                height: 600px;
             }
         }
     }
