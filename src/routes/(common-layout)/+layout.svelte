@@ -27,6 +27,8 @@
 </main>
 
 <style lang="scss">
+	@import "../../lib/scss/style.scss";
+	
 	.drawer-btn {
 		display: none;
 		background-color: #F8FAFB;
