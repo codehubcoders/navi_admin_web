@@ -1,7 +1,7 @@
 <script>
 	import DefaultDrawer from './../../lib/components/customComponents/modal/DefaultDrawer.svelte';
 	import Replaytxt from './../../lib/components/globalComponents/Replaytxt.svelte';
-	import Sidebar from "/src/lib/components/sidebar/Sidebar.svelte";
+	import Sidebar from "$lib/components/sidebar/Sidebar.svelte";
 
 	import Icon from "@iconify/svelte";
 
@@ -26,9 +26,7 @@
 	</sl-drawer> -->
 </main>
 
-<style lang="scss">
-	@import "../../lib/scss/style.scss";
-	
+<style lang="scss">	
 	.drawer-btn {
 		display: none;
 		background-color: #F8FAFB;
