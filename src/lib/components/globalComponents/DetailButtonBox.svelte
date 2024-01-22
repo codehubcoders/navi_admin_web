@@ -20,6 +20,7 @@
 </div>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .card-body {
         overflow-x: hidden;
         height: 500px;

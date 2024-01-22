@@ -17,6 +17,7 @@
 </section>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
 .register{
     box-shadow: 0 5px 20px rgba(173, 181, 217, 0.4);
     margin-top: 10px;

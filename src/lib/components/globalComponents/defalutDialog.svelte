@@ -31,6 +31,7 @@
 {/if}
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .backdrop {
         width: 100%;
         height: 100%;

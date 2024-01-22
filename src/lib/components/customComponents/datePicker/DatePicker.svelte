@@ -147,7 +147,8 @@
     {/each}
 </table>
 
-<style>
+<style lang="scss">
+          @import 'src/lib/scss/style.scss';
     td,
     th {
         width: 28px;

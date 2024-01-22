@@ -1,14 +1,15 @@
 <script>
-	import DefaultDrawer from './../../lib/components/customComponents/modal/DefaultDrawer.svelte';
-	import Replaytxt from './../../lib/components/globalComponents/Replaytxt.svelte';
+	import DefaultDrawer from "./../../lib/components/customComponents/modal/DefaultDrawer.svelte";
+	import Replaytxt from "./../../lib/components/globalComponents/Replaytxt.svelte";
 	import Sidebar from "$lib/components/sidebar/Sidebar.svelte";
 
 	import Icon from "@iconify/svelte";
 
-     let showDrawer = false;
-	  const toggleDrawer = () => {    showDrawer = !showDrawer;  };
+	let showDrawer = false;
+	const toggleDrawer = () => {
+		showDrawer = !showDrawer;
+	};
 </script>
-
 
 <main class="container_layout">
 	<Sidebar />
@@ -16,9 +17,8 @@
 		<button on:click={toggleDrawer} class="drawer-btn">
 			<Icon icon="ic:sharp-table-rows" width="30" />
 		</button>
-<Replaytxt />
+		<Replaytxt />
 		<slot />
-
 	</section>
 	<DefaultDrawer {showDrawer} on:click={toggleDrawer} />
 	<!-- <sl-drawer class="drawer menu" bind:this={drawer}>
@@ -26,7 +26,9 @@
 	</sl-drawer> -->
 </main>
 
-<style lang="scss">	
+<style lang="scss">
+	@import "src/lib/scss/style.scss";
+
 	.drawer-btn {
 		display: none;
 		background-color: #F8FAFB;

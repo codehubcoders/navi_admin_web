@@ -74,6 +74,7 @@
 
 
 <style lang="scss">
+        @import 'src/lib/scss/style.scss';
   button {
     background: white;
     font-size: 13px;

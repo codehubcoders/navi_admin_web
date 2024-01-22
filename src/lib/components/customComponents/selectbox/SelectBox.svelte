@@ -24,6 +24,7 @@
 </div>
 
 <style lang="scss">
+	      @import 'src/lib/scss/style.scss';
 	.selectd-box {
 		margin-right: 10px;
 

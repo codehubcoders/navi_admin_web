@@ -46,6 +46,7 @@
 </div>
 
 <style lang="scss">
+        @import 'src/lib/scss/style.scss';
   .tab-content {
     display: grid;
     grid-template-columns: 1fr 1fr;

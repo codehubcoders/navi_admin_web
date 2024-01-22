@@ -47,6 +47,7 @@
 </div>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .date-picker {
         &__btn {
             min-width: 120px;

@@ -11,6 +11,7 @@
 </div>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .input-madal {
         text-align: left;
         padding:5px 5px;

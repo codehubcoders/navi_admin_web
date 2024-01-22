@@ -8,6 +8,7 @@
 
 
   <style lang=scss>
+            @import 'src/lib/scss/style.scss';
          .update{
             display:flex;
             padding-top:20px;

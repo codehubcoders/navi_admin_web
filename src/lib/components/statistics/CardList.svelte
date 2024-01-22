@@ -43,6 +43,7 @@ import ChartModal from '../customComponents/modal/ChartModal.svelte';
 
 <ChartModal title='평균 걸음' {showModal}  on:click={toggleModal} />
 <style lang="scss">
+        @import 'src/lib/scss/style.scss';
   button {
     background: white;
     font-size: 13px;

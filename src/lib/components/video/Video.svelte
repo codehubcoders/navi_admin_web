@@ -42,6 +42,7 @@
 </section>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     section{
         margin-top: 10px;
         margin-bottom: 2em;

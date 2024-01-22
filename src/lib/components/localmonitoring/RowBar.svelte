@@ -21,6 +21,7 @@ $:offValue = 100 - onValue
 </div>
 
 <style lang="scss">
+        @import 'src/lib/scss/style.scss';
   .row-bar {
     background-color: white;
     border-radius: 8px;

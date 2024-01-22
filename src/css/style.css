@@ -1,13 +1,13 @@
 @charset "UTF-8";
 /* Variables and mixins declared here will be available in all other SCSS files */
-/* :root {
+:root {
   --light-gray-rgba: 173, 181, 217;
   --color-white: #fff;
   --border-color: #F1F2F6;
   --input-bg: var(--color-white);
   --input-focus-bg: var(--color-white);
   accent-color: #5E72E4;
-} */
+}
 
 @font-face {
   font-family: "Noto Sans KR", sans-serif;
@@ -71,11 +71,11 @@ table {
 
 a {
   text-decoration: none;
-  color: #333;
+  color: #333333;
 }
 
 p, h1 {
-  color: #333;
+  color: #333333;
   line-height: 1.2em;
 }
 
@@ -105,14 +105,14 @@ body {
 }
 
 /* Variables and mixins declared here will be available in all other SCSS files */
-/* :root {
+:root {
   --light-gray-rgba: 173, 181, 217;
   --color-white: #fff;
   --border-color: #F1F2F6;
   --input-bg: var(--color-white);
   --input-focus-bg: var(--color-white);
   accent-color: #5E72E4;
-} */
+}
 
 @media (min-width: 1024px) and (max-width: 1499px) {
   .container_layout {
@@ -120,14 +120,14 @@ body {
   }
 }
 /* Variables and mixins declared here will be available in all other SCSS files */
-/* :root {
+:root {
   --light-gray-rgba: 173, 181, 217;
   --color-white: #fff;
   --border-color: #F1F2F6;
   --input-bg: var(--color-white);
   --input-focus-bg: var(--color-white);
   accent-color: #5E72E4;
-} */
+}
 
 .bold {
   font-weight: 700;
@@ -688,14 +688,14 @@ textarea:focus, input:focus {
 }
 
 /* Variables and mixins declared here will be available in all other SCSS files */
-/* :root {
+:root {
   --light-gray-rgba: 173, 181, 217;
   --color-white: #fff;
   --border-color: #F1F2F6;
   --input-bg: var(--color-white);
   --input-focus-bg: var(--color-white);
   accent-color: #5E72E4;
-} */
+}
 
 @media (min-width: 1024px) and (max-width: 1499px) {
   .container_layout {

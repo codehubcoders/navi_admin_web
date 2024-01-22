@@ -11,6 +11,7 @@
 
 
 <style lang="scss">
+        @import 'src/lib/scss/style.scss';
 .tab_item{
   width: 100%;
 }

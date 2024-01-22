@@ -34,6 +34,7 @@ export	function handleMenuOpen() {
 </div>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .more-menu {
         // position: relative;
         display: inline-block;

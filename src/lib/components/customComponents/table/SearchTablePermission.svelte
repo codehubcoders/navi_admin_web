@@ -271,6 +271,7 @@
 </section>
 
 <style lang="scss">
+        @import 'src/lib/scss/style.scss';
   .seach-sort-table {
     background-color: white;
     border-radius: 16px;

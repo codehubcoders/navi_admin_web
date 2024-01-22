@@ -34,10 +34,17 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
-body {
+// body {
+// 	line-height: 1;
+// 	background-color: #F8FAFB;
+// }
+
+
+:global(body){
+	background: #F8FAFB;
 	line-height: 1;
-	background-color: #F8FAFB;
 }
+
 ol, ul {
 	list-style: none;
 }

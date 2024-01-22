@@ -28,6 +28,7 @@ import CardInfo from "../information/CardInfo.svelte";
 </section>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     section{
         margin-top: 10px;
     }

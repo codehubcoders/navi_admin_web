@@ -27,6 +27,7 @@
 </div>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .card-body {
         display: flex;
         align-items: center;

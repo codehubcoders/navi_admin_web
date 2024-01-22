@@ -77,7 +77,7 @@
                         ? ''
                         : 'active'}"
                     id="name"
-                    ><div class="center"><MainIcon class="pr-10" /> 메인</div>
+                    ><div class="title"><MainIcon /> 메인</div>
                     {#if arrowUpDw == true}
                         <Icon class="arrow-color" icon="mdi:chevron-up" />
                     {:else}
@@ -107,8 +107,8 @@
                     class="dropdown sevice aling-bt"
                     id="service"
                 >
-                    <div class="center">
-                        <Service class="pr-10" />
+                    <div class="title">
+                        <Service  />
                         서비스 관리
                     </div>
                     {#if arrowUpDw2 == true}
@@ -156,7 +156,7 @@
                     id="notice"
                     on:click={arrowActive3}
                 >
-                    <div class="center"><Notice class="pr-10" /> 공지관리</div>
+                    <div class="title"><Notice /> 공지관리</div>
                     {#if arrowUpDw3 == true}
                         <Icon class="arrow-color" icon="mdi:chevron-up" />
                     {:else}
@@ -202,6 +202,7 @@
 {/if}
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .backdrop {
         width: 100%;
         height: 100%;
@@ -255,6 +256,12 @@
         outline: none;
         background-color: #F5F8FC;
         // background-color: white;
+        .title{
+      display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    }
     }
 
     /* Add an active class to the active dropdown button */

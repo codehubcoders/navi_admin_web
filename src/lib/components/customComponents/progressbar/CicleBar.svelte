@@ -7,6 +7,7 @@ let percentage = 23
 
 
 <style lang="scss">
+        @import 'src/lib/scss/style.scss';
 @keyframes growProgressBar {
   0%, 33% { --pgPercentage: 0; }
   100% { --pgPercentage: var(--value); }

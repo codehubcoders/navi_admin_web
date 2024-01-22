@@ -74,6 +74,7 @@
 </section>
 
 <style lang="scss">
+      @import 'src/lib/scss/style.scss';
     .dash-bottom {
         margin-top: 40px;
         display: grid;

@@ -41,6 +41,7 @@
 </section>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .news {
         margin-top: 10px;
         &__card {

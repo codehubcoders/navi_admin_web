@@ -11,11 +11,12 @@
         </div>
         <p class="mb-5 fs-14 fw-500">스도쿠</p>
         <!-- <p class="sub">2023.12.31 - 2024.01.21</p> -->
-
     </div>
 </div>
 
 <style lang="scss">
+    @import "src/lib/scss/style.scss";
+
     .card-body {
         display: flex;
         // align-items: center;
@@ -24,7 +25,7 @@
         padding: 8px;
         height: fit-content;
         // border: 1px solid #5E72E4;
-        
+
         .img-box {
             width: 120px;
             height: 85px;
@@ -37,7 +38,7 @@
         }
         .text-box {
             width: 100%;
-       
+
             margin: 5px 5px 0 20px;
             .title {
                 font-size: 14px;

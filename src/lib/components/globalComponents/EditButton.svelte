@@ -20,6 +20,7 @@ const sendEvent = () => {
 </button>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .edit-btn {
         position: absolute;
         z-index: 9;

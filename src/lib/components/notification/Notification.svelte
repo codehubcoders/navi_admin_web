@@ -18,6 +18,7 @@
 </section>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .notification{
         margin-bottom: 50px;
     }

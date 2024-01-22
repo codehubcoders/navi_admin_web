@@ -88,6 +88,7 @@
 </section>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .message {
         margin-top: 10px;
         margin-bottom: 10px;

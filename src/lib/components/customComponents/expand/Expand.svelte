@@ -22,7 +22,7 @@
 </div>
 
 <style lang="scss">
-
+      @import 'src/lib/scss/style.scss';
 	
 	h3 {
 		font-weight: 500;

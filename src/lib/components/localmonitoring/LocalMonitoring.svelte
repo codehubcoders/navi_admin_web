@@ -244,6 +244,7 @@
 </section>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .monitoring {
         margin-top: 10px;
         &__top {

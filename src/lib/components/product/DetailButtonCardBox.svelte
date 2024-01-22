@@ -58,6 +58,7 @@
 </div>
 {/each} -->
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .gap{
         margin-bottom: 20px;
     }

@@ -24,6 +24,7 @@
 </div>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .alarm_card {
         border-radius: 10px;
         box-shadow: 0 5px 20px rgba(173, 181, 217, 0.2);

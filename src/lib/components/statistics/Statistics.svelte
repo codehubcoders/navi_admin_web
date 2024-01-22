@@ -34,5 +34,5 @@ import Tab3 from './statisticsTab/Tab3.svelte'
 
 
 <style lang="scss">
-
+      @import 'src/lib/scss/style.scss';
 </style>

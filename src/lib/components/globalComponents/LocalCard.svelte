@@ -56,6 +56,7 @@
     </div>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
      .state-detail {
         padding: 10px 10px 5px;
         .state-box {

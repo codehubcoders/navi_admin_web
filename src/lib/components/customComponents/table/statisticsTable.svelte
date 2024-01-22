@@ -62,6 +62,7 @@
 </table>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .table_border {
         width: 100%;
         border: 1px solid #A9ABAD;

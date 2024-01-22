@@ -16,5 +16,5 @@ import SearchTable from '../customComponents/table/searchTable.svelte';
 </section>
 
 <style lang="scss">
-  
+        @import 'src/lib/scss/style.scss';
 </style>

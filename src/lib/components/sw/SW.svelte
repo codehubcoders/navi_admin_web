@@ -29,6 +29,7 @@
 </section>
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .sw__top {
         margin-top: 10px;
         display: grid;

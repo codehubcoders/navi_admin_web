@@ -67,6 +67,7 @@
 
 
 <style lang="scss">
+          @import 'src/lib/scss/style.scss';
     .btn-primary{
         margin: 0 0 0 auto;
     }

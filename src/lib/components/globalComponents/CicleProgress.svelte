@@ -30,6 +30,7 @@
 </div>
 
 <style lang="scss">
+        @import 'src/lib/scss/style.scss';
   @keyframes growProgressBar {
     0%,
     33% {
