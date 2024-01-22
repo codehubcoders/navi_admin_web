@@ -18,7 +18,7 @@
     $: path = $page.url.pathname;
 
     onMount(() => {
-        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var dropdown = document.getElementsByClassName("dropdown");
         var i;
 
         for (i = 0; i < dropdown.length; i++) {
@@ -71,7 +71,7 @@
             <div class="box-w">
                 <button
                     on:click={arrowActive}
-                    class="dropdown-btn {path == '/dashboard' ||
+                    class="dropdown {path == '/dashboard' ||
                     '/statistics' ||
                     '/localmonitoring'
                         ? ''
@@ -104,7 +104,7 @@
                 </div>
                 <button
                     on:click={arrowActive2}
-                    class="dropdown-btn sevice aling-bt"
+                    class="dropdown sevice aling-bt"
                     id="service"
                 >
                     <div class="center">
@@ -152,7 +152,7 @@
                 </div>
 
                 <button
-                    class="dropdown-btn"
+                    class="dropdown"
                     id="notice"
                     on:click={arrowActive3}
                 >
