@@ -237,7 +237,7 @@
         }
     }
     .sidenav a,
-    .dropdown-btn {
+    .dropdown {
         border-radius: 10px;
         padding: 6px 16px 6px 16px;
         text-decoration: none;
