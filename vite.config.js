@@ -12,7 +12,7 @@ export default defineConfig({
       // https://vitejs.dev/guide/api-plugin.html#plugin-ordering
       // enforce: 'pre' | 'post'
       enforce: "pre",
-  }),
+    }),
     sveltekit(),
   ],
   css: {
@@ -21,7 +21,7 @@ export default defineConfig({
         additionalData: '@use "src/lib/scss/variables.scss" as *;',
       },
     },
-    
+
   },
-  
+
 });
