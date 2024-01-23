@@ -4,7 +4,8 @@
 
 ```bash
 yarn run build
-rsync -r ./build/ root@158.247.212.186:/var/www/html/
+rsync -r ./build/ root@175.45.201.101:/var/www/html/
+# PASS: U3NDLmA6nia
 ```
 
 ## CLI
@@ -32,17 +33,16 @@ npm run preview
 ## Setup
 
 ```bash
-sudo apt update
-sudo apt install nginx -y
+apt update
+apt install nginx -y
+apt install snapd -y
 
-ufw allow 'Nginx Full'
+snap install --classic certbot
+ln -s /snap/bin/certbot /usr/bin/certbot
+certbot --nginx
+# certbot renew --dry-run
 
-sudo snap install --classic certbot
-sudo ln -s /snap/bin/certbot /usr/bin/certbot
-sudo certbot --nginx
-# sudo certbot renew --dry-run
-
-sudo nano /etc/nginx/sites-enabled/default
+nano /etc/nginx/sites-enabled/default
 # location / {
 #     try_files $uri $uri/ /index.html;
 # }
