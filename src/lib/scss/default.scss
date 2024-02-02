@@ -372,10 +372,10 @@ button {
     &-primary {
         background-color: $primary-color;
         color: $white-color;
-        padding: 10px 20px;
+        padding: 10px 16px;
         width: fit-content;
-        border-radius: 8px;
-        font-size: 13px;
+        border-radius: 4px;
+        font-size: 12px;
         font-weight: 500;
       
 
@@ -437,12 +437,15 @@ section.login {
     display: inline-block;
 
     &.login {
+        border-radius: 16px;
         margin-top: 200px;
         padding: 3em 2em;
-        height: 340px;
-
+        height: fit-content;
+        width: 400px;
         input {
-            width: 360px;
+            ::placeholder {
+                 font-size: 12px;
+            }
         }
 
         @include mobile {
@@ -470,10 +473,12 @@ textarea,
 ::-ms-input-placeholder {
     /* Edge 12-18 */
     color: #E1E3E4;
+    font-size: 12px;
 }
 
 ::placeholder {
     color: #E1E3E4;
+    font-size: 12px;
 }
 
 input[type=text],
@@ -488,13 +493,20 @@ textarea{
     box-sizing: border-box;
 
 }
-
+// input[value]{
+//     color:#8E9192;
+//     font-weight: 300;
+//     }
 textarea:focus, input:focus{
     outline: none;
     
 }
   
+*:disabled {
+    background-color: #F8FAFB;
 
+  }
+  
 
 .white {
     color: white;

@@ -1,8 +1,6 @@
 <script>
 	import DetailButtonCardBox from './DetailButtonCardBox.svelte';
     import AsDetailModal from "./AsDetailModal.svelte";
-    // import DefalutDialog from './../globalComponents/defalutDialog.svelte';
-    // import DetailButtonCardBox from "./../globalComponents/DetailButtonCardBox.svelte";
     import DetailButtonBox from "./../globalComponents/DetailButtonBox.svelte";
     import EditButton from "./../globalComponents/EditButton.svelte";
     import AlarmCard from "./../globalComponents/AlarmCard.svelte";
@@ -51,7 +49,6 @@
             <EditButton />
         </AlarmCard>
         <AsDetailModal {showAsDetailModal} on:click={toggleAsDetailModal} />
-        <!-- <DefalutDialog  {showDialog}  on:click={toggleDialog}/> -->
     </div>
 </section>
 

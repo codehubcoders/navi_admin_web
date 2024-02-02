@@ -5,7 +5,7 @@
   import MainIcon from "../../assets/icons/main_icon.svg";
   import Service from "../../assets/icons/service_icon.svg";
   import Notice from "../../assets/icons/notification_icon.svg";
-
+  import Logo from "../../assets/images/logo.svg";
   let path;
 
   $: path = $page.url.pathname;
@@ -59,11 +59,12 @@
 </script>
 
 <div class="sidenav">
-  <div class="logo">로고</div>
   <div class="userInfo">
-    <p>이름</p>
-    <p>지역</p>
-    <button class="m-auto">로그아웃</button>
+    <div class="logo"><Logo /></div>
+    <p>홍길동</p>
+    <p><a href="/my-page" class="my">마이페이지</a></p>
+    <p class="fw-300">경기도부천시</p>
+    <button class="btn-logout">로그아웃</button>
   </div>
   <div class="box-w">
     <button
@@ -74,7 +75,7 @@
         ? ''
         : 'active'}"
       id="name"
-      ><div class="title"><MainIcon  /> 메인</div>
+      ><div class="title"><MainIcon /> 메인</div>
       {#if arrowUpDw == true}
         <Icon class="arrow-color" icon="mdi:chevron-up" />
       {:else}
@@ -171,12 +172,11 @@
   </div>
 </div>
 
-
 <style lang="scss">
-  @import 'src/lib/scss/style.scss';
+  @import "src/lib/scss/style.scss";
   .pr-10 {
-    padding-right: 10px ;
-}
+    padding-right: 10px;
+  }
   .sidenav {
     height: 100vh;
     width: 180px;
@@ -185,7 +185,6 @@
     top: 20px;
     left: 0;
     background-color: #F8FAFB;
-
     padding-top: 10px;
     color: #585858;
     @media (max-width: 1300px) {
@@ -196,30 +195,35 @@
     }
   }
   .userInfo {
-    text-align: center;
-    font-weight: 500;
-    margin: 10px 0px;
+    padding: 15px 10px;
+    margin-bottom: 20px;
     font-size: 15px;
+    background-color: white;
+    border-radius: 10px;
     p {
-      display: block;
-      line-height: 1.5em;
+      font-size: 14px;
+      color: #5C5F60;
+      line-height: 1.8em;
+      .my {
+        font-size: 14px;
+        color: #5C5F60;
+          background-color: white;
+        padding: 0;
+        height: auto;
+      }
     }
-    button {
-      background-color: #F8FAFB;
-      line-height: 3em;
-      cursor: pointer;
+
+    .btn-logout {
+      width: 100%;
+      background-color: $primary-orange;
+      color: white;
+      font-size: 12px;
+      padding: 10px 0px;
+      border-radius: 4px;
+      margin-top: 10px;
     }
   }
 
-  .logo {
-    border-radius: 10px;
-    background-color: #ebebeb;
-    width: 100%;
-    height: 63px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
   // .arrow-color{
   //     color:#898D90;
   //     margin-left: auto;
@@ -246,11 +250,11 @@
     outline: none;
     background-color: #F5F8FC;
     // background-color: white;
-    .title{
+    .title {
       display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
     }
   }
 

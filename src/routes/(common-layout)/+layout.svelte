@@ -12,7 +12,9 @@
 </script>
 
 <main class="container_layout">
-	<Sidebar />
+	<nav>
+		<Sidebar />
+	</nav>
 	<section class="container-main">
 		<button on:click={toggleDrawer} class="drawer-btn">
 			<Icon icon="ic:sharp-table-rows" width="30" />
