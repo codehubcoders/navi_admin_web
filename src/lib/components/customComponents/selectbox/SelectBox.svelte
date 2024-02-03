@@ -4,10 +4,15 @@
 	export let items = [];
 	export let items2 = [];
 	export let items3 = [];
+	export let long;
 </script>
 
 <div class="selectd-box">
-	<select bind:value={selected} class="selectd-box__header">
+	<select
+		bind:value={selected}
+		class="selectd-box__header"
+		style={long ? "width: 285px" : ""}
+	>
 		{#if placeholder}
 			<option disabled selected>{placeholder}</option>
 		{/if}
@@ -24,7 +29,7 @@
 </div>
 
 <style lang="scss">
-	      @import 'src/lib/scss/style.scss';
+	@import "src/lib/scss/style.scss";
 	.selectd-box {
 		margin-right: 10px;
 
@@ -32,7 +37,7 @@
 			color: #2E3132;
 			font-size: 12px;
 			background-color: #F5F5F5;
-			padding: 10px 8px;
+			padding: 8px 8px;
 			width: 90px;
 			-webkit-appearance: none;
 			-moz-appearance: none;
@@ -42,6 +47,9 @@
 			background-position-x: 100%;
 			background-position-y: 5px;
 			border-radius: 6px;
+	
 		}
+		
 	}
+
 </style>

@@ -2,7 +2,7 @@
 	import DropdowMenu from './DropdowMenu.svelte';
     export let title = "";
     export let iconName = "";
-    export let heightLong = false;
+    export let heightLong;
 
 
 </script>
@@ -30,6 +30,7 @@
         box-shadow: 0 5px 20px rgba(173, 181, 217, 0.2);
         background-color: #F5F5F5;
         position: relative;
+        
         &__header {
             display: flex;
             justify-content: space-between;
@@ -60,6 +61,7 @@
                 height: auto;
             }
         }
+        
     }
 
 </style>

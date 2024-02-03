@@ -2,13 +2,18 @@
     // based on suggestions from:
     // Inclusive Components by Heydon Pickering https://inclusive-components.design/collapsible-sections/
     export let headerText;
-
+    export let headerTextRight;
     let expanded = false
 </script>
 
 <div class="collapsible">
     <h3>
-        <button class="expand" aria-expanded={expanded} on:click={() => expanded = !expanded}>{headerText}
+        <button class="expand" aria-expanded={expanded} on:click={() => expanded = !expanded}>
+
+         <p> {headerText} </p>
+        {#if headerTextRight}
+        <p>{headerTextRight}</p>
+        {/if} 
 <!-- <svg viewBox="0 0 20 20" fill="none" >
 <path class="vert" d="M10 1V19" stroke="black" stroke-width="2"/>
 <path d="M1 10L19 10" stroke="black" stroke-width="2"/>

@@ -1,4 +1,5 @@
 <script>
+	import DashCards from './DashCards.svelte';
 import DashTop from "./DashTop.svelte";
 import DashBottom from "./DashBottom.svelte";
 import Icon from '@iconify/svelte';
@@ -6,8 +7,9 @@ import Icon from '@iconify/svelte';
 <div class="dash-main">
 
 <DashTop/>
-<DashBottom/>
-    <div class="pagenation">
+<DashCards />
+<!-- <DashBottom/> -->
+    <!-- <div class="pagenation">
         <button class="round-box">
            <Icon icon="ep:arrow-left-bold" />
         </button>
@@ -20,7 +22,7 @@ import Icon from '@iconify/svelte';
         <button class="round-box">
               <Icon icon="ep:arrow-right-bold" />
         </button>
-    </div>
+    </div> -->
 </div>
 <style lang="scss">
 @import '../../scss/style.scss';

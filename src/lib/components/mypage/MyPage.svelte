@@ -48,15 +48,15 @@
         margin-bottom: 50px;
     }
     .card-area {
-        margin-top: 30px;
+        margin-top: 5px;
         height: 600px;
     }
     .content {
         height: 600px;
         padding: 15px;
 
-        gap: 30px;
         @media (max-width: 535px) {
+            
         }
     }
 </style>

@@ -11,7 +11,7 @@
             @import 'src/lib/scss/style.scss';
          .update{
             display:flex;
-            padding-top:20px;
+            padding-top:10px;
             padding-right:10px;
             font-size:14px;
             justify-content:end;

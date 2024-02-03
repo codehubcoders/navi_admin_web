@@ -15,11 +15,13 @@
 	<nav>
 		<Sidebar />
 	</nav>
+	
 	<section class="container-main">
+		<Replaytxt />
 		<button on:click={toggleDrawer} class="drawer-btn">
 			<Icon icon="ic:sharp-table-rows" width="30" />
 		</button>
-		<Replaytxt />
+	
 		<slot />
 	</section>
 	<DefaultDrawer {showDrawer} on:click={toggleDrawer} />

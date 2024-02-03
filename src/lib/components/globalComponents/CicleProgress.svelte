@@ -3,6 +3,7 @@
   export let sub = "";
   export let title = "";
   export let titleNum =  0;
+  export let button;
 </script>
 
 <div class="progressbar">
@@ -12,7 +13,9 @@
       ({titleNum})
       {/if}
      </p>
+     {#if button}
     <button class="btn-gray">상세보기</button>
+    {/if}
   </div>
   <div class="progressbar__body">
     <div
