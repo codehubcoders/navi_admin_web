@@ -1,8 +1,8 @@
 <script>
 	import DashCards from './DashCards.svelte';
 import DashTop from "./DashTop.svelte";
-import DashBottom from "./DashBottom.svelte";
-import Icon from '@iconify/svelte';
+// import DashBottom from "./DashBottom.svelte";
+// import Icon from '@iconify/svelte';
 </script>
 <div class="dash-main">
 

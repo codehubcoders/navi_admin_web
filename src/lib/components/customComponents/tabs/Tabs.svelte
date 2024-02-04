@@ -6,18 +6,32 @@
 </script>
 
 <ul>
+<div class="label">
   {#each items as item}
-    <li class={activeTabValue === item.value ? "active" : ""}>
-      <button class="tab-label" on:click={handleClick(item.value)}
-        >{item.label}</button
-      >
-    </li>
-  {/each}
+  <li class={activeTabValue === item.value ? "active" : ""}>
+    <button class="tab-label" on:click={handleClick(item.value)}
+      >{item.label}</button
+    >
+  </li>
+{/each}
+</div>
+<slot name="button"></slot>
+  <!-- <button on:click class="btn-primary">통계상세보기</button> -->
 </ul>
 {#each items as item}
   {#if activeTabValue == item.value}
     <div class="box">
-      <svelte:component this={item.component} />
+
+      {#if item.value == 1}
+      <slot name="tab1"></slot>
+      {/if}
+      {#if item.value == 2}
+      <slot name="tab2"></slot>
+      {/if}
+      {#if item.value == 3}
+      <slot name="tab3"></slot>
+      {/if}
+      <!-- <svelte:component this={item.component} /> -->
     </div>
   {/if}
 {/each}
@@ -31,11 +45,15 @@
   }
   ul {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
     padding-top: 30px;
+    .label{
+      display: flex;
+    }
   }
   li {
     margin-bottom: -1px;
@@ -44,23 +62,26 @@
   li .tab-label {
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
+    border: 1px solid #C5C7C8;
     display: block;
     padding: 0.6rem 0rem;
     width: 140px;
-    background: white;
+    background: #F5F5F5;
     font-size: 14px;
-    color: #757779;
+    color: #A9ABAD;
     font-weight: 400;
   }
 
   li.active > .tab-label {
     color: #fff;
     background-color: $primary-color;
-    border-color: #dee2e6 #dee2e6 #fff;
+ 
     font-weight: 500;
+    border: 1px solid $primary-color;
   }
 
   .gray {
     background: #F5F5F5;
   }
+
 </style>

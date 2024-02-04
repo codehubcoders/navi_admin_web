@@ -92,10 +92,14 @@
         class="non-click {path == '/statistics' ? 'click' : ''}">통계현황</a
       >
       <a
+      href={"/agency-status"}
+      class="non-click {path == '/agency-status' ? 'click' : ''}">기관현황</a
+    >
+      <!-- <a
         href={"/localmonitoring"}
         class="non-click {path == '/localmonitoring' ? 'click' : ''}"
         >지역 모니터링 보기</a
-      >
+      > -->
     </div>
     <button
       on:click={arrowActive2}

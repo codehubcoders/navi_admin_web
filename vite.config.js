@@ -15,6 +15,9 @@ export default defineConfig({
     }),
     sveltekit(),
   ],
+  ssr: {
+		noExternal: ['Chart.js']
+	},
   css: {
     preprocessorOptions: {
       scss: {

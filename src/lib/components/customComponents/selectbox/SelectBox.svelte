@@ -5,12 +5,13 @@
 	export let items2 = [];
 	export let items3 = [];
 	export let long;
+	export let small;
 </script>
 
-<div class="selectd-box">
+<div class="selectd-box {small ? "small" : ""}">
 	<select
 		bind:value={selected}
-		class="selectd-box__header"
+		
 		style={long ? "width: 285px" : ""}
 	>
 		{#if placeholder}
@@ -33,7 +34,7 @@
 	.selectd-box {
 		margin-right: 10px;
 
-		select {
+	select {
 			color: #2E3132;
 			font-size: 12px;
 			background-color: #F5F5F5;
@@ -51,5 +52,19 @@
 		}
 		
 	}
-
+.small select{
+	color: #2E3132;
+			font-size: 8px;
+			background-color: #F5F5F5;
+			padding: 8px 8px;
+			width: 50px;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			border: none;
+			background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='20' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+			background-repeat: no-repeat;
+			background-position-x: 100%;
+			background-position-y: 5px;
+			border-radius: 6px;
+}
 </style>

@@ -1,9 +1,31 @@
 <script>
-  import Icon from "@iconify/svelte";
+  import AlarmCard from "../../globalComponents/AlarmCard.svelte";
+  import CicleProgress from "../../globalComponents/CicleProgress.svelte";
+  import ColumBox from "../../globalComponents/ColumBox.svelte";
+  let columnList = [
+    { left: "혈압", right: "70/120 ", last: "mmHg" },
+    { left: "맥박", right: 68, last: "BPM" },
+    { left: "산소포화도", right: "98%", last: "ppm" },
+  ];
 </script>
 
 <div class="tab-content">
-  <div class="card-main">
+  <AlarmCard title="약상자 현황">
+    <div class="top">
+      <CicleProgress percentage="72" sub="%" title="건강 사용률" />
+      <div class="count">
+        <p class="title">평균 걸음수</p>
+        <p>15,402<span></span></p>
+      </div>
+      <div class="count">
+        <p class="title">평균 걸음거리</p>
+        <p>3.2<span>Km</span></p>
+      </div>
+      <ColumBox {columnList} />
+    </div>
+  </AlarmCard>
+
+  <!-- <div class="card-main">
     <div class="header">
       <p>평균 걸음</p>
       <button><Icon icon="ep:more-filled" color="#a9abad" /></button>
@@ -42,62 +64,92 @@
         <div class="item-num primary-color mt-20">68</div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <style lang="scss">
         @import 'src/lib/scss/style.scss';
   .tab-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    @media (max-width: 960px) {
-      grid-template-columns: 1fr;
-    }
-  }
-  .card-main {
-    .header {
-      display: flex;
-      justify-content: space-between;
-      button {
-        background: white;
-      }
-    }
-    .contents {
-      display: flex;
-      justify-content: space-between;
-      background: #F5F5F5;
-      border-radius: 12px;
-      padding: 30px 50px;
-      .item {
-        text-align: center;
-        .item-top {
-          font-size: 16px;
-          color: #8E9192;
+    .top {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 30px;
+      .count {
+        background-color: white;
+        border-radius: 8px;
+        padding: 15px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .title {
+          font-size: 14px;
+          font-weight: 500;
+          color: #333;
+          text-align: left;
         }
-        .item-num {
-          font-size: 40px;
-          font-weight: 700;
+        p {
+          text-align: center;
+          font-size: 64px;
+          color: #001E91;
+          font-weight: 500;
           span {
-            font-size: 16px;
-            font-weight: 400;
-            color: #8E9192;
-            margin-left: 10px;
+            font-size: 20px;
+            color: #A9ABAD;
           }
         }
       }
+      @media (max-width: 960px) {
+        grid-template-columns: 1fr 1fr;
+      }
+      @media (max-width: 540px) {
+        grid-template-columns: 1fr;
+      }
     }
+    // display: grid;
+    // grid-template-columns: 1fr 1fr;
+    // gap: 30px;
+    // @media (max-width: 960px) {
+    //   grid-template-columns: 1fr;
+    // }
   }
-  .yellow {
-    color: #FFD600;
-  }
-  .orenge {
-    color: #FF9933;
-  }
-  .red {
-    color: #F5365C;
-  }
-  .primary-color {
-    color: #5E72E4;
+
+  .bottom {
+    height: 180px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    .count {
+      background-color: white;
+      border-radius: 8px;
+      padding: 15px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .title {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+        text-align: left;
+      }
+      p {
+        text-align: center;
+        font-size: 72px;
+        color: #001E91;
+        font-weight: 500;
+       
+        span {
+          font-size: 20px;
+          color: #A9ABAD;
+        }
+      }
+      @media (max-width: 960px) {
+        grid-template-columns: 1fr 1fr;
+      }
+      @media (max-width: 540px) {
+        grid-template-columns: 1fr;
+      }
+    }
   }
 </style>

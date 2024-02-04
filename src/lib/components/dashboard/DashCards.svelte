@@ -2,7 +2,6 @@
     import PieChartAge from "./../customComponents/chart/PieChartAge.svelte";
     import PieChartGender from "./../customComponents/chart/PieChartGender.svelte";
     import LocalCardDash from "./../globalComponents/LocalCardDash.svelte";
-    // import LocalCard from "./../globalComponents/LocalCard.svelte";
     import ColumBox from "./../globalComponents/ColumBox.svelte";
     import CicleProgress from "./../globalComponents/CicleProgress.svelte";
     import AlarmCard from "./../globalComponents/AlarmCard.svelte";
@@ -25,6 +24,7 @@
         { left: "모바일앱", right: 48, last: "명" },
         { left: "기관회원", right: 32, last: "명" },
     ];
+    
     let loginList = [
         { message: "서울시 홍길동님이 활동중이십니다." },
         { message: "서울시 홍길동님이 활동중이십니다." },
@@ -101,7 +101,7 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;
                 gap: 15px;
-                height: 220px;
+                // height: 220px;
                 @media (max-width: 620px) {
                 grid-template-columns: 1fr;
                 height: 100%;

@@ -1,6 +1,6 @@
 <script>
-    import ColumBox from "./../globalComponents/ColumBox.svelte";
-    import CicleProgress from "./../globalComponents/CicleProgress.svelte";
+    // import ColumBox from "./../globalComponents/ColumBox.svelte";
+    // import CicleProgress from "./../globalComponents/CicleProgress.svelte";
     import AlarmCard from "./../globalComponents/AlarmCard.svelte";
     import SelectBox from "./../customComponents/selectbox/SelectBox.svelte";
     let localselected = "전체";
@@ -19,18 +19,6 @@
         { title: "구로구", value: 3 },
     ];
 
-    let columnList = [
-        { left: "미복용", right: 3, last: "명" },
-        { left: "관심복용", right: 4, last: "명" },
-        { left: "과다복용 의심", right: 3, last: "명" },
-    ];
-    let columnList2 = [
-        { left: "실시간 이용률", right: 70, last: "%" },
-        { left: "전원 off", right: 15, last: "명" },
-        { left: "배터리  미연결", right: 24, last: "명" },
-        { left: "모바일 앱 연동률(본인)", right: 24, last: "명" },
-        { left: "모바일 앱 연동률(보호자)", right: 24, last: "명" },
-    ];
 
     // let topBox = [
     //     { number: 23, name: "주의", color: "#FFD600" },

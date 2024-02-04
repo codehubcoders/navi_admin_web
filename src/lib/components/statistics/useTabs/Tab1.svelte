@@ -1,10 +1,10 @@
 <script>
-      import Chart from '../../customComponents/chart/StatustucsChart.svelte';
+	import BarChart from './../../customComponents/chart/BarChart.svelte';
 </script>
 
 <section>
     <div class="tab_item" >
-    <Chart />
+    <BarChart />
     </div>
 
 </section>
