@@ -7,6 +7,7 @@
     export let columnListSub2;
     export let columnListDown;
     export let item;
+    export let activeSelected = true;
 </script>
 
 <div class="column-box">
@@ -92,20 +93,20 @@
     {/if}
 
     {#if columnListDown}
+        <div
+            class="box4"
+            on:click
+        >
+            <div class="row-text">
+                <div class="sub">{subitem.top}</div>
+                <div>
+                    {subitem.bottom}
+                </div>
+            </div>
 
-    <div
-    class="box3 {selected === columnListDown.left ? 'selecete' : ''}"
-on:click
->
-    <p class="sub">{columnListDown.sub}</p>
-    <p>
-        {columnListDown.left}
-    </p>
-    <p>{columnListDown.right} {columnListDown.last}</p>
-  
-</div>
-    
-{/if}
+          
+        </div>
+    {/if}
 </div>
 
 <style lang="scss">
@@ -146,15 +147,16 @@ on:click
                 justify-content: space-between;
                 margin: 0;
                 padding: 12px 5px;
-            p {
-                font-size: 14px;
-                font-weight: 500;
-                margin: 0;
-                span {
-                    font-size: 12px;
-                    font-weight: 400;
+                p {
+                    font-size: 14px;
+                    font-weight: 500;
+                    margin: 0;
+                    span {
+                        font-size: 12px;
+                        font-weight: 400;
+                    }
                 }
-            }}
+            }
         }
         .box3 {
             margin-bottom: 10px;
@@ -175,6 +177,29 @@ on:click
                 font-weight: 500;
                 p {
                     margin: 0;
+                }
+            }
+
+            @media (max-width: 620px) {
+                margin-bottom: 10px;
+            }
+        }
+        .box4 {
+            margin-bottom: 10px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            background-color: white;
+            color: #5C5F60;
+            font-size: 14px;
+            font-weight: 400;
+            display: flex;
+            justify-content: space-between;
+            .row-text {
+                .sub {
+                    font-size: 12px;
+                    color: #C5C7C8;
+                    margin: 0;
+                    margin-bottom: 5px;
                 }
             }
 

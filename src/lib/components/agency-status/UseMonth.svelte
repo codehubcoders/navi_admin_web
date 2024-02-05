@@ -1,23 +1,20 @@
 <script>
-	import ColumBox from './../globalComponents/ColumBox.svelte';
-	import AlarmCard from './../globalComponents/AlarmCard.svelte';
+  import DownDetailModal from "./DownDetailModal.svelte";
+  import LocalCardDash from "./../globalComponents/LocalCardDash.svelte";
+  import AlarmCard from "./../globalComponents/AlarmCard.svelte";
   import BarChart from "./../customComponents/chart/BarChart.svelte";
+  import LocalCard from "../globalComponents/LocalCard.svelte";
+  import DownHistoryModal from "./DownHistoryModal .svelte";
 
-  import Icon from "@iconify/svelte";
-  import CicleBar from "../customComponents/progressbar/CicleBar.svelte";
-  // import Chart from "../customitems/chart/StatustucsChart.svelte";  export let activeTabValue = 1;
-  // import TableTabs from "../customComponents/tabs/TableTabs.svelte";
-  // import Tab1 from "./useTabs/Tab1.svelte";
-  // import Tab2 from "./useTabs/Tab2.svelte";
-  // import Tab3 from "./useTabs/Tab3.svelte";
+  const handleDetailClick = () => {
+    showDetail = !showDetail;
+  };
+  let showDetail = false;
 
-  let barPercentage = 72;
-  // let activeTabValue = 1;
-  // let items = [
-  //   { label: "전일", value: 1, component: Tab1 },
-  //   { label: "전주", value: 2, component: Tab2 },
-  //   { label: "사용", value: 3, component: Tab3 },
-  // ];
+  const handleHistoryClick = () => {
+    showHistory = !showHistory;
+  };
+  let showHistory = false;
 
   let selectedDate = 1;
 
@@ -26,20 +23,38 @@
     { value: 2, label: "주" },
     { value: 3, label: "월" },
   ];
-  export let selected = "";
+  let selected;
+  let activeSelected = false;
   let columnList = [
-    { left: "3일 이상", right: 10, last: "명", sub: "지연복용 현황" },
-    { left: "5일 이상", right: 5, last: "명", sub: "지연복용 현황" },
-    { left: "10일 이상", right: 2, last: "명", sub: "지연복용 현황" },
-    ];
+    {
+      columnText: [
+        { top: "다운로드 정보", bottom: "엑셀" },
+        { top: "사용자정보", bottom: "강남구 홍길동" },
+        { top: "항목", bottom: "회원관리" },
+        { top: "날짜", bottom: "2023.12.05 16:52" },
+      ],
+    },
+    {
+      columnText: [
+        { top: "다운로드 정보", bottom: "그래프" },
+        { top: "사용자정보", bottom: "강남구 홍길동" },
+        { top: "항목", bottom: "회원관리" },
+        { top: "날짜", bottom: "2023.12.05 16:52" },
+      ],
+    },
+  ];
 
+  const selectClick = (index) => () => {
+    selected = index;
+    showDetail = true;
+  };
   const onChangeDate = (tabValue) => () => (selectedDate = tabValue);
 </script>
 
 <div class="use-month">
   <div class="card-main">
     <div class="header">
-    기관 회원 로그인 현황
+      기관 회원 로그인 현황
       <div class="radio-btn">
         {#each dateRadio as item, index}
           <button on:click={onChangeDate(item.value)}>
@@ -54,25 +69,44 @@
       <BarChart />
     </div>
   </div>
+
   <AlarmCard title="다운로드 이력">
     <div slot="topicon">
-      <!-- <div class="search-input">
-          <input type="text" id="search" placeholder="검색" />
-          <Icon icon="iconamoon:search" color="#c5c7c8" width="18" />
-      </div> -->
-      <button class="btn-gray" on:click
-          >전체보기</button
+      <button class="btn-detail-gray" on:click={handleHistoryClick}
+        >전체보기</button
       >
-  </div>
-  <div class="content">
-    {#each columnList as columnListDown}
-    <ColumBox ColumListDown {columnListDown} on:click={() => (selected = columnListDown.left)}/>
-
-    {/each}
-{selected}
-  </div>
-    </AlarmCard>
+    </div>
+    <div class="content">
+      {#each columnList as item, index}
+        <div
+          class="box4 {selected === index ? 'selecete' : ''}"
+          on:click={selectClick(index)}
+        >
+          {#each item.columnText as subitem}
+            <div class="row-text">
+              <div class="sub">{subitem.top}</div>
+              <div>
+                {subitem.bottom}
+              </div>
+            </div>
+          {/each}
+        </div>
+      {/each}
+    </div>
+  </AlarmCard>
+  <AlarmCard title="지역별 기관회원 현황">
+    <div class="local">
+      <LocalCardDash />
+    </div>
+  </AlarmCard>
+  <AlarmCard title="기관모니터링">
+    <div class="local">
+      <LocalCard />
+    </div>
+  </AlarmCard>
 </div>
+<DownHistoryModal {showHistory} on:click={handleHistoryClick} />
+<DownDetailModal {showDetail} on:click={handleDetailClick} />
 
 <style lang="scss">
   @import "src/lib/scss/style.scss";
@@ -92,7 +126,7 @@
     .custom {
       text-align: center;
       // border: 1px solid #C5C7C8;
-      
+
       cursor: pointer;
       padding: 2px 20px;
       box-sizing: content-box;
@@ -132,11 +166,42 @@
     padding: 15px;
     border-radius: 0 0px 12px 12px;
   }
-  .btn-gray{
-    font-size: 10px;
-    padding: 6px 10px;
-    border-radius: 4px;
-    margin: 0;
+
+  .content {
+    padding: 15px;
+  }
+  .local {
+    padding: 15px;
+    height: 240px;
+  }
+  .selecete {
+    // border: 1px solid #C5C7C8;
+    box-shadow: 0 5px 10px rgba(173, 181, 217, 0.4);
+    background-color: #C5C7C8;
+  }
+  .box4 {
+    margin-bottom: 10px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background-color: white;
+    color: #5C5F60;
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+    .row-text {
+      .sub {
+        font-size: 12px;
+        color: #C5C7C8;
+        margin: 0;
+        margin-bottom: 5px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      margin-bottom: 10px;
+    }
   }
   // .contents_right {
   //   background: #F5F5F5;

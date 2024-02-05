@@ -4,52 +4,40 @@
 
 <div class="contents">
     <div class="state-detail">
-        <CollapsibleSection headerText={"서울(52)"}>
+        <CollapsibleSection headerText={"서울(52)"} button>
             <div class="state-box">
                 <p class="txt">OO동(12)</p>
-                <button class="btn-gray fs-12 fw-600"
-                    >상세보기</button
-                >
+                <p class="txt">2</p>
             </div>
             <div class="state-box">
                 <p class="txt">OO동(12)</p>
-                <button class="btn-gray fs-12 fw-600"
-                    >상세보기</button
-                >
+                <p class="txt">2</p>
             </div>
         </CollapsibleSection>
     </div>
 
     <div class="state-detail">
-        <CollapsibleSection headerText={"서울(52)"}>
+        <CollapsibleSection headerText={"경기도"} headerTextRight={10}>
             <div class="state-box">
                 <p class="txt">OO동(12)</p>
-                <button class="btn-gray fs-12 fw-600"
-                    >상세보기</button
-                >
+                <p class="txt">2</p>
             </div>
             <div class="state-box">
                 <p class="txt">OO동(12)</p>
-                <button class="btn-gray fs-12 fw-600"
-                    >상세보기</button
-                >
+                <p class="txt">2</p>
             </div>
         </CollapsibleSection>
     </div>
 
     <div class="state-detail">
-        <CollapsibleSection headerText={"서울(52)"}>
+        <CollapsibleSection headerText={"충청남도"} headerTextRight={4}>
             <div class="state-box">
                 <p class="txt">OO동(12)</p>
-                <button class="btn-gray fs-12 fw-600"
-                    >상세보기</button
-                >
+                <p class="txt">2</p>
             </div>
             <div class="state-box">
                 <p class="txt">OO동(12)</p>
-                <button class="btn-gray fs-12 fw-600"
-                    >상세보기</button
-                >
+                <p class="txt">2</p>
             </div>
         </CollapsibleSection>
     </div>
@@ -58,7 +46,8 @@
 <style lang="scss">
           @import 'src/lib/scss/style.scss';
      .state-detail {
-        padding: 10px 10px 5px;
+        // padding: 10px 10px 5px;
+        padding-bottom: 10px;
         .state-box {
             display: flex;
             justify-content: space-between;

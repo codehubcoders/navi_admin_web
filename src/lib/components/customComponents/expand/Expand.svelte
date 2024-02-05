@@ -4,6 +4,7 @@
     export let headerText;
     export let headerTextRight;
     let expanded = false
+    export let button;
 </script>
 
 <div class="collapsible">
@@ -13,6 +14,9 @@
          <p> {headerText} </p>
         {#if headerTextRight}
         <p>{headerTextRight}</p>
+        {/if} 
+        {#if button}
+      <button class="btn-detail-gray">상세보기</button>
         {/if} 
 <!-- <svg viewBox="0 0 20 20" fill="none" >
 <path class="vert" d="M10 1V19" stroke="black" stroke-width="2"/>
