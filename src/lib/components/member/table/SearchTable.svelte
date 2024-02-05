@@ -1,7 +1,12 @@
 <script>
-  import SelectBox from "./../selectbox/SelectBox.svelte";
-  import { onMount } from "svelte";
+	import CreateMember from './../modal/CreateMember.svelte';
+
   import Icon from "@iconify/svelte";
+
+  let showCreateMember = false
+const handleCreateMember =() => {
+  showCreateMember = !showCreateMember
+}
 
   let newData = [
     {
@@ -46,24 +51,24 @@
     },
   ];
   let current = "name";
-  onMount(() => {
-    var btnSortName = document.getElementById("sortName");
-    var btnSortAge = document.getElementById("sortAge");
-    var btnSortlocal = document.getElementById("sortLocal");
+  // onMount(() => {
+  //   var btnSortName = document.getElementById("sortName");
+  //   var btnSortAge = document.getElementById("sortAge");
+  //   var btnSortlocal = document.getElementById("sortLocal");
 
-    btnSortName.addEventListener("click", (e) => {
-      current = "name";
-      sortTable(1);
-    });
-    btnSortAge.addEventListener("click", (e) => {
-      current = "age";
-      sortTable(2);
-    });
-    btnSortlocal.addEventListener("click", (e) => {
-      current = "local";
-      sortTable(0);
-    });
-  });
+  //   btnSortName.addEventListener("click", (e) => {
+  //     current = "name";
+  //     sortTable(1);
+  //   });
+  //   btnSortAge.addEventListener("click", (e) => {
+  //     current = "age";
+  //     sortTable(2);
+  //   });
+  //   btnSortlocal.addEventListener("click", (e) => {
+  //     current = "local";
+  //     sortTable(0);
+  //   });
+  // });
 
   function searchTable() {
     var input, filter, table, tr, td, i, txtValue;
@@ -140,9 +145,9 @@
 
 <section class="seach-sort-table">
   <div class="seach-sort-table__header">
-    <p class="title">대상자(00명)</p>
+    <p class="title">나비회원 (00명)</p>
     <div class="right">
-      <button class="btn-primary-small">등록</button>
+      <button class="btn-primary-small" on:click={handleCreateMember}>등록</button>
       <div class="search-box">
         <div class="search-input">
           <input type="text" id="search" placeholder="검색" />
@@ -159,12 +164,12 @@
     </div>
   </div>
   <div class="seach-sort-table__sortBtns">
-    <div class="buttons">
+    <!-- <div class="buttons">
       <button class:active={current === "name"} id="sortName">이름순</button>|
       <button class:active={current === "age"} id="sortAge">나이순</button>|
       <button class:active={current === "local"} id="sortLocal">지역순</button>
-    </div>
-    <SelectBox {items} />
+    </div> -->
+    <!-- <SelectBox {items} /> -->
   </div>
   <div id="data-table" class="seach-sort-table__table">
     <table id="html-data-table">
@@ -239,23 +244,39 @@
             <td>{item.phone}</td>
             <td
               >{#if item.sign != ""}
-                <button class="btn-gray">확인</button>
+                <button class="btn-detail-gray">확인</button>
               {/if}</td
             >
-            <td><button class="btn-gray">상세내역</button></td>
+            <td> <a  href="member/detail" class="btn-detail-gray" >상세내역</a></td>
           </tr>
         {/each}
       </tbody>
     </table>
-  </div>
-</section>
 
+  </div>
+
+</section>
+<div class="pagenation mt-20">
+  <button class="round-box">
+     <Icon icon="ep:arrow-left-bold" />
+  </button>
+  <button class="activePage">
+      1
+  </button>
+  <button class="round-box">
+      2
+  </button>
+  <button class="round-box">
+        <Icon icon="ep:arrow-right-bold" />
+  </button>
+</div>
+
+<CreateMember {showCreateMember} on:click={handleCreateMember}/>
 <style lang="scss">
         @import 'src/lib/scss/style.scss';
   .seach-sort-table {
     background-color: white;
     border-radius: 16px;
-    margin-top: 30px;
     &__header {
       padding: 20px;
       display: flex;
@@ -347,7 +368,7 @@
             padding: 15px 0;
             text-align: center;
             font-size: 13px;
-            .btn-gray {
+            .btn-detail-gray {
               display: inline-block;
               color: #333;
               font-size: 12px;
@@ -359,16 +380,16 @@
     }
   }
 
-  .active {
-    color: #333;
-    font-weight: 500;
-  }
+  // .active {
+  //   color: #333;
+  //   font-weight: 500;
+  // }
 
-  button {
-    display: block;
-    color: #E1E3E4;
-    font-size: 12px;
-  }
+  // button {
+  //   display: block;
+  //   color: #E1E3E4;
+  //   font-size: 12px;
+  // }
   .green {
     color: #2DCE89;
   }

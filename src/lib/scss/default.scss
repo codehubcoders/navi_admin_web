@@ -360,8 +360,9 @@ button {
         color: white;
     }
     &-detail-gray {
-        padding: 7px 13px;
+        padding: 8px 15px;
         width: fit-content;
+        height: fit-content;
         border-radius: 4px;
         background-color: #EFF1F2;
         color: #2E3132;
@@ -592,15 +593,27 @@ textarea:focus, input:focus{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    padding: 30px 0;
+    gap: 5px;
+    // padding: 30px 0;
 
     .round-box {
-        width: 40px;
-        height: 40px;
-        background-color: $gray-d9;
+        width: 24px;
+        height: 24px;
+        color: $primary-color;
         font-size: 14px;
-        font-weight: 700;
+        font-weight: 400;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .activePage{
+        width: 24px;
+        height: 24px;
+        color: white;
+        background-color: $primary-color;
+        font-size: 14px;
+        font-weight: 400;
         border-radius: 100%;
         display: flex;
         justify-content: center;
@@ -615,4 +628,15 @@ textarea:focus, input:focus{
 
 .t_right{
     text-align: right;
+}
+
+.btn-upLoad{
+    border-radius: 8px;
+    border: 1px solid #444748;
+    height: 40px;
+    width: 40px;
+   display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto;
 }

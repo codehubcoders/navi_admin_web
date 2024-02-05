@@ -1,0 +1,350 @@
+<script>
+    import AlarmCard from "./../../globalComponents/AlarmCard.svelte";
+    import CollapsibleSection from "./Expand.svelte";
+    import Icon from "@iconify/svelte";
+    let expanded = true;
+    let localList = [
+        {
+            name: "삼성동",
+            num: 10,
+            subLocal: [
+                { name: "가길동", status: "yellow" },
+                { name: "가길동", status: "" },
+                { name: "가길동", status: "" },
+                { name: "가길동", status: "red" },
+                { name: "가길동", status: "" },
+                { name: "가길동", status: "" },
+                { name: "가길동", status: "orange" },
+            ],
+        },
+        {
+            name: "신사동",
+            num: 15,
+            subLocal: [
+                { name: "나길동", status: "" },
+                { name: "나길동", status: "" },
+                { name: "나길동", status: "" },
+                { name: "나길동", status: "" },
+                { name: "나길동", status: "" },
+                { name: "나길동", status: "" },
+                { name: "나길동", status: "" },
+            ],
+        },
+    ];
+    let body1 = [
+        {
+            left: "이름",
+            right: "이름",
+        },
+        {
+            left: "성별",
+            right: "성별",
+        },
+        {
+            left: "이름",
+            right: "이름",
+        },
+        {
+            left: "나이",
+            right: "나이",
+        },
+        {
+            left: "주소",
+            right: "주소",
+        },
+        {
+            left: "충전",
+            right: "충전",
+        },
+        {
+            left: "전화번호",
+            right: "전화번호",
+        },
+        {
+            left: "긴급전화번호",
+            right: "긴급전화번호",
+        },
+        {
+            left: "혈액형",
+            right: "혈액형",
+        },
+        {
+            left: "특이사항",
+            right: "특이사항",
+        },
+    ];
+    let body2 = [
+        {
+            date: "2023-12-12 09:00",
+            content: "BMS 미연결",
+        },
+        {
+            date: "2023-12-12 09:00",
+            content: "약상자가 열렸습니다.",
+        },
+        {
+            date: "2023-12-12",
+            content: "약을 미복용 하셨습니다.",
+        },
+        {
+            date: "2023-12-12",
+            content: "화재신고 발생",
+        },
+        {
+            date: "2023-12-12",
+            content: "화재신고 발생",
+        },
+    ];
+</script>
+
+<section class="member-detail">
+    <div class="local-side">
+        <a href="/member"><button class="btn-primary mb-15">목록으로</button></a
+        >
+        <div class="side-menu">
+            {#each localList as item}
+                <CollapsibleSection
+                    headerText={item.name + "(" + item.num + ")"}
+                    {expanded}
+                >
+                    {#each item.subLocal as subItem}
+                        <div class="sub-locla {subItem.status}">
+                            {subItem.name}
+                        </div>
+                    {/each}
+                </CollapsibleSection>
+            {/each}
+        </div>
+    </div>
+    <div class="info-box">
+        <div class="top">
+            <!-- 카드1 -->
+            <div class="box">
+                <div class="title">
+                    상세정보
+                    <button class="btn-detail-gray">수정하기</button>
+                </div>
+                <div class="body1">
+                    {#each body1 as item}
+                        <div class="row">
+                            <div class="right">
+                                {item.left}
+                            </div>
+                            <div class="left">
+                                {item.right}
+                            </div>
+                        </div>
+                    {/each}
+
+                    <div class="row">
+                        <div class="right">제품코드</div>
+                        <div class="left">
+                            2145692305
+                            <button class="btn-white">연동해제</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 카드2 -->
+            <AlarmCard title="최근알림">
+                <div slot="topicon">
+                    <button class="btn-detail-gray">전체보기</button>
+                </div>
+                <div class="body2">
+                    {#each body2 as item ,index}
+                    <div class="row">
+                        <div class="avatar" >
+                            {index +1 }
+                        </div>
+                        <div class="text">
+                            <div class="top">{item.date}</div>
+                            <div class="">{item.content}</div>
+                        </div>
+                    </div>
+                    {/each}
+                  
+                </div>
+            </AlarmCard>
+            <!-- 카드3-->
+            <div class="box"><div class="title">보호자</div></div>
+            <div class="box">
+                <div class="title">
+                    복약통계
+                    <button
+                        ><Icon
+                            icon="bx:chart"
+                            width="20"
+                            style="color: #5E72E4"
+                        /></button
+                    >
+                </div>
+            </div>
+            <div class="box">
+                <div class="title">
+                    건강
+                    <button class="btn-text"
+                        ><Icon
+                            icon="radix-icons:update"
+                            width="12px"
+                            style="color: #B3A9AA"
+                        />업데이트 된 시간 09:00</button
+                    >
+                </div>
+            </div>
+
+            <AlarmCard title="최근 CS">
+                <div slot="topicon">
+                    <button
+                        ><Icon
+                            icon="ri:more-fill"
+                            width="20px"
+                            height="20px"
+                            style="color: #A9ABAD"
+                        /></button
+                    >
+                </div>
+            </AlarmCard>
+
+            <div class="box"><div class="title">동의사항</div></div>
+
+            <div class="box"><div class="title">기기관리</div></div>
+        </div>
+        <div class="box my-30"><div class="title">원격지원</div></div>
+        <div class="top">
+            <AlarmCard title="통화" />
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @import "src/lib/scss/style.scss";
+
+    .member-detail {
+        position: relative;
+
+        .local-side {
+            width: 180px;
+            background-color: #fff;
+            color: #8E9192;
+            .btn-primary {
+                width: 180px;
+                height: 40px;
+                font-size: 16px;
+            }
+            .sub-locla {
+                // background-color: #fff;
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                height: 40px;
+                font-weight: 300;
+                font-size: 15px;
+                border-bottom: 1px solid #E1E3E4;
+            }
+        }
+        .info-box {
+            position: absolute;
+            left: 200px;
+            top: 5px;
+            width: 860px;
+            .top {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+    }
+    .box {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(173, 181, 217, 0.4);
+        .title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .body1 {
+            margin-top: 10px;
+            .row {
+                display: flex;
+                font-weight: 300;
+                padding: 7px 0;
+
+                .right {
+                    font-size: 16px;
+                    width: 120px;
+                }
+                .left {
+                    width: 62%;
+                    display: flex;
+                    justify-content: space-between;
+                    color: #A9ABAD;
+                    .btn-white {
+                        font-size: 10px;
+                        border: 1px solid #C5C7C8;
+                        border-radius: 4px;
+                        padding: 4px 5px;
+                        box-shadow: 0 1px 8px rgba(173, 181, 217, 0.4);
+                    }
+                }
+            }
+        }
+       
+    }
+    .yellow {
+        background-color: #FFFF00;
+    }
+    .red {
+        background-color: #F5365C;
+        color: white;
+    }
+    .orange {
+        background-color: #FF9933;
+        color: white;
+    }
+    .my-30 {
+        margin: 30px 0;
+    }
+    .btn-text {
+        font-size: 10px;
+        font-weight: 300;
+        color: #B3A9AA;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+    }
+    .body2 {
+            padding: 15px;
+            .row {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                .avatar {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 100%;
+                    background-color: #D9D9D9;
+                }
+                .text {
+                    margin: 0 20px;
+                    font-size: 16px;
+                    .top {
+                        color: #8E9192;
+                        font-size: 14px;
+                        padding-bottom: 5px;
+                    }
+                }
+            }
+        }
+</style>

@@ -1,61 +1,113 @@
 <script>
-  import SelectBox from "./../selectbox/SelectBox.svelte";
-  import { onMount } from "svelte";
+  // import SelectBox from "./../selectbox/SelectBox.svelte";
+  // import { onMount } from "svelte";
   import Icon from "@iconify/svelte";
-
+import MobileDetail from "../modal/MobileDetail.svelte";
+  let showDetail = false;
+const handleDetailClick =() => {
+  showDetail = !showDetail
+}
   let newData = [
     {
+      local: "서울시 강남구",
+      agency: "강남구청",
       user: "정준범",
       gender: "남",
+      relationship:"보호자",
       birth: "1988.02.01",
       phone: "010-1234-5678",
-      email: "test@email.com",
-      name: "정길동",
+      member: "정군수",
     },
     {
-      user: "정준범",
+      local: "경기도 부천시",
+      agency: "부천시청",
+      user: "홍성우",
       gender: "여",
-      birth: "1979.02.01",
-      phone: "010-1234-5678",
-      email: "test3@email.com",
-      name: "박길동",
-    },
-    {
-      user: "정준범",
-      gender: "여",
+      relationship:"본인",
       birth: "1956.02.01",
       phone: "010-1234-5678",
-      email: "test2@email.com",
-      name: "홍길동",
+      member: "홍성우",
     },
     {
+      local: "인천서구",
+      agency: "치매안심센터",
+      user: "이선규",
+      gender: "남",
+      relationship:"보호자",
+      birth: "1956.02.01",
+      phone: "010-1234-5678",
+      member: "정군수",
+    },
+    {
+      local: "전라남도 화순군",
+      agency: "나들이복지관",
+      user: "김성환",
+      gender: "남",
+      relationship:"보호자",
+      birth: "1956.02.01",
+      phone: "010-1234-5678",
+      member: "정군수",
+    },
+    {
+      local: "서울시 강남구",
+      agency: "강남구청",
       user: "정준범",
       gender: "남",
+      relationship:"보호자",
+      birth: "1988.02.01",
+      phone: "010-1234-5678",
+      member: "정군수",
+    },
+    {
+      local: "경기도 부천시",
+      agency: "부천시청",
+      user: "홍성우",
+      gender: "여",
+      relationship:"본인",
       birth: "1956.02.01",
       phone: "010-1234-5678",
-      email: "test1@email.com",
-      name: "김길동",
+      member: "홍성우",
+    },
+    {
+      local: "인천서구",
+      agency: "치매안심센터",
+      user: "이선규",
+      gender: "남",
+      relationship:"보호자",
+      birth: "1956.02.01",
+      phone: "010-1234-5678",
+      member: "정군수",
+    },
+    {
+      local: "전라남도 화순군",
+      agency: "나들이복지관",
+      user: "김성환",
+      gender: "남",
+      relationship:"보호자",
+      birth: "1956.02.01",
+      phone: "010-1234-5678",
+      member: "정군수",
     },
   ];
-  let current = "user";
-  onMount(() => {
-    var btnSortUser = document.getElementById("sortUser");
-    var btnsortUserAge = document.getElementById("sortUserAge");
-    // var btnSortlocal = document.getElementById("sortLocal");
+  // let current = "user";
+  // onMount(() => {
+  //   var btnSortUser = document.getElementById("sortUser");
+  //   var btnsortUserAge = document.getElementById("sortUserAge");
+  //   // var btnSortlocal = document.getElementById("sortLocal");
 
-    btnSortUser.addEventListener("click", (e) => {
-      current = "user";
-      sortMemberTable(0);
-    });
-    btnsortUserAge.addEventListener("click", (e) => {
-      current = "birth";
-      sortMemberTable(1);
-    });
-    // btnSortlocal.addEventListener("click", (e) => {
-    //   current = "local";
-    //   sortTable(0);
-    // });
-  });
+  //   btnSortUser.addEventListener("click", (e) => {
+  //     current = "user";
+  //     sortMemberTable(0);
+  //   });
+  //   btnsortUserAge.addEventListener("click", (e) => {
+  //     current = "birth";
+  //     sortMemberTable(1);
+  //   });
+  //   // btnSortlocal.addEventListener("click", (e) => {
+  //   //   current = "local";
+  //   //   sortTable(0);
+  //   // });
+  // });
 
   function searchTable() {
     var input, filter, table, tr, i;
@@ -124,15 +176,12 @@
       }
     }
   }
-  let items = [
-    { title: "10명", value: 1 },
-    { title: "20명", value: 2 },
-  ];
+
 </script>
 
 <section class="seach-sort-table">
   <div class="seach-sort-table__header">
-    <p class="title">회원리스트(Mobile App)</p>
+    <p class="title">모바일앱 회원</p>
     <div class="right">
       <div class="search-input">
         <input type="text" id="searchMember" placeholder="검색" />
@@ -146,62 +195,97 @@
     </div>
   </div>
   <div class="seach-sort-table__sortBtns">
-    <div class="buttons">
+    <!-- <div class="buttons">
       <button class:active={current === "user"} id="sortUser">이름순</button>|
       <button class:active={current === "birth"} id="sortUserAge">나이순</button
-      >
+      > -->
       <!-- <button class:active={current === "local"} id="sortLocal">지역순</button> -->
-    </div>
-    <SelectBox {items} />
+    <!-- </div>
+    <SelectBox {items} /> -->
   </div>
   <div id="data-table" class="seach-sort-table__table">
     <table id="member-data-table">
       <thead>
         <tr>
-          <th>사용자 </th>
+          <th on:click={() => sortMemberTable(0)}>지역 
+            <Icon
+            icon="fluent:arrow-fit-16-filled"
+            color="#e1e3e4"
+            width="15"
+            rotate={1}
+          /></th>
+       
           <th on:click={() => sortMemberTable(1)}
-            >성별 <Icon
+            >주관기관 <Icon
               icon="fluent:arrow-fit-16-filled"
               color="#e1e3e4"
               width="15"
               rotate={1}
             /></th
           >
-          <th on:click={() => sortMemberTable(2)}
-            >생년월일 <Icon
-              icon="fluent:arrow-fit-16-filled"
-              color="#e1e3e4"
-              width="15"
-              rotate={1}
-            /></th
-          >
+          <th>성함</th>
+          <th>성별</th>
+          <th on:click={() => sortMemberTable(4)}
+            >관계<Icon
+            icon="fluent:arrow-fit-16-filled"
+            color="#e1e3e4"
+            width="15"
+            rotate={1}
+          /></th>
+          <th>생년월일</th>
           <th>전화번호</th>
-          <th>이메일</th>
-          <th>대상자</th>
+          <th on:click={() => sortMemberTable(7)}
+            >나비회원<Icon
+            icon="fluent:arrow-fit-16-filled"
+            color="#e1e3e4"
+            width="15"
+            rotate={1}
+          /></th>
+          <th>세부정보</th>
         </tr>
       </thead>
       <tbody>
         {#each newData as item}
           <tr>
+            <td>{item.local}</td>
+            <td>{item.agency}</td>
             <td>{item.user}</td>
             <td>{item.gender}</td>
+            <td>{item.relationship}</td>
             <td>{item.birth}</td>
             <td>{item.phone}</td>
-            <td>{item.email}</td>
-            <td>{item.name}</td>
+            <td>{item.member}</td>
+            <td>
+              <button class="btn-detail-gray m-auto " on:click={handleDetailClick}>상세내역</button>
+            </td>
           </tr>
         {/each}
       </tbody>
     </table>
+  <div></div>
   </div>
 </section>
+<div class="pagenation mt-20">
+  <button class="round-box">
+     <Icon icon="ep:arrow-left-bold" />
+  </button>
+  <button class="activePage">
+      1
+  </button>
+  <button class="round-box">
+      2
+  </button>
+  <button class="round-box">
+        <Icon icon="ep:arrow-right-bold" />
+  </button>
+</div>
 
+<MobileDetail {showDetail} on:click={handleDetailClick}/>
 <style lang="scss">
         @import 'src/lib/scss/style.scss';
   .seach-sort-table {
     background-color: white;
     border-radius: 16px;
-    margin-top: 30px;
     &__header {
       padding: 20px;
       display: flex;
@@ -248,20 +332,20 @@
         }
       }
     }
-    &__sortBtns {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #E1E3E4;
-      padding: 0 15px;
-      .buttons {
-        display: flex;
-        gap: 10px;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 12px;
-      }
-    }
+    // &__sortBtns {
+    //   display: flex;
+    //   justify-content: space-between;
+    //   align-items: center;
+    //   color: #E1E3E4;
+    //   padding: 0 15px;
+    //   .buttons {
+    //     display: flex;
+    //     gap: 10px;
+    //     justify-content: space-between;
+    //     align-items: center;
+    //     font-size: 12px;
+    //   }
+    // }
     &__table {
       table {
         width: 100%;
@@ -286,14 +370,5 @@
     }
   }
 
-  .active {
-    color: #333;
-    font-weight: 500;
-  }
 
-  button {
-    display: block;
-    color: #E1E3E4;
-    font-size: 12px;
-  }
 </style>
