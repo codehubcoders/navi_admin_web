@@ -98,37 +98,51 @@
     let body3 = [
         {
             name: "홍길동",
-            relationship: '자녀',
+            relationship: "자녀",
             phone: "010-1234-5678",
         },
         {
             name: "홍길동",
-            relationship: '생활지원사',
+            relationship: "생활지원사",
             phone: "010-1234-5678",
         },
         {
             name: "홍길동",
-            relationship: '자녀',
+            relationship: "자녀",
             phone: "010-1234-5678",
         },
         {
             name: "홍길동",
-            relationship: '손녀',
+            relationship: "손녀",
             phone: "010-1234-5678",
         },
     ];
-        let body7 = [
+    let body7 = [
         {
             title: "개인정보처리방침",
-            agreeDate: '2023.12.05 12:12 동의',
+            agreeDate: "2023.12.05 12:12 동의",
         },
         {
             title: "이용약관",
-            agreeDate: '2023.12.05 12:12 동의',
+            agreeDate: "2023.12.05 12:12 동의",
         },
         {
             title: "정보수집",
-            agreeDate: '2023.12.05 12:12 동의',
+            agreeDate: "2023.12.05 12:12 동의",
+        },
+    ];
+    let body8 = [
+        {
+            leftTop: "나비 기기",
+            leftBottom: "연결확인",
+            rightTop: "52546154961",
+            rightB: "연결",
+        },
+        {
+            leftTop: "나비 기기",
+            leftBottom: "연결확인",
+            rightTop: "52546154961",
+            rightB: "해제",
         },
     ];
 </script>
@@ -205,15 +219,14 @@
                 <div class="title">보호자</div>
                 <div class="body3">
                     {#each body3 as item}
-                    <div class="row py-8">
-                        <div class="text">
-                          {item.name}
-                            <div class="bottom">{item.relationship}</div>
+                        <div class="row py-8">
+                            <div class="text">
+                                {item.name}
+                                <div class="bottom">{item.relationship}</div>
+                            </div>
+                            <div class="phone">{item.phone}</div>
                         </div>
-                        <div class="phone">{item.phone}</div>
-                    </div>
                     {/each}
-                    
                 </div>
             </div>
             <!-- 카드4-->
@@ -229,7 +242,7 @@
                     >
                 </div>
             </div>
-
+            <!-- 카드5-->
             <div class="box">
                 <div class="title">
                     건강
@@ -242,7 +255,7 @@
                     >
                 </div>
             </div>
-
+            <!-- 카드6-->
             <AlarmCard title="최근 CS">
                 <div slot="topicon">
                     <button
@@ -254,28 +267,74 @@
                         /></button
                     >
                 </div>
-            </AlarmCard>
-
-            <div class="box"><div class="title">동의사항</div>
-            <div class="body3">
-                {#each body7 as item}
-                <div class="row py-15">
-                    <div class="text">
-                      {item.title}
-                        
+                <div class="body6">
+                    <div class="inner-card">
+                        <div class="head">진행중</div>
+                        <div class="body">
+                            <div class="top">2023.12.13 16:12</div>
+                            <div class="text">
+                                기기 사용시 알람시간 변경건으로 <br />
+                                본인에게 연락이 옴
+                            </div>
+                        </div>
                     </div>
-                    <div class="phone">{item.agreeDate}</div>
                 </div>
-                {/each}
-                
+            </AlarmCard>
+            <!-- 카드7-->
+            <div class="box">
+                <div class="title">동의사항</div>
+                <div class="body3">
+                    {#each body7 as item}
+                        <div class="row py-15">
+                            <div class="text">
+                                {item.title}
+                            </div>
+                            <div class="phone">{item.agreeDate}</div>
+                        </div>
+                    {/each}
+                </div>
+            </div>
+            <!-- 카드8-->
+            <div class="box">
+                <div class="title">기기관리</div>
+                <div class="body8">
+                    {#each body8 as item}
+                        <div class="row py-10">
+                            <div class="left">
+                                {item.leftTop}
+                                <div class="bottom">{item.leftBottom}</div>
+                            </div>
+                            <div class="right">
+                                {item.rightTop}
+                                <div class="bottom">{item.rightB}</div>
+                            </div>
+                        </div>
+                    {/each}
+                </div>
             </div>
         </div>
-
-            <div class="box"><div class="title">기기관리</div></div>
-        </div>
+        <!-- 카드9-->
         <div class="box my-30"><div class="title">원격지원</div></div>
-        <div class="top">
-            <AlarmCard title="통화" />
+        <!-- 카드10-->
+        <div class="top" style="margin-bottom: 100px;">
+            <AlarmCard title="통화" >
+                <div class="body6">
+                    <div class="inner-card">
+                        <div class="head">통화 잔여시간  <span>갱신일 2023.01.05</span></div>
+                      
+                        <div class="body10">
+                            <div class="row">   <div class="text">영상통화 시간 제한</div></div>
+                            <div class="row">   <div class="text">10분/일</div><div class="text">10분/일</div></div>
+                            <div class="row">   <div class="text">120분/달</div><div class="text">65분/달</div></div>
+                        </div>
+                        <div class="body10">
+                            <div class="row">   <div class="text">영상통화 시간 제한</div></div>
+                            <div class="row">   <div class="text">10분/일</div><div class="text">10분/일</div></div>
+                            <div class="row">   <div class="text">120분/달</div><div class="text">65분/달</div></div>
+                        </div>
+                    </div>
+                </div>
+                </AlarmCard>
         </div>
     </div>
 </section>
@@ -325,6 +384,7 @@
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 5px 10px rgba(173, 181, 217, 0.4);
+
         .title {
             display: flex;
             justify-content: space-between;
@@ -414,20 +474,19 @@
         padding: 15px 0;
         .row {
             display: flex;
-            align-items:flex-end;
+            align-items: flex-end;
             justify-content: space-between;
             margin-bottom: 10px;
             border-bottom: 1px solid #E1E3E4;
             // padding: 8px 0;
             .text {
-            
                 font-size: 12px;
-font-weight: 500;
-                .bottom {padding-top: 8px;
+                font-weight: 500;
+                .bottom {
+                    padding-top: 8px;
                     color: #444748;
                     font-size: 12px;
                     font-weight: 400;
-                    
                 }
             }
             .phone {
@@ -436,10 +495,98 @@ font-weight: 500;
             }
         }
     }
-    .py-15{
+    .body6 {
+        max-height: 230px;
+        padding: 20px;
+        .inner-card {
+            padding-bottom: 10px;
+            .head {
+                display: flex;
+                justify-content: space-between;
+                background-color: white;
+                padding: 20px;
+                font-size: 14px;
+                span {
+                    font-size: 12px;
+                    color: #1A1E2C;
+                    font-weight: 300;
+                }
+            }
+            .body {
+                padding: 20px;
+                background-color: #F8FAFB;
+                .top {
+                    color: #757779;
+                    font-size: 11px;
+                }
+                .text {
+                    margin-top: 10px;
+                    color: #191C1D;
+                    font-size: 12px;
+                    line-height: 1.2em;
+                }
+            }
+            .body10 {
+                padding: 20px;
+                background-color: #F8FAFB;
+                border-bottom: 1px solid #E1E3E4;
+                .row{
+                    display: flex;
+                justify-content: space-between;
+                    .text {
+                        margin-bottom: 5px;
+                    color: #191C1D;
+                    font-size: 12px;
+                    line-height: 1.2em;
+                }
+                }
+                // .text {
+                //     color: #191C1D;
+                //     font-size: 12px;
+                //     line-height: 1.2em;
+                // }
+            }
+        }
+    }
+    .body8 {
+        max-height: 230px;
+        padding: 15px 0;
+        .row {
+            display: flex;
+            // align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #E1E3E4;
+            // padding: 8px 0;
+            .left {
+                font-size: 12px;
+                font-weight: 500;
+                .bottom {
+                    padding-top: 10px;
+                    font-size: 12px;
+                    font-weight: 500;
+                }
+            }
+            .right {
+                text-align: right;
+                color: #444748;
+                font-size: 12px;
+                .bottom {
+                    padding-top: 10px;
+                    color: #444748;
+                    font-size: 12px;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+    .py-15 {
         padding: 15px 0;
     }
-    .py-8{
+    .py-8 {
         padding: 8px 0;
+    }
+    .py-10 {
+        padding: 10px 0;
     }
 </style>
