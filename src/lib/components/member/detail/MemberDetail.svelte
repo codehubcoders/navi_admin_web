@@ -95,6 +95,42 @@
             content: "화재신고 발생",
         },
     ];
+    let body3 = [
+        {
+            name: "홍길동",
+            relationship: '자녀',
+            phone: "010-1234-5678",
+        },
+        {
+            name: "홍길동",
+            relationship: '생활지원사',
+            phone: "010-1234-5678",
+        },
+        {
+            name: "홍길동",
+            relationship: '자녀',
+            phone: "010-1234-5678",
+        },
+        {
+            name: "홍길동",
+            relationship: '손녀',
+            phone: "010-1234-5678",
+        },
+    ];
+        let body7 = [
+        {
+            title: "개인정보처리방침",
+            agreeDate: '2023.12.05 12:12 동의',
+        },
+        {
+            title: "이용약관",
+            agreeDate: '2023.12.05 12:12 동의',
+        },
+        {
+            title: "정보수집",
+            agreeDate: '2023.12.05 12:12 동의',
+        },
+    ];
 </script>
 
 <section class="member-detail">
@@ -151,22 +187,36 @@
                     <button class="btn-detail-gray">전체보기</button>
                 </div>
                 <div class="body2">
-                    {#each body2 as item ,index}
-                    <div class="row">
-                        <div class="avatar" >
-                            {index +1 }
+                    {#each body2 as item, index}
+                        <div class="row">
+                            <div class="avatar">
+                                {index + 1}
+                            </div>
+                            <div class="text">
+                                <div class="top">{item.date}</div>
+                                <div class="">{item.content}</div>
+                            </div>
                         </div>
-                        <div class="text">
-                            <div class="top">{item.date}</div>
-                            <div class="">{item.content}</div>
-                        </div>
-                    </div>
                     {/each}
-                  
                 </div>
             </AlarmCard>
             <!-- 카드3-->
-            <div class="box"><div class="title">보호자</div></div>
+            <div class="box">
+                <div class="title">보호자</div>
+                <div class="body3">
+                    {#each body3 as item}
+                    <div class="row py-8">
+                        <div class="text">
+                          {item.name}
+                            <div class="bottom">{item.relationship}</div>
+                        </div>
+                        <div class="phone">{item.phone}</div>
+                    </div>
+                    {/each}
+                    
+                </div>
+            </div>
+            <!-- 카드4-->
             <div class="box">
                 <div class="title">
                     복약통계
@@ -179,6 +229,7 @@
                     >
                 </div>
             </div>
+
             <div class="box">
                 <div class="title">
                     건강
@@ -205,7 +256,20 @@
                 </div>
             </AlarmCard>
 
-            <div class="box"><div class="title">동의사항</div></div>
+            <div class="box"><div class="title">동의사항</div>
+            <div class="body3">
+                {#each body7 as item}
+                <div class="row py-15">
+                    <div class="text">
+                      {item.title}
+                        
+                    </div>
+                    <div class="phone">{item.agreeDate}</div>
+                </div>
+                {/each}
+                
+            </div>
+        </div>
 
             <div class="box"><div class="title">기기관리</div></div>
         </div>
@@ -295,7 +359,6 @@
                 }
             }
         }
-       
     }
     .yellow {
         background-color: #FFFF00;
@@ -321,30 +384,62 @@
         gap: 5px;
     }
     .body2 {
-            padding: 15px;
-            .row {
+        padding: 15px;
+        .row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            .avatar {
                 display: flex;
+                justify-content: center;
                 align-items: center;
-                margin-bottom: 10px;
-                .avatar {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    
-                    width: 48px;
-                    height: 48px;
-                    border-radius: 100%;
-                    background-color: #D9D9D9;
-                }
-                .text {
-                    margin: 0 20px;
-                    font-size: 16px;
-                    .top {
-                        color: #8E9192;
-                        font-size: 14px;
-                        padding-bottom: 5px;
-                    }
+
+                width: 48px;
+                height: 48px;
+                border-radius: 100%;
+                background-color: #D9D9D9;
+            }
+            .text {
+                margin: 0 20px;
+                font-size: 16px;
+                .top {
+                    color: #8E9192;
+                    font-size: 14px;
+                    padding-bottom: 5px;
                 }
             }
         }
+    }
+    .body3 {
+        padding: 15px 0;
+        .row {
+            display: flex;
+            align-items:flex-end;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #E1E3E4;
+            // padding: 8px 0;
+            .text {
+            
+                font-size: 12px;
+font-weight: 500;
+                .bottom {padding-top: 8px;
+                    color: #444748;
+                    font-size: 12px;
+                    font-weight: 400;
+                    
+                }
+            }
+            .phone {
+                color: #444748;
+                font-size: 12px;
+            }
+        }
+    }
+    .py-15{
+        padding: 15px 0;
+    }
+    .py-8{
+        padding: 8px 0;
+    }
 </style>

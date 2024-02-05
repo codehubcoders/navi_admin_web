@@ -93,7 +93,7 @@
       >
       <a
       href={"/agency-status"}
-      class="non-click {path == '/agency-status' ? 'click' : ''}">기관현황</a
+      class="non-click {path == '/agency-status' ? 'click' : ''}">통계현황</a
     >
       <!-- <a
         href={"/localmonitoring"}
@@ -118,7 +118,7 @@
       <!-- <Icon class="arrow-color" icon="mdi:chevron-up" /> -->
     </button>
     <div class="dropdown-container">
-      <a href={"/member"} class="non-click {path == '/member' ? 'click' : ''}"
+      <a href={"/member"} class="non-click {path == '/member' ? 'click' : ''} {path == '/member/detail' ? 'click' : ''}"
         >회원관리</a
       >
       <a href={"/product"} class="non-click {path == '/product' ? 'click' : ''}"
