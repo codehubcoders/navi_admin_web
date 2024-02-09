@@ -93,7 +93,7 @@
       >
       <a
       href={"/agency-status"}
-      class="non-click {path == '/agency-status' ? 'click' : ''}">통계현황</a
+      class="non-click {path == '/agency-status' ? 'click' : ''}">기관현황</a
     >
       <!-- <a
         href={"/localmonitoring"}

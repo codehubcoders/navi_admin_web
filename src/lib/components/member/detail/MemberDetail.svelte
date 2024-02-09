@@ -1,4 +1,5 @@
 <script>
+	import ScrollTimePicker from './../../customComponents/scrollDatePicker/ScrollTimePicker.svelte';
     import AlarmCard from "./../../globalComponents/AlarmCard.svelte";
     import CollapsibleSection from "./Expand.svelte";
     import Icon from "@iconify/svelte";
@@ -145,6 +146,79 @@
             rightB: "해제",
         },
     ];
+    let body4 = [
+        {
+            week: "일",
+            day: [
+                {
+                    morning: "",
+                    lunch: "복용",
+                    evning: "",
+                },
+            ],
+        },
+        {
+            week: "월",
+            day: [
+                {
+                    morning: "",
+                    lunch: "복용",
+                    evning: "",
+                },
+            ],
+        },
+        {
+            week: "화",
+            day: [
+                {
+                    morning: "",
+                    lunch: "복용",
+                    evning: "",
+                },
+            ],
+        },
+
+        {
+            week: "수",
+            day: [
+                {
+                    morning: "",
+                    lunch: "미복용",
+                    evning: "",
+                },
+            ],
+        },
+        {
+            week: "목",
+            day: [
+                {
+                    morning: "",
+                    lunch: "복용",
+                    evning: "",
+                },
+            ],
+        },
+        {
+            week: "금",
+            day: [
+                {
+                    morning: "",
+                    lunch: "복용",
+                    evning: "관심",
+                },
+            ],
+        },
+        {
+            week: "토",
+            day: [
+                {
+                    morning: "",
+                    lunch: "미복용",
+                    evning: "",
+                },
+            ],
+        },
+    ];
 </script>
 
 <section class="member-detail">
@@ -201,6 +275,7 @@
                     <button class="btn-detail-gray">전체보기</button>
                 </div>
                 <div class="body2">
+                 
                     {#each body2 as item, index}
                         <div class="row">
                             <div class="avatar">
@@ -240,6 +315,68 @@
                             style="color: #5E72E4"
                         /></button
                     >
+                </div>
+                <div class="body4">
+                    <div class="head">
+                        <p>아침<span>설정없음</span></p>
+                        <p>점심<span>12:00</span></p>
+                        <p>저녁<span>19:00</span></p>
+                    </div>
+                    <div class="box-body4">
+                        <div class="week">
+                            <div class="day">
+                                <p class="mb-5">&nbsp;</p>
+                                <div class="day-h"><p>아침</p></div>
+                                <div class="day-h"><p>점심</p></div>
+                                <div class="day-h"><p>저녁</p></div>
+                            </div>
+                            {#each body4 as item}
+                            <div class="day">
+                                    <p class="mb-5" style={item.week == "일" ? "color:#F5365C" :item.week == "토" ?"color:#3D23E1" :"" }>{item.week}</p>
+                                    {#each item.day as subItem}
+                                        <div
+                                            class="color-box"
+                                            style={subItem.morning == ""
+                                                ? "background-color: #EBEBEB"
+                                                : subItem.morning == "복용"
+                                                ? "background-color: #2DCE89"
+                                                : subItem.morning == "관심"
+                                                ? "background-color: #FF9933"
+                                                : subItem.morning == "미복용"
+                                                ? "background-color: #F5365C"
+                                                : ""}
+                                        />
+                                        <div
+                                            class="color-box"
+                                            style={subItem.lunch == ""
+                                                ? "background-color: #EBEBEB"
+                                                : subItem.lunch == "복용"
+                                                ? "background-color: #2DCE89"
+                                                : subItem.lunch == "관심"
+                                                ? "background-color: #FF9933"
+                                                : subItem.lunch == "미복용"
+                                                ? "background-color: #F5365C"
+                                                : ""}
+                                        />
+                                        <div
+                                            class="color-box"
+                                            style={subItem.evning == ""
+                                                ? "background-color: #EBEBEB"
+                                                : subItem.evning == "복용"
+                                                ? "background-color: #2DCE89"
+                                                : subItem.evning == "관심"
+                                                ? "background-color: #FF9933"
+                                                : subItem.evning == "미복용"
+                                                ? "background-color: #F5365C"
+                                                : ""}
+                                        />
+                                    {/each}
+                            
+                            </div>
+                            {/each}
+                         
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- 카드5-->
@@ -311,30 +448,53 @@
                         </div>
                     {/each}
                 </div>
+                
             </div>
         </div>
         <!-- 카드9-->
-        <div class="box my-30"><div class="title">원격지원</div></div>
+        <div class="box my-30"><div class="title">원격지원</div>
+    <div class="body7">
+        <ScrollTimePicker />
+    </div>
+    </div>
         <!-- 카드10-->
         <div class="top" style="margin-bottom: 100px;">
-            <AlarmCard title="통화" >
+            <AlarmCard title="통화">
                 <div class="body6">
                     <div class="inner-card">
-                        <div class="head">통화 잔여시간  <span>갱신일 2023.01.05</span></div>
-                      
+                        <div class="head">
+                            통화 잔여시간 <span>갱신일 2023.01.05</span>
+                        </div>
+
                         <div class="body10">
-                            <div class="row">   <div class="text">영상통화 시간 제한</div></div>
-                            <div class="row">   <div class="text">10분/일</div><div class="text">10분/일</div></div>
-                            <div class="row">   <div class="text">120분/달</div><div class="text">65분/달</div></div>
+                            <div class="row">
+                                <div class="text">영상통화 시간 제한</div>
+                            </div>
+                            <div class="row">
+                                <div class="text">10분/일</div>
+                                <div class="text">10분/일</div>
+                            </div>
+                            <div class="row">
+                                <div class="text">120분/달</div>
+                                <div class="text">65분/달</div>
+                            </div>
                         </div>
                         <div class="body10">
-                            <div class="row">   <div class="text">영상통화 시간 제한</div></div>
-                            <div class="row">   <div class="text">10분/일</div><div class="text">10분/일</div></div>
-                            <div class="row">   <div class="text">120분/달</div><div class="text">65분/달</div></div>
+                            <div class="row">
+                                <div class="text">영상통화 시간 제한</div>
+                            </div>
+                            <div class="row">
+                                <div class="text">10분/일</div>
+                                <div class="text">10분/일</div>
+                            </div>
+                            <div class="row">
+                                <div class="text">120분/달</div>
+                                <div class="text">65분/달</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                </AlarmCard>
+            </AlarmCard>
         </div>
     </div>
 </section>
@@ -495,6 +655,49 @@
             }
         }
     }
+    .body4 {
+        .head {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            p {
+                color: #8E9192;
+                font-size: 14px;
+
+                span {
+                    color: #444748;
+                    font-weight: 500;
+                    padding-left: 5px;
+                }
+            }
+        }
+        .box-body4 {
+            text-align: center;
+            margin-top: 30px;
+            .week {
+                font-size: 15px;
+                font-weight: 500;
+                display: grid;
+                grid-template-columns: 0.8fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                gap: 0.8px;
+                margin-top: 10px;
+                .day {
+                    .color-box {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 48px;
+                    }
+                    .day-h{
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        height: 48px;
+                    }
+                }
+            }
+        }
+    }
     .body6 {
         max-height: 230px;
         padding: 20px;
@@ -530,15 +733,15 @@
                 padding: 20px;
                 background-color: #F8FAFB;
                 border-bottom: 1px solid #E1E3E4;
-                .row{
+                .row {
                     display: flex;
-                justify-content: space-between;
+                    justify-content: space-between;
                     .text {
                         margin-bottom: 5px;
-                    color: #191C1D;
-                    font-size: 12px;
-                    line-height: 1.2em;
-                }
+                        color: #191C1D;
+                        font-size: 12px;
+                        line-height: 1.2em;
+                    }
                 }
                 // .text {
                 //     color: #191C1D;
