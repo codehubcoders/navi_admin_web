@@ -1,4 +1,5 @@
 <script>
+	import AlarmModal from './modal/AlarmModal.svelte';
     import EditMenuMember from "./EditMenuMember.svelte";
     import ScrollTimePicker from "./../../customComponents/scrollDatePicker/ScrollTimePicker.svelte";
     import AlarmCard from "./../../globalComponents/AlarmCard.svelte";
@@ -97,6 +98,10 @@
             content: "화재신고 발생",
         },
     ];
+    let showAlarm = false;
+    const handleAlarmClick = () => {
+        showAlarm = !showAlarm;
+  };
     let body3 = [
         {
             name: "홍길동",
@@ -124,6 +129,13 @@
     import HartIcon from "../../../assets/icons/hart.svg";
     import BloodIcon from "../../../assets/icons/blood.svg";
     import O2kIcon from "../../../assets/icons/o2.svg";
+import HealthDetailModal from './modal/HealthDetailModal.svelte';
+import MedicationlModal from './modal/MedicationlModal.svelte';
+import TimePicker from './modal/TimePicker.svelte';
+     let showHealth = false;
+    const handleHealthClick = () => {
+        showHealth = !showHealth;
+    };
 
     let body5 = [
         {
@@ -185,6 +197,11 @@
             rightB: "해제",
         },
     ];
+
+     let showMedication= false;
+    const handleMedicationClick = () => {
+        showMedication = !showMedication;
+    };
     let body4 = [
         {
             week: "일",
@@ -306,6 +323,11 @@
             value: 5,
         },
     ];
+    export let showTemPicker = false;
+    const handleTimePickerClick = () => {
+        showTemPicker = !showTemPicker;
+    };
+
 </script>
 
 <section class="member-detail">
@@ -359,7 +381,8 @@
             <!-- 카드2 -->
             <AlarmCard title="최근알림">
                 <div slot="topicon">
-                    <button class="btn-detail-gray">전체보기</button>
+                    <button class="btn-detail-gray" on:click={handleAlarmClick}>전체보기</button>
+                    <AlarmModal {showAlarm} on:click={handleAlarmClick} />
                 </div>
                 <div class="body2">
                     {#each body2 as item, index}
@@ -391,10 +414,11 @@
                 </div>
             </div>
             <!-- 카드4-->
+            <MedicationlModal {showMedication}  on:click={handleMedicationClick}/>
             <div class="box">
                 <div class="title">
                     복약통계
-                    <button
+                    <button on:click={handleMedicationClick}
                         ><Icon
                             icon="bx:chart"
                             width="20"
@@ -473,7 +497,9 @@
                 </div>
             </div>
             <!-- 카드5-->
-            <div class="box">
+            <HealthDetailModal {showHealth} on:click={handleHealthClick} />
+            <div class="box" on:click={handleHealthClick}>
+            
                 <div class="title">
                     건강
                     <button class="btn-text"
@@ -555,7 +581,10 @@
             </div>
         </div>
         <!-- 카드9-->
+        
+
         <div class="py-15"></div>
+        <TimePicker {showTemPicker} on:click={handleTimePickerClick} />
         <AlarmCard title="원격지원">
             <div class="body9">
                 <div class="left-box">
@@ -599,11 +628,11 @@
                     </div>
                 </div>
                 <div class="right-box">
-                    <div class="w-box mb-15">
+                    <div class="w-box mb-15"  on:click={handleTimePickerClick}>
                         <div class="title mb-15">시작시간 설정</div>
                      <div class="picker">  <ScrollTimePicker /></div> 
                     </div>
-                    <div class="w-box">
+                    <div class="w-box"  on:click={handleTimePickerClick}>
                         <div class="title mb-15">종료시간 설정</div>
                         <div class="picker">  <ScrollTimePicker /></div> 
                     </div>

@@ -63,6 +63,11 @@
 
 <style lang="scss">
           @import 'src/lib/scss/style.scss';
+          .box {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(173, 181, 217, 0.4);}
     .table_border {
         width: 100%;
         border: 1px solid #A9ABAD;

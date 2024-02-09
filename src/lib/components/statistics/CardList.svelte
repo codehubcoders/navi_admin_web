@@ -38,7 +38,6 @@ import ChartModal from '../customComponents/modal/ChartModal.svelte';
       </div>
     </div>
   {/each}
-
 </div>
 
 <ChartModal title='평균 걸음' {showModal}  on:click={toggleModal} />
