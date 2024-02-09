@@ -60,7 +60,7 @@
 </script>
 
 <div class="scroll-picder">
-    {getHour} {getMinute} {getAPm}
+    <!-- {getHour} {getMinute} {getAPm} -->
     <div class="hour">
         {#each Array(12) as _, i}
             <div class="scroll-item">{1+i}</div>
@@ -93,13 +93,13 @@
         overflow-y: scroll;
         
         scroll-snap-type: x mandatory;
-        height: 95px;
+        height: 65px;
         width: 50px;
     }
 
     .scroll-item {
         scroll-snap-align: center;
-        height: 45px;
+        height: 30px;
         font-size: 14px;
         display: flex;
         align-items: center;

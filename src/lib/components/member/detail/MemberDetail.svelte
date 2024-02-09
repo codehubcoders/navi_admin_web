@@ -1,5 +1,6 @@
 <script>
-	import ScrollTimePicker from './../../customComponents/scrollDatePicker/ScrollTimePicker.svelte';
+    import EditMenuMember from "./EditMenuMember.svelte";
+    import ScrollTimePicker from "./../../customComponents/scrollDatePicker/ScrollTimePicker.svelte";
     import AlarmCard from "./../../globalComponents/AlarmCard.svelte";
     import CollapsibleSection from "./Expand.svelte";
     import Icon from "@iconify/svelte";
@@ -118,6 +119,44 @@
             phone: "010-1234-5678",
         },
     ];
+    import WarlkIcon from "../../../assets/icons/walk.svg";
+    import DistanceIcon from "../../../assets/icons/distance.svg";
+    import HartIcon from "../../../assets/icons/hart.svg";
+    import BloodIcon from "../../../assets/icons/blood.svg";
+    import O2kIcon from "../../../assets/icons/o2.svg";
+
+    let body5 = [
+        {
+            title: "걸음",
+            healthData: "8000",
+            unit: "걸음",
+            svg: WarlkIcon,
+        },
+        {
+            title: "거리",
+            healthData: "3.5",
+            unit: "km",
+            svg: DistanceIcon,
+        },
+        {
+            title: "맥박",
+            healthData: "72",
+            unit: "BPM",
+            svg: HartIcon,
+        },
+        {
+            title: "혈압",
+            healthData: "76/128",
+            unit: "mm/hg",
+            svg: BloodIcon,
+        },
+        {
+            title: "혈중산소",
+            healthData: "87",
+            unit: "SPo2",
+            svg: O2kIcon,
+        },
+    ];
     let body7 = [
         {
             title: "개인정보처리방침",
@@ -219,6 +258,54 @@
             ],
         },
     ];
+    let selectedSound = 1;
+    const onChangeSound = (value) => () => (selectedSound = value);
+    let soundLevel = [
+        {
+            levle: "0",
+            value: 1,
+        },
+        {
+            levle: "250",
+            value: 2,
+        },
+        {
+            levle: "50",
+            value: 3,
+        },
+        {
+            levle: "75",
+            value: 4,
+        },
+        {
+            levle: "100",
+            value: 5,
+        },
+    ];
+    let selectedDisplay = 1;
+    const onChangeDisplay = (value) => () => (selectedDisplay = value);
+    let displayLevel = [
+        {
+            levle: "0",
+            value: 1,
+        },
+        {
+            levle: "250",
+            value: 2,
+        },
+        {
+            levle: "50",
+            value: 3,
+        },
+        {
+            levle: "75",
+            value: 4,
+        },
+        {
+            levle: "100",
+            value: 5,
+        },
+    ];
 </script>
 
 <section class="member-detail">
@@ -275,7 +362,6 @@
                     <button class="btn-detail-gray">전체보기</button>
                 </div>
                 <div class="body2">
-                 
                     {#each body2 as item, index}
                         <div class="row">
                             <div class="avatar">
@@ -331,8 +417,17 @@
                                 <div class="day-h"><p>저녁</p></div>
                             </div>
                             {#each body4 as item}
-                            <div class="day">
-                                    <p class="mb-5" style={item.week == "일" ? "color:#F5365C" :item.week == "토" ?"color:#3D23E1" :"" }>{item.week}</p>
+                                <div class="day">
+                                    <p
+                                        class="mb-5"
+                                        style={item.week == "일"
+                                            ? "color:#F5365C"
+                                            : item.week == "토"
+                                            ? "color:#3D23E1"
+                                            : ""}
+                                    >
+                                        {item.week}
+                                    </p>
                                     {#each item.day as subItem}
                                         <div
                                             class="color-box"
@@ -371,10 +466,8 @@
                                                 : ""}
                                         />
                                     {/each}
-                            
-                            </div>
+                                </div>
                             {/each}
-                         
                         </div>
                     </div>
                 </div>
@@ -391,18 +484,29 @@
                         />업데이트 된 시간 09:00</button
                     >
                 </div>
+                <div class="body5">
+                    {#each body5 as item, int}
+                        <div
+                            class="row-data"
+                            style={int == 4 ? "border-bottom : none" : ""}
+                        >
+                            <div class="left">
+                                <span class="icon"
+                                    ><svelte:component this={item.svg} /></span
+                                >
+                                {item.title}
+                            </div>
+                            <div class="right">
+                                {item.healthData} <span>{item.unit}</span>
+                            </div>
+                        </div>
+                    {/each}
+                </div>
             </div>
             <!-- 카드6-->
             <AlarmCard title="최근 CS">
                 <div slot="topicon">
-                    <button
-                        ><Icon
-                            icon="ri:more-fill"
-                            width="20px"
-                            height="20px"
-                            style="color: #A9ABAD"
-                        /></button
-                    >
+                    <EditMenuMember />
                 </div>
                 <div class="body6">
                     <div class="inner-card">
@@ -448,15 +552,66 @@
                         </div>
                     {/each}
                 </div>
-                
             </div>
         </div>
         <!-- 카드9-->
-        <div class="box my-30"><div class="title">원격지원</div>
-    <div class="body7">
-        <ScrollTimePicker />
-    </div>
-    </div>
+        <div class="py-15"></div>
+        <AlarmCard title="원격지원">
+            <div class="body9">
+                <div class="left-box">
+                    <div class="w-box">
+                        <div class="title">테블릿 다시 시작하기</div>
+                        <button class="btn-primary"> 확인 </button>
+                    </div>
+                    <div class="w-box mt-15">
+                        <div class="title">앱 재부팅하기</div>
+                        <button class="btn-primary"> 확인 </button>
+                    </div>
+                </div>
+                <div class="center-box">
+                    <div class="w-box">
+                        <div class="title mb-10">소리크기</div>
+                        <div class="sound-level">
+                            {#each soundLevel as item}
+                                <button
+                                    class="sound {item.value == selectedSound
+                                        ? 'selected'
+                                        : ''}"
+                                    on:click={onChangeSound(item.value)}
+                                    >{item.levle}</button
+                                >
+                            {/each}
+                        </div>
+                    </div>
+                    <div class="w-box mt-15">
+                        <div class="title mb-10">화면밝기</div>
+                        <div class="sound-level">
+                            {#each displayLevel as item}
+                                <button
+                                    class="sound {item.value == selectedDisplay
+                                        ? 'selected'
+                                        : ''}"
+                                    on:click={onChangeDisplay(item.value)}
+                                    >{item.levle}</button
+                                >
+                            {/each}
+                        </div>
+                    </div>
+                </div>
+                <div class="right-box">
+                    <div class="w-box mb-15">
+                        <div class="title mb-15">시작시간 설정</div>
+                     <div class="picker">  <ScrollTimePicker /></div> 
+                    </div>
+                    <div class="w-box">
+                        <div class="title mb-15">종료시간 설정</div>
+                        <div class="picker">  <ScrollTimePicker /></div> 
+                    </div>
+                </div>
+            </div>
+        </AlarmCard>
+        <div class="py-15"></div>
+
         <!-- 카드10-->
         <div class="top" style="margin-bottom: 100px;">
             <AlarmCard title="통화">
@@ -688,12 +843,42 @@
                         justify-content: center;
                         height: 48px;
                     }
-                    .day-h{
+                    .day-h {
                         display: flex;
                         align-items: center;
                         justify-content: flex-start;
                         height: 48px;
                     }
+                }
+            }
+        }
+    }
+    .body5 {
+        margin-top: 10px;
+        .row-data {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #d9d9d9;
+            padding: 12px 0;
+
+            .left {
+                display: flex;
+                align-items: center;
+                font-size: 14px;
+                font-weight: 300;
+                span {
+                    margin-right: 10px;
+                }
+            }
+            .right {
+                font-size: 20px;
+                font-weight: 600;
+                span {
+                    font-size: 14px;
+                    color: #AFAFAF;
+                    font-weight: 300;
+                    margin-left: 5px;
                 }
             }
         }
@@ -751,6 +936,7 @@
             }
         }
     }
+
     .body8 {
         max-height: 230px;
         padding: 15px 0;
@@ -782,6 +968,70 @@
                 }
             }
         }
+    }
+    .body9 {
+        padding: 15px 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 15px;
+        .left-box {
+            .w-box {
+                height: 75px;
+                background-color: white;
+                border-radius: 8px;
+                padding: 0px 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 12px;
+                font-weight: 400;
+            }
+        }
+        .center-box {
+            .w-box {
+                height: 75px;
+                background-color: white;
+                border-radius: 8px;
+                padding: 0px 10px;
+                font-size: 12px;
+                font-weight: 400;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .sound-level {
+                    padding: 5px 5px;
+                    background-color: #EFF1F2;
+                    border-radius: 8px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .sound {
+                        font-size: 10px;
+                        padding: 3px 15px;
+                        border-radius: 4px;
+                    }
+                }
+            }
+        }
+        .right-box {
+            .w-box {
+                background-color: white;
+                border-radius: 8px;
+                padding: 10px 15px;
+                font-size: 12px;
+                font-weight: 400;
+                .picker{
+                      display: flex;
+                justify-content: center;
+                align-items: center;
+                }
+        
+               
+            }
+        }
+    }
+    .selected {
+        background-color: white;
     }
     .py-15 {
         padding: 15px 0;
