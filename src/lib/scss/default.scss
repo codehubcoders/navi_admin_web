@@ -356,6 +356,16 @@ button {
         font-size: 13px;
 
     }
+    &-white {
+        background-color:  $white-color;;
+        color: $primary-color;
+        padding: 9px 14px;
+        width: fit-content;
+        font-size: 12px;
+        font-weight: 500;
+        border: 1px solid  $primary-color;
+
+    }
     .w{
         color: white;
     }

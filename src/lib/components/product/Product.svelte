@@ -1,11 +1,11 @@
 <script>
-	import SearchTableProduct from './../customComponents/table/SearchTableProduct.svelte';
+	import SearchTableProduct from './SearchTableProduct.svelte';
+	// import SearchTableProduct from './../customComponents/table/SearchTableProduct.svelte';
 	import ProductTop from './ProductTop.svelte';
 
 </script>
 <section>
 <ProductTop/>
-
 <SearchTableProduct />
 </section>
 

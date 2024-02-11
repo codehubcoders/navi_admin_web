@@ -6,12 +6,13 @@
     export let signUp;
     export let myPage;
     export let disabled;
+    export let defalut;
     export let value ="";
 </script>
 
 <div class="input-madal">
     <label class="label{signUp ? '-sign-up': register ? '-register' : myPage ? '-my-page' : ''} ">{label}</label>
-    <input {placeholder} type="text" disabled={disabled} value={value}>
+    <input {placeholder} type="text" disabled={disabled} value={value} >
 </div>
 
 <style lang="scss">
@@ -36,6 +37,7 @@
                 font-size: 16px;
                 color: #444748;
             }
+         
         }
         input {
             color: #8E9192;

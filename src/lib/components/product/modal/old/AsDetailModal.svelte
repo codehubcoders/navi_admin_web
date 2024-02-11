@@ -1,7 +1,7 @@
 <script>
     import ModalInputForm from "./../globalComponents/ModalTextForm.svelte";
     export let showAsDetailModal = true;
-    let asHistoryList = [
+   ../../../globalComponents/ModalTextForm.svelte
         {
             history : '상자불량',
             state: '교환',
