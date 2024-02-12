@@ -1,32 +1,20 @@
 <script>
-	import TabsMember from './../customComponents/tabs/TabsMember.svelte';
 	import EditButton from './../globalComponents/EditButton.svelte';
     import CardsNotice from "./CardsNotice.svelte";
     import MoreMenuNotice from "./moreMenuNotice.svelte";
     import AlarmCard from "./../globalComponents/AlarmCard.svelte";
-    import NotificationTop from "./NotificationTop.svelte";
-import Tab1 from './tabs/Tab1.svelte';
-import Tab2 from './tabs/Tab2.svelte';
-import Tab3 from './tabs/Tab3.svelte';
-    export let activeTabValue = 1;
-  let items = [
-    { label: "나비회원", value: 1, component: Tab1},
-    { label: "모바일회원", value: 2,  component: Tab2},
-    { label: "지역관리자", value: 3,  component: Tab3},
-
-  ];
+    // import NotificationTop from "./NotificationTop.svelte";
 </script>
 
 <section class="notification">
-    <NotificationTop />
-    <TabsMember {items}  {activeTabValue}/> 
-    <!-- <div class="card-area">
+    
+    <div class="card-area">
         <AlarmCard title="공지(4)">
             <p slot="topicon"><MoreMenuNotice /></p>
             <div class="content"><CardsNotice /><CardsNotice /></div>
             <EditButton />
         </AlarmCard>
-    </div> -->
+    </div>
 </section>
 
 <style lang="scss">
