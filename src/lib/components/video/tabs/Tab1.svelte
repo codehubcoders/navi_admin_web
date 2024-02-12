@@ -1,43 +1,48 @@
 <script>
+	import CreateVideo from './../modal/CreateVideo.svelte';
     import Icon from "@iconify/svelte";
     // import ProductDetailModal from "./modal/ProductDetailModal.svelte";
     import FixedIcon from "../../../assets/icons/fixed.svg";
-    let newsTab1Table = [
+    let videoTab1Table = [
         {
             Thumbnail: "fix",
-            title: "겨울철 미끄럼 방지 예방",
+            title: "집에서 할 수 있는 건강튼튼영상",
+            state: "전체",
             agency: "전체",
             tag: "건강",
             startDate: "2023.12.12",
             endDate: "2024.02.21",
-            clickNum: 123,
+            
         },
         {
             Thumbnail: "fix",
-            title: "식중독 예방을 위한 10가지 방법",
+            title: "노인 낙상예방운동",
+            state: "서울시 강남구",
             agency: "노인복지센터",
             tag: "홍보",
             startDate: "2023.12.12",
             endDate: "2024.02.21",
-            clickNum: 123,
+            
         },
         {
             Thumbnail: "",
-            title: "겨울철 미끄럼 방지 예방",
+            title: "7분 하체운동",
+            state: "인천서구",
             agency: "치매안심센터",
             tag: "기타",
             startDate: "2023.12.12",
             endDate: "2024.02.21",
-            clickNum: 123,
+            
         },
         {
             Thumbnail: "",
-            title: "식중독 예방을 위한 10가지 방법",
+            title: "두뇌쑥쑥 체조",
+            state: "전체",
             agency: "전체",
             tag: "기타",
             startDate: "2023.12.12",
             endDate: "2024.02.21",
-            clickNum: 123,
+            
         },
     ];
     let process = false;
@@ -53,9 +58,9 @@
 
     function searchNewsTab1Table() {
         var input, filter, table, tr, i;
-        input = document.getElementById("searchNewsTab1");
+        input = document.getElementById("searchVideoTab1");
         filter = input.value.toUpperCase().split(" ");
-        table = document.getElementById("newsTab1-data-table");
+        table = document.getElementById("videoTab1-data-table");
         tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
             const tableData = tr[i].getElementsByTagName("td");
@@ -74,7 +79,7 @@
         }
     }
 
-    function sortNewsTab1Table(n) {
+    function sortVideoTab1Table(n) {
         var table,
             rows,
             switching,
@@ -84,7 +89,7 @@
             shouldSwitch,
             dir,
             switchcount = 0;
-        table = document.getElementById("newsTab1-data-table");
+        table = document.getElementById("videoTab1-data-table");
         switching = true;
         dir = "asc";
         while (switching) {
@@ -118,11 +123,18 @@
             }
         }
     }
+
+    export let showCreateVideo = false;
+    const handleCreateVideo = () => {
+        showCreateVideo = !showCreateVideo;
+    };
+  
 </script>
 
 <section class="seach-sort-table">
+    <CreateVideo {showCreateVideo}  on:click={handleCreateVideo}/>
     <div class="seach-sort-table__header">
-        <p class="title">공통소식</p>
+        <p class="title">영상 관리</p>
         <div class="right">
             <button class="btn-white" on:click={handleProcess}>
                 {#if process}
@@ -136,13 +148,12 @@
             {/if}
 
             {#if !process}
-                <a href="/news/register">
-                    <button class="btn-primary-border-none" on:click
+           
+                    <button class="btn-primary-border-none" on:click={handleCreateVideo}
                         >등록</button
-                    ></a
                 >
                 <div class="search-input">
-                    <input type="text" id="searchNewsTab1" placeholder="검색" />
+                    <input type="text" id="searchVideoTab1" placeholder="검색" />
                     <Icon icon="iconamoon:search" color="#c5c7c8" width="18" />
                 </div>
                 <button
@@ -155,19 +166,20 @@
     </div>
 
     <div id="data-table" class="seach-sort-table__table">
-        <table id="newsTab1-data-table">
+        <table id="videoTab1-data-table">
             <thead>
                 <tr>
                     <th>썸네일</th>
-                    <th on:click={() => sortNewsTab1Table(1)}>제목 <Icon
+                    <th on:click={() => sortVideoTab1Table(1)}>제목 <Icon
                         icon="fluent:arrow-fit-16-filled"
                         color="#e1e3e4"
                         width="15"
                         rotate={1}
                     /></th>
+                    <th>게시지역</th>
                     <th>주관기관</th>
                     <th>태그</th>
-                    <th on:click={() => sortNewsTab1Table(4)}
+                    <th on:click={() => sortVideoTab1Table(4)}
                         >게시기간 <Icon
                             icon="fluent:arrow-fit-16-filled"
                             color="#e1e3e4"
@@ -175,7 +187,7 @@
                             rotate={1}
                         /></th
                     >
-                    <th>조회수</th>
+               
 
                     <th>
                         {#if process}
@@ -184,7 +196,7 @@
                                     type="checkbox"
                                     on:click={toggleAll}
                                     checked={processSelected.length ==
-                                        newsTab1Table.length}
+                                        videoTab1Table.length}
                                 /></label
                             >
                         {:else}
@@ -194,7 +206,7 @@
                 </tr>
             </thead>
             <tbody>
-                {#each newsTab1Table as item, int}
+                {#each videoTab1Table as item, int}
                     <tr>
                         <td>
                             <div class="thumbnail">
@@ -205,11 +217,11 @@
                             </div>
                         </td>
                         <td>{item.title}</td>
+                        <td>{item.state}</td>
                         <td>{item.agency}</td>
                         <td>{item.tag}</td>
-                        
                         <td>{item.startDate} - {item.endDate}</td>
-                        <td>{item.clickNum}</td>
+                      
 
                         <td>
                             {#if process}

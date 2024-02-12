@@ -58,30 +58,8 @@
         </div>
     </div>
 
-    <div class="radio-box">
-        <div class="radio-title">주관기관</div>
-        <div class="radio">
-            <SelectBox {items} placeholder="전체" long />
-        </div>
-    </div>
+  
 
-    <div class="radio-box">
-        <div class="radio-title">마감</div>
-        <div class="radio">
-            {#each dadlineRadio as item, index}
-                <label style={selectedDeadline != item ? "color:#757779" : ""}>
-                    <input
-                        checked={selectedDeadline == item}
-                        on:change={onChangeDeadline}
-                        type="radio"
-                        name="dedline"
-                        value={item}
-                    />
-                    <span class="fw-500"> {item}</span>
-                </label>
-            {/each}
-        </div>
-    </div>
 
     <div class="radio-box">
         <div class="radio-title">태그</div>
@@ -98,6 +76,12 @@
                     <span class="fw-500"> {item}</span>
                 </label>
             {/each}
+        </div>
+    </div>
+    <div class="radio-box">
+        <div class="radio-title">주관기관</div>
+        <div class="radio">
+            <SelectBox {items} placeholder="전체" long />
         </div>
     </div>
 

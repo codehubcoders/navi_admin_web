@@ -3,13 +3,13 @@
 
 	// import ModalITextAreaForm from './../../globalComponents/ModalITextAreaForm.svelte';
 	import ModalTextForm from './../../globalComponents/ModalTextForm.svelte';
-
+let fixed ;
 </script>
 <section class="register">
 <div class="register__header">
     <p>소식등록</p>
     <div class="round">
-        <input type="checkbox" checked id="checkbox" />
+        <input type="checkbox"  id="checkbox" value={fixed}/>
         <label for="checkbox"> </label>
         <div class="label">고정</div>
       </div>
