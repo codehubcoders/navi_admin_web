@@ -29,10 +29,11 @@
     function datePickerOnOff(){
         showDatePicker = !showDatePicker;
     }
+    export let width;
 </script>
 
 <div class="date-picker">
-    <button class="date-picker__btn"  on:click|stopPropagation={handleDatePickerOpen} >
+    <button class="date-picker__btn" style="width:{width}" on:click|stopPropagation={handleDatePickerOpen} >
         {#if startDate == ""}
             <Icon icon="uiw:date" color="#1b1b1b" width="15" />
         {:else}
@@ -50,7 +51,7 @@
           @import 'src/lib/scss/style.scss';
     .date-picker {
         &__btn {
-            min-width: 120px;
+            // min-width: 120px;
             height: 30px;
             background-color: #F5F5F5;
             border-radius: 4px;

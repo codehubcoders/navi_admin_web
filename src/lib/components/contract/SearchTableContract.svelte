@@ -1,45 +1,53 @@
 <script>
-	import SelectBox from './../customComponents/selectbox/SelectBox.svelte';
-
-  import { onMount } from "svelte";
+	import { goto } from '$app/navigation';
   import Icon from "@iconify/svelte";
+  import CreateContract from "./modal/CreateContract.svelte";
+  function moveDetail() {
+    goto(`/contract/detail`);
+}
 
-  let csTable = [
+  let contractTable = [
     {
-      csCode: "148559896",
-      csCategory: "설치 및 회수",
-      receiptCategory :"어르신",
-      name: "오동석",
-      phone: "010-1234-5678",
-      status: "처리중",
-      creatDate: "2023.12.12",
+      number: "2312S0112301001",
+      subject: "치매안심센터",
+      dot: true,
+      method: "구매",
+      state: "서울특별시 어디구",
+      startDate: "2023.06.01",
+      endDate: "2024.03.01",
+      supportNumber: "14855896",
+      yellow: true,
     },
     {
-      csCode: "2401B0001",
-      csCategory: "서비스 이용",
-      receiptCategory :"보호자",
-      name: "김특허",
-      phone: "010-1234-5678",
-      status: "처리완료",
-      creatDate: "2023.12.14",
+      number: "2312S0112301001",
+      subject: "노인복지회관",
+      dot: false,
+      method: "렌탈",
+      state: "서울특별시 어디구",
+      startDate: "2023.06.01",
+      endDate: "2024.03.01",
+      supportNumber: "14855896",
     },
     {
-      csCode: "2401C0001",
-      csCategory: "제품이용",
-      receiptCategory :"관리자",
-      name: "하나비",
-      phone: "010-1234-5678",
-      status: "해결불가",
-      creatDate: "2023.12.13",
+      number: "2312S0112301001",
+      subject: "강남구복지관",
+      dot: false,
+      method: "시범",
+      state: "서울특별시 어디구",
+      startDate: "2023.06.01",
+      endDate: "2024.03.01",
+      supportNumber: "14855896",
+      yellow: true,
     },
     {
-      csCode: "2401D0001",
-      csCategory: "고장 및 수리",
-      receiptCategory :"기타",
-      name: "이어른",
-      phone: "010-1234-5678",
-      status: "접수",
-      creatDate: "2023.03.01",
+      number: "2312S0112301001",
+      subject: "경기도 청",
+      dot: false,
+      method: "유지보수",
+      state: "서울특별시 어디구",
+      startDate: "2023.12.00",
+      endDate: "2024.02.00",
+      supportNumber: "14855896",
     },
   ];
   // let current = "name";
@@ -67,11 +75,11 @@
   //   });
   // });
 
-  function searchCsTable() {
+  function searchContractTable() {
     var input, filter, table, tr, i;
-    input = document.getElementById("searchCs");
+    input = document.getElementById("searchContract");
     filter = input.value.toUpperCase().split(" ");
-    table = document.getElementById("cs-data-table");
+    table = document.getElementById("contract-data-table");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
       const tableData = tr[i].getElementsByTagName("td");
@@ -90,7 +98,7 @@
     }
   }
 
-  function sortCsTable(n) {
+  function sortContractTable(n) {
     var table,
       rows,
       switching,
@@ -100,7 +108,7 @@
       shouldSwitch,
       dir,
       switchcount = 0;
-    table = document.getElementById("cs-data-table");
+    table = document.getElementById("contract-data-table");
     switching = true;
     dir = "asc";
     while (switching) {
@@ -134,109 +142,100 @@
       }
     }
   }
-  let items = [
-    { title: "10명", value: 1 },
-    { title: "20명", value: 2 },
-  ];
+
+  let showCreateContract;
+  const handleCreateContract = () => {
+    showCreateContract = !showCreateContract;
+  };
 </script>
 
 <section class="seach-sort-table">
   <div class="seach-sort-table__header">
-    <p class="title">CS관리</p>
+    <p class="title">계약관리</p>
     <div class="right">
-    <a href="/cs/cs-register"> <button
-      class="btn-primary-border-none"
-   >등록</button
-    ></a> 
+      <button class="btn-primary-border-none" on:click={handleCreateContract}
+        >등록</button
+      >
       <div class="search-input">
-        <input type="text" id="searchCs" placeholder="검색" />
+        <input type="text" id="searchContract" placeholder="검색" />
         <Icon icon="iconamoon:search" color="#c5c7c8" width="18" />
       </div>
       <button
         class="btn-primary-border-none"
         id="search-btn"
-        on:click={searchCsTable}>검색</button
+        on:click={searchContractTable}>검색</button
       >
     </div>
   </div>
-  <!-- <div class="seach-sort-table__sortBtns">
-    <div class="buttons">
-      <button class:active={current === "status"} id="statusSort"
-        >처리현황</button
-      >|
-      <button class:active={current === "cs"} id="csSort">CS구분</button>|
-      <button class:active={current === "member"} id="memberSort"
-        >회원구분</button
-      >|
-      <button class:active={current === "local"} id="localSort">설치지역</button
-      >
-    </div>
-    
-    <SelectBox {items} />
-  </div> -->
+
   <div id="data-table" class="seach-sort-table__table">
-    <table id="cs-data-table">
+    <table id="contract-data-table">
       <thead>
         <tr>
-          <th on:click={() => sortCsTable(0)}
-            >CS관리코드 <Icon
+          <th on:click={() => sortContractTable(0)}
+            >계약번호 <Icon
               icon="fluent:arrow-fit-16-filled"
               color="#e1e3e4"
               width="15"
               rotate={1}
             /></th
           >
-          <th on:click={() => sortCsTable(1)}
-            >CS유형 <Icon
+          <th on:click={() => sortContractTable(1)}
+            >계약대상 <Icon
               icon="fluent:arrow-fit-16-filled"
               color="#e1e3e4"
               width="15"
               rotate={1}
             /></th
           >
-          <th on:click={() => sortCsTable(2)}
-            >접수유형 <Icon
+          <th on:click={() => sortContractTable(2)}
+            >계약방법 <Icon
               icon="fluent:arrow-fit-16-filled"
               color="#e1e3e4"
               width="15"
               rotate={1}
             /></th
           >
-          <th>성함</th>
-          <th
-            >연락처 </th
+
+          <th on:click={() => sortContractTable(3)}
+            >지역 <Icon
+              icon="fluent:arrow-fit-16-filled"
+              color="#e1e3e4"
+              width="15"
+              rotate={1}
+            /></th
           >
-          <th on:click={() => sortCsTable(5)}>처리현황<Icon
-            icon="fluent:arrow-fit-16-filled"
-            color="#e1e3e4"
-            width="15"
-            rotate={1}
-          /></th>
-          <th 
-            >등록일자</th
+          <th>기간</th>
+          <th on:click={() => sortContractTable(5)}
+            >조달청 계약번호 <Icon
+              icon="fluent:arrow-fit-16-filled"
+              color="#e1e3e4"
+              width="15"
+              rotate={1}
+            /></th
           >
-          <th>세부정보</th>
         </tr>
       </thead>
       <tbody>
-        {#each csTable as item}
-          <tr>
-            <td>{item.csCode}</td>
-            <td>{item.csCategory}</td>
-            <td>{item.receiptCategory}</td>
+        {#each contractTable as item}
+          <tr style={item.yellow == true ? "background-color:#FFFF00" : ""} on:click={moveDetail}>
             <td
-              ><p>{item.name}</p>
-        </td
-            >
-            <td>{item.phone}</td>
-            <td>{item.status}</td>
-            <td>{item.creatDate}</td>
-            <td><a href="/cs/detail"><button class="btn-detail-gray m-auto">상세내역</button></a></td>
+              >{item.number}
+              {#if item.dot == true}
+                <span class="red-dot">●</span>
+              {/if}
+            </td>
+            <td>{item.subject}</td>
+            <td>{item.method}</td>
+            <td><p>{item.state}</p></td>
+            <td>{item.startDate}-{item.endDate}</td>
+            <td>{item.supportNumber}</td>
           </tr>
         {/each}
       </tbody>
     </table>
   </div>
+  <CreateContract {showCreateContract} on:click={handleCreateContract} />
 </section>
 <div class="pagenation mt-20">
   <button class="round-box">
@@ -248,12 +247,13 @@
     <Icon icon="ep:arrow-right-bold" />
   </button>
 </div>
+
 <style lang="scss">
-        @import 'src/lib/scss/style.scss';
+  @import "src/lib/scss/style.scss";
   .seach-sort-table {
     background-color: white;
     border-radius: 16px;
-    margin-top: 30px;
+    margin-top: 10px;
     &__header {
       padding: 20px;
       display: flex;
@@ -262,9 +262,7 @@
       @media (max-width: 535px) {
         display: inline-block;
       }
-      button {
-        color: white;
-      }
+
       .title {
         font-size: 18px;
         font-weight: 500;
@@ -328,6 +326,7 @@
         }
         tbody {
           tr td {
+            cursor: pointer;
             vertical-align: middle;
             padding: 20px 0;
             text-align: center;
@@ -350,5 +349,10 @@
     display: block;
     color: #E1E3E4;
     font-size: 12px;
+  }
+
+  .red-dot {
+    color: #f5365c;
+    font-size: 8px;
   }
 </style>

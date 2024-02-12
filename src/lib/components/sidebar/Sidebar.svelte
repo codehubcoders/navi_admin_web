@@ -127,7 +127,7 @@
       <a href={"/cs"} class="non-click {path == '/cs' ? 'click' : ''}{path =='/cs/detail' ? 'click' : ''}{path =='/cs/cs-register' ? 'click' : ''}">CS관리</a
       >
 
-      <a href={"/contract"} class="non-click {path == '/contract' ? 'click' : ''}"
+      <a href={"/contract"} class="non-click {path == '/contract' ? 'click' : ''}{path == '/contract/detail' ? 'click' : ''} "
       >계약관리</a
     >
       <a href={"/local"} class="non-click {path == '/local' ? 'click' : ''}"
