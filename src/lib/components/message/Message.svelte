@@ -1,4 +1,5 @@
 <script>
+	import SearchMessageTable from './SearchMessageTable.svelte';
     import AlarmCard from "./../globalComponents/AlarmCard.svelte";
     import Icon from "@iconify/svelte";
     let textList = [
@@ -37,11 +38,11 @@
 
     ]
 </script>
-
+<button class="btn-primary  mt-5">Excel다운로드</button>
 <section class="message">
     <div class="message__card">
         <AlarmCard title="119 문자내용 예시">
-            <p slot="topicon"><Icon icon="uiw:more" color="#a9abad" /></p>
+            <p slot="topicon"><button class="btn-white-small">수정하기</button></p>
             <div class="content">
                 <div class="box">
                     <div class="top_text">
@@ -64,7 +65,7 @@
             </div>
         </AlarmCard>
         <AlarmCard title="나비 APP 문자">
-            <p slot="topicon"><Icon icon="uiw:more" color="#a9abad" /></p>
+            <p slot="topicon"><button class="btn-white-small">수정하기</button></p>
             <div class="content">
                 <div class="box">
                     <div class="top_text">
@@ -85,6 +86,7 @@
             </div>
         </AlarmCard>
     </div>
+    <SearchMessageTable />
 </section>
 
 <style lang="scss">
@@ -108,10 +110,15 @@
                     background-color: #F8FAFB;
                     padding: 15px;
                     .top_text{
+                        color: #191C1D;
                         font-size: 12px;
+                        border: 1px solid #E1E3E4;
+                        background-color: white;
+                        border-radius: 8px;
+                        padding: 10px 15px;
                         font-weight: 400;
                         // width: 255px;
-                        line-height: 1.25em;
+                        line-height: 1.5em;
                     
                     }
                     .title{
@@ -120,7 +127,7 @@
                         padding: 15px 0;
                     }
                     .text-box{
-         
+                      
                         width: 100%;
                         display: flex;
                         padding-bottom: 13px;
@@ -139,4 +146,16 @@
             }
         }
     }
+
+.btn-white-small{
+    color: #2E3132;
+    font-size: 12px;
+    border: 1px solid #757779;
+    border-radius: 4px;
+    padding: 2px 8px;
+}
+
+.btn-primary {
+    margin:  0 0 0 auto;
+}
 </style>
