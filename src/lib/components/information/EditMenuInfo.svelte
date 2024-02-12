@@ -1,4 +1,5 @@
 <script>
+	import CreateAgree from './modal/CreateAgree.svelte';
 	import EditButton from './../globalComponents/EditButton.svelte';
     import Icon from "@iconify/svelte";
 
@@ -13,15 +14,21 @@ export	function handleMenuOpen() {
 		console.log('close')
 		document.body.removeEventListener('click', handleMenuClose)
 	}
-</script>
 
+ let showCreateAgree = false;
+    const handleCreateAgree = () => {
+        showCreateAgree = !showCreateAgree;
+    };
+
+</script>
+<CreateAgree {showCreateAgree} on:click={handleCreateAgree}/>
 <div class="more-menu">
     <button  on:click|stopPropagation={handleMenuOpen} class="icon"
     ><EditButton /></button
     >
     {#if showMenu}
         <div class="menu" on:click|stopPropagation={handleMenuClose}>
-            <p>
+            <p  on:click={handleCreateAgree}>
                 <span><Icon icon="mynaui:send" width="15" /></span>공지등록
             </p>
 
