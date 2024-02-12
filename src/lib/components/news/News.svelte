@@ -1,49 +1,27 @@
 <script>
-    import EditMenuNews from "./EditMenuNews.svelte";
-    import CardNews from "./CardNews.svelte";
-    import AlarmCard from "./../globalComponents/AlarmCard.svelte";
-    import Icon from "@iconify/svelte";
+import TabsMember from "../customComponents/tabs/TabsMember.svelte";
+import NewsTop from "./NewsTop.svelte";
+import Tab1 from "./tabs/Tab1.svelte";
+import Tab2 from "./tabs/Tab2.svelte";
+
+
+export let activeTabValue = 1;
+  let items = [
+    { label: "공통소식", value: 1, component: Tab1},
+    { label: "지역소식", value: 2,  component: Tab2},
+
+  ];
 </script>
 
 <section class="news">
-    <div class="news__card">
-        <AlarmCard title="공통소식(5)">
-            <div slot="topicon" class="search-area">
-                <div class="search-input">
-                    <input type="text" id="search" placeholder="검색" />
-                    <Icon icon="iconamoon:search" color="#c5c7c8" width="18" />
-                </div>
-                <button class="btn-primary-border-none" id="search-btn" on:click
-                    >검색</button
-                >
-            </div>
-            <div class="content">
-                <CardNews />
-            </div>
-            <EditMenuNews />
-        </AlarmCard>
-        <AlarmCard title="지역소식(5)">
-            <div slot="topicon" class="search-area">
-                <div class="search-input">
-                    <input type="text" id="search" placeholder="검색" />
-                    <Icon icon="iconamoon:search" color="#c5c7c8" width="18" />
-                </div>
-                <button class="btn-primary-border-none" id="search-btn" on:click
-                    >검색</button
-                >
-            </div>
-            <div class="content">
-                <CardNews />
-            </div>
-            <EditMenuNews />
-        </AlarmCard>
-    </div>
+    <NewsTop />
+    <TabsMember {items}  {activeTabValue}/> 
 </section>
 
 <style lang="scss">
           @import 'src/lib/scss/style.scss';
     .news {
-        margin-top: 10px;
+        // margin-top: 10px;
         &__card {
       
             display: grid;

@@ -1,9 +1,6 @@
 <script>
 	import TabsMember from './../customComponents/tabs/TabsMember.svelte';
-	import EditButton from './../globalComponents/EditButton.svelte';
-    import CardsNotice from "./CardsNotice.svelte";
-    import MoreMenuNotice from "./moreMenuNotice.svelte";
-    import AlarmCard from "./../globalComponents/AlarmCard.svelte";
+
     import NotificationTop from "./NotificationTop.svelte";
 import Tab1 from './tabs/Tab1.svelte';
 import Tab2 from './tabs/Tab2.svelte';

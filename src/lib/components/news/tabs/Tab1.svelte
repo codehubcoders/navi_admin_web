@@ -1,44 +1,43 @@
 <script>
-
     import Icon from "@iconify/svelte";
     // import ProductDetailModal from "./modal/ProductDetailModal.svelte";
-
-    let noticeTab1Table = [
+    import FixedIcon from "../../../assets/icons/fixed.svg";
+    let newsTab1Table = [
         {
+            Thumbnail: "fix",
             title: "겨울철 미끄럼 방지 예방",
             agency: "전체",
-            state: "전체",
-            createDate: "2023.12.01",
+            tag: "건강",
             startDate: "2023.12.12",
             endDate: "2024.02.21",
             clickNum: 123,
         },
         {
+            Thumbnail: "fix",
             title: "식중독 예방을 위한 10가지 방법",
-            agency: "강남구청",
-            state: "서울시 강남구",
-            createDate: "2023.12.01",
+            agency: "노인복지센터",
+            tag: "홍보",
             startDate: "2023.12.12",
             endDate: "2024.02.21",
-            clickNum: 132,
+            clickNum: 123,
         },
         {
+            Thumbnail: "",
             title: "겨울철 미끄럼 방지 예방",
-            agency: "인천서구 치매안심센터",
-            state: "인천광역시 서구",
-            createDate: "2023.12.01",
+            agency: "치매안심센터",
+            tag: "기타",
             startDate: "2023.12.12",
             endDate: "2024.02.21",
-            clickNum: 231,
+            clickNum: 123,
         },
         {
+            Thumbnail: "",
             title: "식중독 예방을 위한 10가지 방법",
             agency: "전체",
-            state: "전체",
-            createDate: "2023.12.01",
+            tag: "기타",
             startDate: "2023.12.12",
             endDate: "2024.02.21",
-            clickNum: 512,
+            clickNum: 123,
         },
     ];
     let process = false;
@@ -52,12 +51,11 @@
         selected = e.target.checked ? [...items] : [];
     }
 
-
-    function searchNoticeTab1Table() {
+    function searchNewsTab1Table() {
         var input, filter, table, tr, i;
-        input = document.getElementById("searchTab1");
+        input = document.getElementById("searchNewsTab1");
         filter = input.value.toUpperCase().split(" ");
-        table = document.getElementById("tab1-data-table");
+        table = document.getElementById("newsTab1-data-table");
         tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
             const tableData = tr[i].getElementsByTagName("td");
@@ -76,7 +74,7 @@
         }
     }
 
-    function sortTab1Table(n) {
+    function sortNewsTab1Table(n) {
         var table,
             rows,
             switching,
@@ -86,7 +84,7 @@
             shouldSwitch,
             dir,
             switchcount = 0;
-        table = document.getElementById("tab1-data-table");
+        table = document.getElementById("newsTab1-data-table");
         switching = true;
         dir = "asc";
         while (switching) {
@@ -123,9 +121,8 @@
 </script>
 
 <section class="seach-sort-table">
-
     <div class="seach-sort-table__header">
-        <p class="title">공지</p>
+        <p class="title">공통소식</p>
         <div class="right">
             <button class="btn-white" on:click={handleProcess}>
                 {#if process}
@@ -139,36 +136,33 @@
             {/if}
 
             {#if !process}
-            <a href="/notification/notice-register">  <button class="btn-primary-border-none" on:click>등록</button></a>
+                <a href="/news/register">
+                    <button class="btn-primary-border-none" on:click
+                        >등록</button
+                    ></a
+                >
                 <div class="search-input">
-                    <input type="text" id="searchTab1" placeholder="검색" />
+                    <input type="text" id="searchNewsTab1" placeholder="검색" />
                     <Icon icon="iconamoon:search" color="#c5c7c8" width="18" />
                 </div>
                 <button
                     class="btn-primary-border-none"
                     id="search-btn"
-                    on:click={searchNoticeTab1Table}>검색</button
+                    on:click={searchNewsTab1Table}>검색</button
                 >
             {/if}
         </div>
     </div>
-    <!-- <div class="seach-sort-table__sortBtns">
-    <div class="buttons">
-     <button class:active={current === "user"} id="sortUser">이름순</button>|
-      <button class:active={current === "birth"} id="sortUserAge">나이순</button> 
-   <button class:active={current === "local"} id="sortLocal">지역순</button>
-    </div> -->
 
-    <!-- </div> -->
     <div id="data-table" class="seach-sort-table__table">
-        <table id="tab1-data-table">
+        <table id="newsTab1-data-table">
             <thead>
                 <tr>
+                    <th>썸네일</th>
                     <th>제목</th>
                     <th>주관기관</th>
-                    <th>지역</th>
-                    <th>등록일자</th>
-                    <th on:click={() => sortTab1Table(4)}
+                    <th>태그</th>
+                    <th on:click={() => sortNewsTab1Table(4)}
                         >게시기간 <Icon
                             icon="fluent:arrow-fit-16-filled"
                             color="#e1e3e4"
@@ -185,7 +179,7 @@
                                     type="checkbox"
                                     on:click={toggleAll}
                                     checked={processSelected.length ==
-                                        noticeTab1Table.length}
+                                        newsTab1Table.length}
                                 /></label
                             >
                         {:else}
@@ -195,12 +189,19 @@
                 </tr>
             </thead>
             <tbody>
-                {#each noticeTab1Table as item, int}
+                {#each newsTab1Table as item, int}
                     <tr>
+                        <td>
+                            <div class="thumbnail">
+                                <div class="box" />
+                                {#if item.Thumbnail == "fix"}
+                                    <div class="fixed"><FixedIcon /></div>
+                                {/if}
+                            </div>
+                        </td>
                         <td>{item.title}</td>
                         <td>{item.agency}</td>
-                        <td>{item.state}</td>
-                        <td>{item.createDate} </td>
+                        <td>{item.tag}</td>
                         <td>{item.startDate} - {item.endDate}</td>
                         <td>{item.clickNum}</td>
 
@@ -337,19 +338,20 @@
         font-size: 12px;
     }
 
-    .excel-btn {
-        padding: 20px;
-        button {
-            margin: 0 auto;
-            display: block;
-            color: white;
+    .thumbnail {
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        .box {
+            background-color: #D9D9D9;
+            width: 100px;
+            height: 56px;
         }
-    }
-    .red {
-        color: #F5365C;
-        font-weight: 500;
-    }
-    .gray {
-        color: #A9ABAD;
+        .fixed {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+        }
     }
 </style>

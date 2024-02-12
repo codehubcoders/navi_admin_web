@@ -143,8 +143,8 @@
 
     <div class="label">게시기간</div>
     <div class="datePicker">
-        <DatePickerUi  width="120px"/> <span class="mr-10 ml-10">~</span>
-        <DatePickerUi width="120px" />
+        <DatePickerUi /> <span class="mr-10 ml-10">~</span>
+        <DatePickerUi />
     </div>
     <div class="bottom-btn">
         <button class="btn-primary">미리보기</button>

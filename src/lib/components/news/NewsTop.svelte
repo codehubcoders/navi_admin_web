@@ -1,16 +1,29 @@
 <script>
 
     import SelectBox from "./../customComponents/selectbox/SelectBox.svelte";
+    
+    
+    let selecteState = "전체";
+    let stateRadio = ["전체", "상세설정"];
 
- 
-    let selectedProduct = "전체";
-    let productRadio = ["전체", "진행중", "마감"];
-
-    function onChangeProduct(event) {
-        selectedProduct = event.currentTarget.value;
+    function onChangeState(event) {
+        selecteState = event.currentTarget.value;
     }
 
-  
+ 
+    let selectedDeadline = "전체";
+    let dadlineRadio = ["전체", "진행중", "마감"];
+
+    function onChangeDeadline(event) {
+        selectedDeadline = event.currentTarget.value;
+    }
+
+    let selectedTag = "건강";
+    let tagRadio = ["건강", "홍보", "기타"];
+
+    function onChangeTag(event) {
+        selectedTag = event.currentTarget.value;
+    }
 
     let items = [
         { title: "서울", value: 1 },
@@ -24,28 +37,62 @@
     
     <div class="radio-box">
         <div class="radio-title">지역</div>
+        
         <div class="radio">
+            {#each stateRadio as item, index}
+            <label style={selecteState != item ? "color:#757779" : ""}>
+                <input
+                    checked={selecteState == item}
+                    on:change={onChangeState}
+                    type="radio"
+                    name="state"
+                    value={item}
+                />
+                <span class="fw-500"> {item}</span>
+            </label>
+        {/each}
+        <div class="mr-10"></div>
             <SelectBox {items} placeholder="대분류" />
             <SelectBox {items} placeholder="중분류" />
             <SelectBox {items} placeholder="소분류" />
         </div>
     </div>
+
     <div class="radio-box">
         <div class="radio-title">주관기관</div>
         <div class="radio">
-            <SelectBox {items} placeholder="주관기관" long />
+            <SelectBox {items} placeholder="전체" long />
         </div>
     </div>
+
     <div class="radio-box">
         <div class="radio-title">마감</div>
         <div class="radio">
-            {#each productRadio as item, index}
-                <label style={selectedProduct != item ? "color:#757779" : ""}>
+            {#each dadlineRadio as item, index}
+                <label style={selectedDeadline != item ? "color:#757779" : ""}>
                     <input
-                        checked={selectedProduct == item}
-                        on:change={onChangeProduct}
+                        checked={selectedDeadline == item}
+                        on:change={onChangeDeadline}
                         type="radio"
-                        name="product"
+                        name="dedline"
+                        value={item}
+                    />
+                    <span class="fw-500"> {item}</span>
+                </label>
+            {/each}
+        </div>
+    </div>
+
+    <div class="radio-box">
+        <div class="radio-title">마감</div>
+        <div class="radio">
+            {#each tagRadio as item, index}
+                <label style={selectedTag != item ? "color:#757779" : ""}>
+                    <input
+                        checked={selectedTag == item}
+                        on:change={onChangeTag}
+                        type="radio"
+                        name="tag"
                         value={item}
                     />
                     <span class="fw-500"> {item}</span>
