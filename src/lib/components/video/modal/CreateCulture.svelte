@@ -87,7 +87,9 @@
                     {/each}
                     <div class="mr-10" />
                     <SelectBoxBgW {items} placeholder="시" width="100px" />
+                    <div class="mr-10" />
                     <SelectBoxBgW {items} placeholder="군" width="100px" />
+                    <div class="mr-10" />
                     <SelectBoxBgW {items} placeholder="구" width="100px"  />
                 </div>
             </div>

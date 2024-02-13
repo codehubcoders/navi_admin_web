@@ -22,7 +22,7 @@
 <style lang="scss">
 	@import "src/lib/scss/style.scss";
 	.selectd-box {
-		margin-right: 10px;
+		// margin-right: 10px;
 
 	select {
 			color: #2E3132;

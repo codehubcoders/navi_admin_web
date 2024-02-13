@@ -44,7 +44,7 @@
             </label>
         {/each}
         <div class="row">
-            <div class="select-box d-f">
+            <div class="select-box">
                 <SelectBoxBgW {items} width="15%"  />
                 <SelectBoxBgW {items} width="15%"  />
             </div>
@@ -190,6 +190,7 @@
                 height: 100%;
                 display: flex;
                 align-items: flex-end;
+                gap: 10px;
             }
         }
     }
@@ -230,4 +231,12 @@
             }
         }
     }
+
+    .row {
+            .select-box {
+                height: 100%;
+                display: flex;
+                align-items: flex-end;
+                gap: 10px;
+            }}
 </style>
