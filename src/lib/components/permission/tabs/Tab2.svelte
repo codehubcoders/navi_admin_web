@@ -5,74 +5,34 @@
 
   let permissionTable = [
     {
-      local: "서울시 OO구",
-      permission: "지역관리자",
-      area: "OO노인복지관",
-      id: "ASDF",
-      
-    },
-    {
-      local: "서울시 OO구",
-      permission: "운영자",
-      area: "OO노인복지관",
+      type: "마스터",
+      area: "전체",
+      local: "전라남도 화순군",
+      name: "홍길동",
       id: "qwer",
-      
     },
     {
-      local: "서울시 OO구",
-      permission: "담당자",
-      area: "OO노인복지관",
-      id: "zxcv",
-      
-    },
-    {
-      local: "서울시 OO구",
-      permission: "어르신",
-      area: "OO노인복지관",
-      id: "tyui",
-      
-    },
-    {
-      local: "서울시 OO구",
-      permission: "어르신",
-      area: "OO노인복지관",
-      id: "tyui",
-      
-    },  {
-      local: "서울시 OO구",
-      permission: "지역관리자",
-      area: "OO노인복지관",
+      type: "운영자",
+      area: "강남구청 노인복지관",
+      local: "서울시 강남구",
+      name: "오동석",
       id: "ASDF",
-      
     },
     {
-      local: "서울시 OO구",
-      permission: "운영자",
-      area: "OO노인복지관",
+      type: "기관회원",
+      area: "부천시청 노인복지관",
+      local: "경기도 부천시",
+      name: "마동석",
+      id: "ASDF",
+    },
+    {
+      type: "마스터",
+      area: "강남구청 노인복지관",
+      local: "서울시 강남구",
+      name: "마동석",
       id: "qwer",
-      
     },
-    {
-      local: "서울시 OO구",
-      permission: "담당자",
-      area: "OO노인복지관",
-      id: "zxcv",
-      
-    },
-    {
-      local: "서울시 OO구",
-      permission: "어르신",
-      area: "OO노인복지관",
-      id: "tyui",
-      
-    },
-    {
-      local: "서울시 OO구",
-      permission: "어르신",
-      area: "OO노인복지관",
-      id: "tyui",
-      
-    },
+    
     
   ];
   // let current = "name";
@@ -177,6 +137,11 @@
   <div class="seach-sort-table__header">
     <p class="title">관리자 (00명)</p>
     <div class="right">
+      <button
+        class="btn-primary-border-none"
+  
+        on:click>아이디 생성</button
+      >
       <div class="search-input">
         <input type="text" id="searchPermission" placeholder="검색" />
         <Icon icon="iconamoon:search" color="#c5c7c8" width="18" />
@@ -188,26 +153,13 @@
       >
     </div>
   </div>
-  <div class="seach-sort-table__sortBtns">
-    <div class="buttons">
-      <!-- <button class:active={current === "status"} id="statusSort"
-        >처리현황</button
-      >|
-      <button class:active={current === "cs"} id="csSort">CS구분</button>|
-      <button class:active={current === "member"} id="memberSort"
-        >회원구분</button
-      >|
-      <button class:active={current === "local"} id="localSort">설치지역</button
-      > -->
-    </div>
-    <!-- <SelectBox {items} /> -->
-  </div>
+  
   <div id="data-table" class="seach-sort-table__table">
     <table id="permission-data-table">
       <thead>
         <tr>
           <th on:click={() => sortPermissionTable(0)}
-            >지역 <Icon
+            >유형 <Icon
               icon="fluent:arrow-fit-16-filled"
               color="#e1e3e4"
               width="15"
@@ -215,7 +167,7 @@
             /></th
           >
           <th on:click={() => sortPermissionTable(1)}
-            >권한 <Icon
+            >기관 <Icon
               icon="fluent:arrow-fit-16-filled"
               color="#e1e3e4"
               width="15"
@@ -223,13 +175,14 @@
             /></th
           >
           <th on:click={() => sortPermissionTable(2)}
-            >구역 <Icon
+            >지역 <Icon
               icon="fluent:arrow-fit-16-filled"
               color="#e1e3e4"
               width="15"
               rotate={1}
             /></th
           >
+          <th>이름</th>
           <th>아이디</th>
           <th 
             >상세보기 </th
@@ -240,42 +193,42 @@
       <tbody>
         {#each permissionTable as item}
           <tr>
-            <td>{item.local}</td>
-            <td>{item.permission}</td>
+            <td>{item.type}</td>
             <td>{item.area}</td>
+            <td>{item.local}</td>
             <td
-              >{item.id}</td>
-            
+              >{item.name}</td>
+              <td>{item.id}</td>
             <td><button class="btn-detail-gray m-auto">상세보기</button></td>
      
           </tr>
         {/each}
       </tbody>
     </table>
-    <div class="pagenation">
-      <button class="round-box">
-         <Icon icon="ep:arrow-left-bold" />
-      </button>
-      <button class="round-box">
-          1
-      </button>
-      <button class="round-box">
-          2
-      </button>
-      <button class="round-box">
-            <Icon icon="ep:arrow-right-bold" />
-      </button>
-  </div>
 
   </div>
 </section>
+<div class="pagenation mt-20">
+  <button class="round-box">
+     <Icon icon="ep:arrow-left-bold" />
+  </button>
+  <button class="activePage">
+      1
+  </button>
+  <button class="round-box">
+      2
+  </button>
+  <button class="round-box">
+        <Icon icon="ep:arrow-right-bold" />
+  </button>
+</div>
 
 <style lang="scss">
         @import 'src/lib/scss/style.scss';
   .seach-sort-table {
     background-color: white;
     border-radius: 16px;
-    margin-top: 30px;
+   
     &__header {
       padding: 20px;
       display: flex;
