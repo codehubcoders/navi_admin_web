@@ -1,6 +1,8 @@
 <script>
+	import CreateUsim from './modal/CreateUsim.svelte';
 
     import Icon from "@iconify/svelte";
+import DetailUsim from "./modal/DetailUsim.svelte";
     // import ProductDetailModal from "./modal/ProductDetailModal.svelte";
 
     let usimTable = [
@@ -116,10 +118,22 @@
             }
         }
     }
+
+    export let showDetailUsim = false;
+    const handleDetailUsim = () => {
+        showDetailUsim = !showDetailUsim;
+    };
+    export let showCreateUsim = false;
+    const handleCreateUsim = () => {
+        showCreateUsim = !showCreateUsim;
+    };
+
 </script>
+
 <button class="btn-primary mt-5 mb-5" style="margin:  0 0 0 auto;">Excel다운로드</button>
 <section class="seach-sort-table">
-
+    <DetailUsim {showDetailUsim} on:click={handleDetailUsim} />
+    <CreateUsim {showCreateUsim}  on:click={handleCreateUsim}/>
     <div class="seach-sort-table__header">
         <p class="title">USIM(123)</p>
         <div class="right">
@@ -135,7 +149,7 @@
             {/if}
 
             {#if !process}
-             <button class="btn-primary-border-none" on:click>등록</button>
+             <button class="btn-primary-border-none" on:click={handleCreateUsim}>등록</button>
                 <div class="search-input">
                     <input type="text" id="searchUsim" placeholder="검색" />
                     <Icon icon="iconamoon:search" color="#c5c7c8" width="18" />
@@ -148,14 +162,8 @@
             {/if}
         </div>
     </div>
-    <!-- <div class="seach-sort-table__sortBtns">
-    <div class="buttons">
-     <button class:active={current === "user"} id="sortUser">이름순</button>|
-      <button class:active={current === "birth"} id="sortUserAge">나이순</button> 
-   <button class:active={current === "local"} id="sortLocal">지역순</button>
-    </div> -->
 
-    <!-- </div> -->
+
     <div id="data-table" class="seach-sort-table__table">
         <table id="usim-data-table">
             <thead>
@@ -225,7 +233,7 @@
                                     /></label
                                 >
                             {:else}
-                                <button on:click class="btn-detail-gray m-auto"
+                                <button  on:click={handleDetailUsim} class="btn-detail-gray m-auto"
                                     >상세보기</button
                                 >
                             {/if}
