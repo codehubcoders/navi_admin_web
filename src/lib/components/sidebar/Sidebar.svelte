@@ -136,6 +136,9 @@
       <a href={"/sw"} class="non-click {path == '/sw' ? 'click' : ''}"
         >S/W관리</a
       >
+      <a href={"/usim"} class="non-click {path == '/usim' ? 'click' : ''}"
+      >USIM 관리</a
+    >
       <a
         href={"/permission"}
         class="non-click {path == '/permission' ? 'click' : ''}">권한관리</a

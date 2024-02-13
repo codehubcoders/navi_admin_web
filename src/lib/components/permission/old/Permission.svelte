@@ -1,20 +1,46 @@
 <script>
-	import TabsMember from './../customComponents/tabs/TabsMember.svelte';
-	import PermissionTop from './PermissionTop.svelte';
-import Tab1 from './tabs/Tab1.svelte';
-import Tab2 from './tabs/Tab2.svelte';
+	import PermissionCardRight from './PermissionCardRight.svelte';
+	import DetailButtonBox from './../globalComponents/DetailButtonBox.svelte';
+    import MoreMenu from "./moreMenu.svelte";
+    import EditButton from "./../globalComponents/EditButton.svelte";
+    import AlarmCard from "./../globalComponents/AlarmCard.svelte";
+    import SearchTablePermission from "./../customComponents/table/SearchTablePermission.svelte";
+    import SelectBox from "../customComponents/selectbox/SelectBox.svelte";
+    let selectedeManager = "전체";
+    let managerRadio = ["전체", "운영자", "지역관리자", "담당자"];
+    import Icon from "@iconify/svelte";
+import PermissionCard from './PermissionCard.svelte';
+    function onChangeManager(event) {
+        selectedeManager = event.currentTarget.value;
+    }
 
-    export let activeTabValue = 1;
-  let items = [
-    { label: "권한설정", value: 1, component: Tab1},
-    { label: "관리자", value: 2,  component: Tab2},
+    let items = [
+        { title: "서울", value: 1 },
+        { title: "경기", value: 2 },
+        { title: "대전", value: 3 },
+    ];
+    let items2 = [
+        { title: "강남구", value: 1 },
+        { title: "깅북구", value: 2 },
+        { title: "구로구", value: 3 },
+    ];
+    let items3 = [
+        { title: "개포동", value: 1 },
+        { title: "노원구", value: 2 },
+        { title: "가산동", value: 3 },
+    ];
+    let selected;
 
-  ];
+    let detaileBoxItems = [
+        { localName: "인천서구", productName: " 플러스" },
+        { localName: "강남구", productName: " 플러스" },
+        { localName: "부천구", productName: " 플러스" },
+        { localName: "가평군", productName: " 스탠다드(시범)" },
+        { localName: "가평군", productName: " 스탠다드(구매)" },
+    ];
 </script>
 
 <section class="permission">
-    <PermissionTop />
-<TabsMember {items} { activeTabValue}/>
     <!-- <button class="btn-primary  mt-5">아이디 생성</button>
     <div class="radio-group">
         <div class="radio-box">
