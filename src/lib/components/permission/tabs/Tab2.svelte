@@ -1,4 +1,6 @@
 <script>
+	import CreateId from './../modal/CreateId.svelte';
+	import DetailPermission from './../modal/DetailPermission.svelte';
   // import SelectBox from "./../selectbox/SelectBox.svelte";
   import { onMount } from "svelte";
   import Icon from "@iconify/svelte";
@@ -127,20 +129,29 @@
       }
     }
   }
-  let items = [
-    { title: "10명", value: 1 },
-    { title: "20명", value: 2 },
-  ];
+
+
+   let showDetailPermission = false;
+    const handleDetaiPermission = () => {
+        showDetailPermission = !showDetailPermission;
+    };
+
+ let showCreateId = false;
+    const handleCreateId = () => {
+        showCreateId = !showCreateId;
+    };
 </script>
 
 <section class="seach-sort-table">
+  <DetailPermission {showDetailPermission} on:click={handleDetaiPermission}/>
+  <CreateId {showCreateId}  on:click={handleCreateId}/>
   <div class="seach-sort-table__header">
     <p class="title">관리자 (00명)</p>
     <div class="right">
       <button
         class="btn-primary-border-none"
   
-        on:click>아이디 생성</button
+        on:click={handleCreateId}>아이디 생성</button
       >
       <div class="search-input">
         <input type="text" id="searchPermission" placeholder="검색" />
@@ -199,7 +210,7 @@
             <td
               >{item.name}</td>
               <td>{item.id}</td>
-            <td><button class="btn-detail-gray m-auto">상세보기</button></td>
+            <td><button class="btn-detail-gray m-auto" on:click={handleDetaiPermission}>상세보기</button></td>
      
           </tr>
         {/each}
