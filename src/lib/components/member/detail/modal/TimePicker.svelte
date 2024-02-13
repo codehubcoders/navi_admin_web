@@ -15,7 +15,9 @@
             value: 2,
         },
     ];
-    const handleAmPm = (value) => () => (seletedAmPm = value);
+    const handleAmPm = (value, name) => () => {seletedAmPm = value
+    amPm = name
+    };
 
     let hour = "";
     let minute = "";
@@ -27,18 +29,20 @@
         <div class="modal">
             <div class="modal__body">
                 <div class="time-box">
-                    <input type="text" />:
-                    <input type="text" />
+                    <input type="text" bind:value={hour} />:
+                    <input type="text" bind:value={minute} />
                     <div class="ampm-box">
                         {#each ampmList as item}
-                            <button on:click={handleAmPm(item.value)} class="pm {item.value === seletedAmPm ? 'selected' :"" }" >{item.name}</button>
+                            <button on:click={handleAmPm(item.value, item.name)} class="pm {item.value === seletedAmPm ? 'selected' :"" }" >{item.name}</button>
                         {/each}
                     </div>
                 </div>
                 <div class="bottom-txt">
                     <p>시</p>
                     <p>분</p>
+           
                 </div>
+              
             </div>
             <div class="modal__button">
                 <button

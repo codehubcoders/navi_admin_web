@@ -1,6 +1,12 @@
 <script>
+	import DetailLog from './../modal/DetailLog.svelte';
     import Icon from "@iconify/svelte";
     // import ProductDetailModal from "./modal/ProductDetailModal.svelte";
+
+    export let showDetailLog = false;
+    const handleDetailLog = () => {
+        showDetailLog = !showDetailLog ;
+    };
 
     let swTab2Table = [
         {
@@ -97,7 +103,7 @@
         }
     }
 </script>
-
+<DetailLog  {showDetailLog} on:click={handleDetailLog}/>
 <section class="seach-sort-table">
     <div class="seach-sort-table__header">
         <p class="title">로그관리</p>
@@ -131,7 +137,7 @@
                         <td style="width: 20%;">{item.createDate}</td>
 
                         <td style="padding: 0;width: 15%;">
-                            <button class="btn-detail-gray m-auto"
+                            <button class="btn-detail-gray m-auto" on:click={handleDetailLog}
                                 >상세내역</button
                             >
                         </td>

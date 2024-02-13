@@ -20,7 +20,7 @@
     );
     export let start = 0; // first day of the week (0 = Sunday, 1 = Monday)
     export let offset = 0; // offset in months from currently selected date
-
+export let width;
     let date = iso(new Date());
 
     $: acceptDate(value);
@@ -138,7 +138,7 @@
     {#each weeks as week}
         <tr>
             {#each week as day}
-                <td
+                <td style="width: {width}; height:{width}"
                     class="btn {day.class}"
                     on:click={() => selectDate(day.value)}>{day.date}</td
                 >
@@ -158,6 +158,7 @@
         margin: 0;
         padding: 3px;
         font-size: 14px;
+        vertical-align: middle;
     }
     td.past,
     td.future {

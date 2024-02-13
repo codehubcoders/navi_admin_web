@@ -1,6 +1,19 @@
 <script>
+	import UpdatConfirm from './../modal/UpdatConfirm.svelte';
+	import DetailUpdate from './../modal/DetailUpdate.svelte';
     import Icon from "@iconify/svelte";
     // import ProductDetailModal from "./modal/ProductDetailModal.svelte";
+
+
+    export let showDetailUpdate = false;
+    const handleDetailUpdate = () => {
+        showDetailUpdate = !showDetailUpdate ;
+    };
+
+    export let showUpdateConfirm = false;
+    const handleUpdateConfirm = () => {
+        showUpdateConfirm = !showUpdateConfirm ;
+    };
 
     let swTab1Table = [
         {
@@ -113,7 +126,8 @@
         }
     }
 </script>
-
+<DetailUpdate {showDetailUpdate} on:click={handleDetailUpdate} />
+<UpdatConfirm {showUpdateConfirm} on:click={handleUpdateConfirm} />
 <section class="seach-sort-table">
     <div class="seach-sort-table__header">
         <p class="title">업데이트관리</p>
@@ -155,7 +169,7 @@
                         <td>{item.createDate}</td>
                         <td style="padding: 0;">
                             {#if item.confirmDate == ""}
-                                <button class="btn-white m-auto">승인</button>
+                                <button class="btn-white m-auto" on:click={handleUpdateConfirm}>승인</button>
                             {/if}
                             {item.confirmDate}</td
                         >
@@ -166,7 +180,7 @@
                             {item.deployDate}</td
                         >
                         <td style="padding: 0;">
-                            <button class="btn-detail-gray m-auto">상세내역</button>
+                            <button on:click={handleDetailUpdate} class="btn-detail-gray m-auto">상세내역</button>
                             </td>
                     </tr>
                 {/each}
