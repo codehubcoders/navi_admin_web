@@ -1,26 +1,20 @@
 <script>
+	import Icons from './Icons.svelte';
+	import Replaytxt from './../globalComponents/Replaytxt.svelte';
     import RowBar from "./RowBar.svelte";
-    import LocalCard from "./../globalComponents/LocalCard.svelte";
     import AlarmCard from "./../globalComponents/AlarmCard.svelte";
     import WarningSign from "../../assets/icons/01.svg";
     import Ambulance from "../../assets/icons/02.svg";
     import Fire from "../../assets/icons/03.svg";
     import CallAmbulance from "../../assets/icons/04.svg";
     import CicleProgress from "../globalComponents/CicleProgress.svelte";
-
+	let size = 48
     let topBox = [
         { number: 23, name: "주의", color: "#FFD600" },
         { number: 12, name: "경고", color: "#FF9933" },
         { number: 3, name: "위험", color: "#F5365C" },
     ];
-    let cardTitle = [
-        { title: "생활반응 감지", icon: "uiw:more" },
-        { title: "응급신고 상황", icon: "uiw:more" },
-        { title: "제품 현황", icon: "uiw:more" },
-        { title: "이용률 현황", icon: "uiw:more" },
-        { title: "복약순응도", icon: "uiw:more" },
-        { title: "지역현황" },
-    ];
+
     let alarmList02 = [
         {
             title: "가나다 어르신이 화재신고를 하였습니다.",
@@ -41,50 +35,16 @@
             alarmColor: "#FFD600",
         },
     ];
-    let alarmList01 = [
-        {
-            title: "홍길동 어르신 미복용 연속 2회",
-            date: "2023-12-12 09:00",
-            alarmText: "경고",
-            alarmColor: "#FFD600",
-        },
-        {
-            title: "홍길동 어르신 24시간 내에 복약 반응이 없음",
-            date: "2023-12-12 09:00",
-            alarmText: "위험",
-            alarmColor: "#F5365C",
-        },
-        {
-            title: "홍길동 어르신 24시간 내에 복약 반응이 없음",
-            date: "2023-12-12 09:00",
-            alarmText: "위험",
-            alarmColor: "#F5365C",
-        },
-        {
-            title: "홍길동 어르신 미복용 연속 2회",
-            date: "2023-12-12 09:00",
-            alarmText: "경고",
-            alarmColor: "#FFD600",
-        },
-    ];
 
-    let list05 = [
-        {
-            title: "3일 이상 연속 미복용",
-            number: 3,
-        },
-        {
-            title: "지연복용",
-            number: 4,
-        },
-        {
-            title: "지연복용",
-            number: 3,
-        },
-    ];
+
 </script>
 
+<div class="top_info">
+    전체사용인원 : 100명
+    <Replaytxt />
+    </div>
 <section class="monitoring">
+
     <div class="monitoring__top">
         {#each topBox as item, index}
             <div class="sub-box" style="background-color:{item.color}">
@@ -94,152 +54,95 @@
         {/each}
     </div>
     <div class="monitoring__card">
-        {#each cardTitle as item, index}
-            <AlarmCard
-                title={item.title}
-                iconName={item.icon}
-                classsName="body"
-            >
-                <!-- 생활반응 감지-->
-                {#if index == 0}
-                    <slot>
+        <AlarmCard title="응급신고 현황" >
+            <div class="alarm-padding">
+                <div class="left">
+                    {#each alarmList02 as item}
+                    <div class="alarm-list">
+                        <div class="alarm-list__icon">
+                            {#if item.alarmText == "화재신고"}
+                                <Fire />
+                            {/if}
+                            {#if item.alarmText == "응급신고"}
+                                <CallAmbulance />
+                            {/if}
+                            {#if item.alarmText == "기타신고"}
+                                <WarningSign />
+                            {/if}
+                        </div>
+                        <div class="alarm-list__txt">
+                            <p class="title">{item.title}</p>
+                            <p class="date">{item.date}</p>
+                            <div
+                                class="message-box"
+                                style="background-color:{item.alarmColor}"
+                            >
+                                {item.alarmText}
+                            </div>
+                        </div>
+                    </div>
+                {/each}
+            </div>
+                <div class="right">
+                    <div class="w_card">
+                         화재신고
+                         <div class="b_item">
+                            <Icons Fire {size}/>
+                            <div class="mb-10"> 10</div>
+                        </div>
+                  
+                    </div>
+                    <div class="w_card">
+                        <p>환자발생</p>
+                        <div class="b_item">
                      
-                        <div class="alarm-padding">
-                            {#each alarmList01 as item}
-                                <div class="alarm-list">
-                                    <div class="alarm-list__icon">
-                                        {#if item.alarmText == "경고"}
-                                            <WarningSign />
-                                        {/if}
-                                        {#if item.alarmText == "위험"}
-                                            <Ambulance />
-                                        {/if}
-                                    </div>
-                                    <div class="alarm-list__txt">
-                                        <p class="title">{item.title}</p>
-                                        <p class="date">{item.date}</p>
-                                        <div
-                                            class="message-box"
-                                            style="background-color:{item.alarmColor}"
-                                        >
-                                            {item.alarmText}
-                                        </div>
-                                    </div>
-                                </div>
-                            {/each}
-                        </div>
-                    </slot>
-                {/if}
+                            <Icons CallAmbulance {size}/>
+               
+                            <div class="mb-10"> 10</div>
 
-                <!-- 응급신고 상항 -->
-                {#if index == 1}
-                    <slot>
-                        <div class="alarm-padding">
-                            {#each alarmList02 as item}
-                                <div class="alarm-list">
-                                    <div class="alarm-list__icon">
-                                        {#if item.alarmText == "화재신고"}
-                                            <Fire />
-                                        {/if}
-                                        {#if item.alarmText == "응급신고"}
-                                            <CallAmbulance />
-                                        {/if}
-                                        {#if item.alarmText == "기타신고"}
-                                            <WarningSign />
-                                        {/if}
-                                    </div>
-                                    <div class="alarm-list__txt">
-                                        <p class="title">{item.title}</p>
-                                        <p class="date">{item.date}</p>
-                                        <div
-                                            class="message-box"
-                                            style="background-color:{item.alarmColor}"
-                                        >
-                                            {item.alarmText}
-                                        </div>
-                                    </div>
-                                </div>
-                            {/each}
                         </div>
-                    </slot>
-                {/if}
-                <!-- 제품현황 -->
-                {#if index == 2}
-                    <slot>
-                        <div class="list-padding">
-                            <div class="chart-card">
-                                <CicleProgress
-                                    percentage="72"
-                                    sub="대"
-                                    title="스텐다드"
-                                    titleNum="123"
-                                />
-                                <CicleProgress
-                                    percentage="72"
-                                    sub="대"
-                                    title="플러스"
-                                    titleNum="120"
-                                />
-                            </div>
+                     
+                    </div>
+                    <div class="w_card">
+                        <p>기타신고</p>
+                           <div class="b_item">
+                            <div class="mt-10"> <Icons WarningSign {size}/></div>
+                           
+                            10
                         </div>
-                    </slot>
-                {/if}
-                <!-- 이용률 현황 -->
-                {#if index == 3}
-                    <slot>
-                        <div class="list-padding">
-                            <div class="chart-card">
-                                <CicleProgress
-                                    percentage="23"
-                                    sub="%"
-                                    title="실시간 이용율"
-                                />
-                                <RowBar />
-                            </div>
-                        </div>
-                    </slot>
-                {/if}
-
-                <!-- 복약순응도 -->
-                {#if index == 4}
-                    <slot>
-                        <div class="list-padding">
-                            <div class="chart-card">
-                                <CicleProgress
-                                    percentage="23"
-                                    sub="%"
-                                    title="실시간 이용율"
-                                />
-                                <div class="list">
-                                    {#each list05 as item}
-                                        <div class="box-list">
-                                            <div class="title">
-                                                <p class="top">
-                                                  {item.title}
-                                                </p>
-                                                <p class="bottom">{item.number}명</p>
-                                            </div>
-                                            <button class="btn-gray"
-                                                >상세보기</button
-                                            >
-                                        </div>
-                                    {/each}
-                                </div>
-                            </div>
-                        </div>
-                    </slot>
-                {/if}
-
-                <!-- 지역현황 -->
-                {#if index == 5}
-                    <slot>
-                        <div class="list-padding">
-                            <LocalCard />
-                        </div>
-                    </slot>
-                {/if}
+                    
+                    </div>
+                </div>
+            </div>
+        </AlarmCard>
+        <div class="chart-card">
+            <AlarmCard title="보호자 연결 현황" iconName="uiw:mor" >
+                <div class="list-padding">
+                    <div class="chart-card">
+                        <CicleProgress
+                            percentage="72"
+                            sub="대"
+                            title="스텐다드"
+                            titleNum="123"
+                        />
+                    </div>
+                </div>
             </AlarmCard>
-        {/each}
+            <AlarmCard title="사용률 ON" iconName="uiw:mor" >
+                <div class="list-padding">
+                    <div class="chart-card">
+                        <CicleProgress
+                            percentage="23"
+                            sub="%"
+                            title="실시간 이용율"
+                        />
+                        <RowBar />
+                    </div>
+                </div>
+            </AlarmCard>
+        </div>
+        
+       
     </div>
 </section>
 
@@ -280,16 +183,14 @@
           
             margin-top: 30px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            // grid-template-columns: 1fr 1fr;
             gap: 20px;
             @media (max-width: 960px) {
       grid-template-columns: 1fr;
     }
         }
     }
-.alarm-padding{
-    height: 250px;
-}
+
     .alarm-list {
  
         display: flex;
@@ -326,7 +227,41 @@
     }
 
     .alarm-padding {
-        padding: 30px;
+        height: 250px;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 20px;
+        padding: 0px;
+        background-color: #fff;
+        .left{
+            padding: 30px 30px 0 30px;
+            background-color: #F5F5F5;
+        }
+        .right{
+            background-color: #F5F5F5;
+            font-size: 28px;
+            font-weight: 500;
+            display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        padding: 20px;
+        .w_card{
+            padding:25px;
+            background-color: #fff;
+            height: 150px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .b_item{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                vertical-align: middle;
+                font-size: 54px;
+            }
+        }
+        }
     }
     .list-padding {
         padding: 15px;
@@ -340,45 +275,12 @@
                 grid-template-columns: 1fr;
             }
     }
-    .list {
-        height: 100%;
+
+    .top_info{
+        padding-top: 2em;
+        font-size: 16px;
         display: flex;
-        flex-direction: column;
         justify-content: space-between;
-        .box-list {
-            background-color: white;
-            height: 30%;
-            width: 100%;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            @media (max-width: 960px) {
-    padding: 10px 0;
-    margin-bottom: 8px;
-    }
-            .title {
-                .top {
-                    font-size: 12px;
-                    font-weight: 500;
-                    padding-left: 15px;
-                }
-                .bottom {
-                    color: #5E72E4;
-                    font-size: 18px;
-                    font-weight: 500;
-                    padding-left: 15px;
-                    padding-top: 3px;
-                }
-            }
-            .btn-gray {
-                background-color: #EFF1F2;
-                border-radius: 4px;
-                padding: 8px 10px;
-                font-size: 12px;
-                height: fit-content;
-                margin-right: 15px;
-            }
-        }
+        align-items: center;
     }
 </style>

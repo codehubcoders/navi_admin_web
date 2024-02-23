@@ -46,6 +46,9 @@ const signUpModal = () => {
     <div class="d-f center mt-20 pt-10">
       <button on:click={dialog}>아이디/비밀번호 찾기</button>
     </div>
+    <div class="d-f center mt-20 pt-10">
+      <a href="/local-monitoring"><button >지역관리자 및 운영자</button></a>
+    </div>
   </div>
   <DefalutDialog {showDialog}  title="아이디/비밀번호 찾기" content="고객센터로 연락주세요" content2="02-577-778" handleClick={handleClick} >
     <div slot ="content">고객센터로 연락주세요</div>
