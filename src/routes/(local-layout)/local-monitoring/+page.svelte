@@ -1,5 +1,5 @@
 <script>
-import LocalMonitoring from "../../../lib/components/localmonitoring/LocalMonitoring.svelte";
+import LocalMonitoring from "../../../lib/components/local-components/monitoring/LocalMonitoring.svelte";
 
 
 
