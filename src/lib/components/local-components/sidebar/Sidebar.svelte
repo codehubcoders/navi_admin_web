@@ -110,7 +110,7 @@
       {/if}
     </button>
     <div class="dropdown-container">
-      <a href={"/member"} class="non-click {path == '/member' ? 'click' : ''} {path == '/member/detail' ? 'click' : ''}"
+      <a href={"/local-news"} class="non-click {path == '/local-news' ? 'click' : ''} {path == '/local-news/register' ? 'click' : ''}"
         >소식관리</a
       >
 
@@ -126,9 +126,9 @@
     </button>
     <div class="dropdown-container">
       <a
-        href={"/notification"}
-        class="non-click {path == '/notification' ||
-        path == '/notification/notice-register'
+        href={"/local-notice"}
+        class="non-click {path == '/local-notice' ||
+        path == '/local-notice/detail'
           ? 'click'
           : ''}">공지사항</a
       >

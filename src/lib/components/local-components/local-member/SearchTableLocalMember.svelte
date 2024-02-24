@@ -50,25 +50,7 @@
       detail: "",
     },
   ];
-  let current = "name";
-  // onMount(() => {
-  //   var btnSortName = document.getElementById("sortName");
-  //   var btnSortAge = document.getElementById("sortAge");
-  //   var btnSortlocal = document.getElementById("sortLocal");
 
-  //   btnSortName.addEventListener("click", (e) => {
-  //     current = "name";
-  //     sortTable(1);
-  //   });
-  //   btnSortAge.addEventListener("click", (e) => {
-  //     current = "age";
-  //     sortTable(2);
-  //   });
-  //   btnSortlocal.addEventListener("click", (e) => {
-  //     current = "local";
-  //     sortTable(0);
-  //   });
-  // });
 
   function searchTable() {
     var input, filter, table, tr, td, i, txtValue;
@@ -137,10 +119,7 @@
       }
     }
   }
-  let items = [
-    { title: "10명", value: 1 },
-    { title: "20명", value: 2 },
-  ];
+
 </script>
 
 <section class="seach-sort-table">
@@ -163,14 +142,7 @@
 
     </div>
   </div>
-  <div class="seach-sort-table__sortBtns">
-    <!-- <div class="buttons">
-      <button class:active={current === "name"} id="sortName">이름순</button>|
-      <button class:active={current === "age"} id="sortAge">나이순</button>|
-      <button class:active={current === "local"} id="sortLocal">지역순</button>
-    </div> -->
-    <!-- <SelectBox {items} /> -->
-  </div>
+
   <div id="data-table" class="seach-sort-table__table">
     <table id="html-data-table">
       <thead>
@@ -271,7 +243,6 @@
   </button>
 </div>
 
-<!-- <CreateMember {showCreateMember} on:click={handleCreateMember}/> -->
 <style lang="scss">
         @import 'src/lib/scss/style.scss';
   .seach-sort-table {
@@ -381,16 +352,6 @@
     }
   }
 
-  // .active {
-  //   color: #333;
-  //   font-weight: 500;
-  // }
-
-  // button {
-  //   display: block;
-  //   color: #E1E3E4;
-  //   font-size: 12px;
-  // }
   .green {
     color: #2DCE89;
   }

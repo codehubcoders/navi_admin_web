@@ -34,7 +34,9 @@ const signUpModal = () => {
 </script>
 
 <section class="login">
+
   <div class="card login">
+    
     <h1 class="center mb-20 fs-20 fw-500">로그인</h1>
 
     <p class="pt-20 fs-12 fw-500">아이디</p>
@@ -45,11 +47,11 @@ const signUpModal = () => {
 
     <div class="d-f center mt-20 pt-10">
       <button on:click={dialog}>아이디/비밀번호 찾기</button>
+      <a href="/local-monitoring" class="ml-15"><button >지역관리자 및 운영자</button></a>
     </div>
-    <div class="d-f center mt-20 pt-10">
-      <a href="/local-monitoring"><button >지역관리자 및 운영자</button></a>
-    </div>
+
   </div>
+  
   <DefalutDialog {showDialog}  title="아이디/비밀번호 찾기" content="고객센터로 연락주세요" content2="02-577-778" handleClick={handleClick} >
     <div slot ="content">고객센터로 연락주세요</div>
   </DefalutDialog>
@@ -58,6 +60,7 @@ const signUpModal = () => {
       비밀번호 변경이 필요합니다</div>
     </DefalutDialog>
     <SignUp {showSignUp}   on:click={signUpModal}/>
+
 </section>
 
 <style lang="scss">

@@ -64,7 +64,7 @@
     <p>홍길동</p>
     <p><a href="/my-page" class="my">마이페이지</a></p>
     <p class="fw-300">경기도부천시</p>
-    <button class="btn-logout">로그아웃</button>
+    <button class="btn-logout"><a href="/login">로그아웃</a></button>
   </div>
   <div class="box-w">
     <button
@@ -211,6 +211,7 @@
     font-size: 15px;
     background-color: white;
     border-radius: 10px;
+
     p {
       font-size: 14px;
       color: #5C5F60;
@@ -226,12 +227,20 @@
 
     .btn-logout {
       width: 100%;
+  
+      a{
+        display: flex;
+      justify-content: center;
+       text-align: center;
+        height: auto;
       background-color: $primary-orange;
       color: white;
       font-size: 12px;
       padding: 10px 0px;
       border-radius: 4px;
       margin-top: 10px;
+      }
+
     }
   }
 
