@@ -69,8 +69,7 @@
     <button
       on:click={arrowActive}
       class="dropdown-btn {path == '/local-monitoring' ||
-      '/local-member' ||
-      '/localmonitoring'
+      '/local-member' 
         ? ''
         : 'active'}"
       id="name"
@@ -84,11 +83,11 @@
     <div class="dropdown-container">
       <a
         href={"/local-monitoring"}
-        class="non-click">실시간 모니터링</a
+        class="non-click {path == '/local-monitoring' ? 'click' : ''}">실시간 모니터링</a
       >
       <a
         href={"/local-monitoring"}
-        class="non-click {path == '/local-monitoring' ? 'click' : ''}">통계현황</a
+        class="non-click ">통계현황</a
       >
       <a
       href={"/local-member"}
