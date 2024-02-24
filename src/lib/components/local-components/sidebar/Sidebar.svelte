@@ -68,8 +68,8 @@
   <div class="box-w">
     <button
       on:click={arrowActive}
-      class="dropdown-btn {path == '/dashboard' ||
-      '/statistics' ||
+      class="dropdown-btn {path == '/local-monitoring' ||
+      '/local-member' ||
       '/localmonitoring'
         ? ''
         : 'active'}"
@@ -83,16 +83,16 @@
     </button>
     <div class="dropdown-container">
       <a
-        href={"/dashboard"}
-        class="non-click {path == '/dashboard' ? 'click' : ''}">실시간 모니터링</a
+        href={"/local-monitoring"}
+        class="non-click">실시간 모니터링</a
       >
       <a
-        href={"/statistics"}
-        class="non-click {path == '/statistics' ? 'click' : ''}">통계현황</a
+        href={"/local-monitoring"}
+        class="non-click {path == '/local-monitoring' ? 'click' : ''}">통계현황</a
       >
       <a
-      href={"/agency-status"}
-      class="non-click {path == '/agency-status' ? 'click' : ''}">회원관리</a
+      href={"/local-member"}
+      class="non-click {path == '/local-member' ? 'click' : ''} {path == '/local-member/detail' ? 'click' : ''}">회원관리</a
     >
     </div>
     <button
