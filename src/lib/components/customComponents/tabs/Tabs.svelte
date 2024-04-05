@@ -63,10 +63,12 @@
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
     border: 1px solid #C5C7C8;
+
     display: block;
     padding: 0.6rem 0rem;
     width: 140px;
-    background: #F5F5F5;
+    // background: #F5F5F5;
+    background: #fff;
     font-size: 14px;
     color: #A9ABAD;
     font-weight: 400;

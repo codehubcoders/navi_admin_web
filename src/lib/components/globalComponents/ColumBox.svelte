@@ -137,6 +137,10 @@
                 }
             }
         }
+        .box:hover{
+            border: 1px solid #C5C7C8;
+        box-shadow: 0 5px 10px rgba(173, 181, 217, 0.4);
+        }
         .box2 {
             margin-bottom: 10px;
             padding: 3px 20px;
@@ -157,6 +161,10 @@
                     }
                 }
             }
+        }
+        .box2:hover{
+            border: 1px solid #C5C7C8;
+        box-shadow: 0 5px 10px rgba(173, 181, 217, 0.4);
         }
         .box3 {
             margin-bottom: 10px;
@@ -184,6 +192,10 @@
                 margin-bottom: 10px;
             }
         }
+        // .box3:hover{
+        //     border: 1px solid #C5C7C8;
+        // box-shadow: 0 5px 10px rgba(173, 181, 217, 0.4);
+        // }
         .box4 {
             margin-bottom: 10px;
             padding: 12px 20px;
@@ -209,8 +221,8 @@
         }
     }
 
-    .selecete {
-        border: 1px solid #C5C7C8;
-        box-shadow: 0 5px 10px rgba(173, 181, 217, 0.4);
-    }
+    // .selecete {
+    //     border: 1px solid #C5C7C8;
+    //     box-shadow: 0 5px 10px rgba(173, 181, 217, 0.4);
+    // }
 </style>

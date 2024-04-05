@@ -56,7 +56,8 @@
     display: block;
     padding: 0.6rem 0rem;
     width: 140px;
-    background: #F5F5F5;
+    // background: #F5F5F5;
+    background: #fff;
     font-size: 14px;
     color: #A9ABAD;
     font-weight: 400;
