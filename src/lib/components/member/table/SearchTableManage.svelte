@@ -1,18 +1,23 @@
 <script>
 	import ManageDetail from './../modal/ManageDetail.svelte';
-	// import CreateMember from './../modal/CreateMember.svelte';
-
+  import ReleseHistory from '../modal/ReleseHistory.svelte';
   import Icon from "@iconify/svelte";
-  export let showManageDetail = false;
+import MemberDialog from '../dialog/memberDialog.svelte';
+  
+   let showDialog = true;
+   const handleDialogClick = () => {
+    showDialog = !showDialog;
+    };
+
+   let showManageDetail = false;
     const handleManageDetailClick = () => {
       showManageDetail = !showManageDetail;
     };
 
-//   let showManageDetail = false
-// const handleManageDetailClick =() => {
-//   showManageDetail = !showManageDetail
-// }
-
+    let showRelese = false;
+    const handleRelesClick = () => {
+        showRelese = !showRelese;
+    };
   let newData = [
     {
       memberName: "장범준",
@@ -179,12 +184,12 @@
       <tbody>
         {#each newData as item}
           <tr>
-            <td>{item.memberName}({item.age}세)</td>
-            <td>{item.local}</td>
-            <td>{item.managerInfo}</td>
-            <td>{item.releseTarget}</td
+            <td on:click = {handleRelesClick}>{item.memberName}({item.age}세)</td>
+            <td on:click = {handleRelesClick}>{item.local}</td>
+            <td on:click = {handleRelesClick}> {item.managerInfo}</td>
+            <td on:click = {handleRelesClick}>{item.releseTarget}</td
             >
-            <td>{item.releaseDate}</td>
+            <td on:click = {handleRelesClick}>{item.releaseDate}</td>
         
             <td> 
             
@@ -194,6 +199,8 @@
       </tbody>
     </table>
     <ManageDetail {showManageDetail} on:click={handleManageDetailClick}/>
+    <ReleseHistory  {showRelese} on:click={handleRelesClick}  />
+    <MemberDialog {showDialog} on:click={handleDialogClick}  type="119"/>
   </div>
 
 </section>

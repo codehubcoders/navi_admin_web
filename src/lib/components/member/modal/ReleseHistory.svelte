@@ -3,18 +3,18 @@
     // import ModalTextForm from "./../../globalComponents/ModalTextForm.svelte";
     // import ModalTextForm from './../globalComponents/ModalTextForm.svelte';
     import Icon from "@iconify/svelte";
-    export let showManageDetail = false;
-    const handleManageDetailClick = () => {
-        showManageDetail = !showManageDetail;
+    export let showRelese = false;
+    const handleRelesClick = () => {
+        showRelese = !showRelese;
     };
     
 </script>
 
-{#if showManageDetail}
+{#if showRelese}
     <div class="backdrop" on:click|self>
         <div class="modal">
             <div class="modal__header">
-                <p>관리이력 상세보기</p>
+                <p>해제사유</p>
            
             <div class="modal__body">
                 <div class="inputBox">
@@ -23,20 +23,11 @@
                         <input type="text" value="ASDF" />
                     </div>
                     <div class="info mb-10">
-                        <div class="title">주관기관</div>
+                        <div class="title">기관</div>
                         <input type="text" value="강남구 노인복지센터" />
                     </div>
-
                     <div class="info mb-10">
-                        <div class="title">회원유형</div>
-                        <input type="text" value="정준범 | 1956.01.31 | 010 - 1234 - 5678" />
-                    </div>
-                    <div class="info mb-10">
-                        <div class="title">해제대상</div>
-                        <input type="text" value="경고" />
-                    </div>
-                    <div class="info mb-10">
-                        <div class="title">해제사유</div>
+                        <div class="title">내용</div>
                         <div class="content">
                             <textarea placeholder="상담내용을 입력하세요" />
                             <div class="upload-bar">
@@ -46,30 +37,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="info">
-                        <div class="title">해제일시</div>
-                        <input type="text" value="2024.02.05 14:52" />
-                    </div>
+                   
                 </div>
             </div>
         </div>
 
             <div class="modal__button">
-                <button class="btn-primary-small" on:click={handleManageDetailClick}
+                <button class="btn-detail-gray mr-10" on:click={handleRelesClick}
+                >취소</button
+            >
+                <button class="btn-primary-small" on:click={handleRelesClick}
                     >확인</button
                 >
-                <!-- <div class="row">
-                    <button
-                        class="btn-detail-gray"
-                        style="background-color:#E1E3E4"
-                        on:click={handleManageDetailClick}
-                        ><div style="color:white">삭제</div></button
-                    >
-                    <button
-                        class="btn-primary-small"
-                        on:click={handleManageDetailClick}>취소</button
-                    >
-                </div> -->
+ 
             </div>
         </div>
     </div>
