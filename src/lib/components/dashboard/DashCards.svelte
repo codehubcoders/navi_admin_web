@@ -1,5 +1,4 @@
 <script>
-	import CicleBar2 from './../customComponents/progressbar/CicleBar2.svelte';
     import PieChartAge from "./../customComponents/chart/PieChartAge.svelte";
     import PieChartGender from "./../customComponents/chart/PieChartGender.svelte";
     import LocalCardDash from "./../globalComponents/LocalCardDash.svelte";
@@ -31,13 +30,15 @@
         { message: "서울시 홍길동님이 활동중이십니다." },
         { message: "서울시 홍길동님이 활동중이십니다." },
     ];
+
+
+
 </script>
 
 <section class="cards">
     <div class="cards__middle">
         <AlarmCard title="약상자 현황">
             <div class="left">
-                <!-- <CicleBar2 percentage="80" /> -->
                 <CicleProgress percentage="72" sub="%" title="복약순응도" />
                 <CicleProgress percentage="72" sub="%" title="약상자 사용률" />
                 <a href="/statistics"> <ColumBox {columnList} /></a>

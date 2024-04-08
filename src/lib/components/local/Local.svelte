@@ -158,25 +158,26 @@
                 .btn-primary-local {
                     width: 100%;
                     background-color: #5E72E4;
-                    padding: 10px 15px;
+                    padding: 12px 20px;
                     color: white;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     border-radius: 8px;
-                    margin-bottom: 10px;
+                    margin-bottom: 16px;
+                    box-shadow: 0 4px 6px #00000020;
                 }
                 .btn-local {
                     width: 100%;
                     display: inline-block;
                     // background-color: #5E72E4;
-                    padding: 10px 15px;
+                    padding : 6px 12px;
                     color: #757779;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     border-radius: 8px;
-                    margin-bottom: 10px;
+                    margin-bottom: 16px;
                     font-weight: 400;
                 }
                 .btn-gray-small {
