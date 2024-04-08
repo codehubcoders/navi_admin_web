@@ -111,7 +111,7 @@ export let width;
     }
 </script>
 
-<table>
+<table class="date-picker">
     <tr>
         <td class="btn" on:click={() => go(-1)}
             ><Icon
@@ -149,8 +149,12 @@ export let width;
 
 <style lang="scss">
           @import 'src/lib/scss/style.scss';
-    td,
+          .date-picker{
+            z-index: 11;
+            position: relative;
+            td,
     th {
+    
         width: 28px;
         text-align: center;
         border-radius: 4px;
@@ -181,4 +185,6 @@ export let width;
         background-color: #006dcc;
         border-color: #002a80;
     }
+          }
+   
 </style>

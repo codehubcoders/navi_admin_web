@@ -19,12 +19,15 @@
     let showDatePicker = false;
     function handleDatePickerOpen() {
         showDatePicker = !showDatePicker;
-        document.body.addEventListener("click", handleDatePickerClose);
+        startDate = "";
       
     }
     function handleDatePickerClose() {
-        showDatePicker = false;
-        document.body.removeEventListener("click", handleDatePickerClose);
+        if ( startDate != "") {
+            showDatePicker = false;
+      
+        }
+        
     }
     function datePickerOnOff(){
         showDatePicker = !showDatePicker;
@@ -33,7 +36,7 @@
 </script>
 
 <div class="date-picker">
-    <button class="date-picker__btn" style="width:{width}" on:click|stopPropagation={handleDatePickerOpen} >
+    <button class="date-picker__btn" style="width:{width}" on:click={handleDatePickerOpen} >
         {#if startDate == ""}
             <Icon icon="uiw:date" color="#1b1b1b" width="15" />
         {:else}
@@ -41,7 +44,7 @@
         {/if}
     </button>
     {#if showDatePicker}
-    <div class="date-picker__body" on:click|stopPropagation={handleDatePickerClose}>
+    <div class="date-picker__body" on:click={handleDatePickerClose}>
         <DatePicker bind:value={startDate} {...locale[culture]}  />
     </div>
     {/if}
@@ -59,6 +62,7 @@
             position: relative;
         }
         &__body {
+            z-index: 11;
             position: absolute;
             background-color: white;
             padding: 10px;
