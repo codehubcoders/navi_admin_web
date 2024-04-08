@@ -170,24 +170,28 @@
                     </button>
                 {/each}
             </div>
-            <div class="dateBox ml-20">
-                <SelectBoxBorderNone {items} placeholder="2023" />
-            </div>
-            <div class="dateBox">
-                <SelectBoxBorderNone {items} placeholder="12" />
-            </div>
-            <div class="dateBox">
-                <SelectBoxBorderNone {items} placeholder="25" />
-            </div>
-            <p class="ml-10 mr-10">-</p>
-            <div class="dateBox">
-                <SelectBoxBorderNone {items} placeholder="2023" />
-            </div>
-            <div class="dateBox">
-                <SelectBoxBorderNone {items} placeholder="12" />
-            </div>
-            <div class="dateBox">
-                <SelectBoxBorderNone {items} placeholder="25" />
+            <div class="radio-date-box ml-20">
+                <div class="dateBox">
+                    <SelectBoxBorderNone {items} placeholder="2023" />
+                </div>
+                <div class="dateBox">
+                    <SelectBoxBorderNone {items} placeholder="12" />
+                </div>
+                <div class="dateBox">
+                    <SelectBoxBorderNone {items} placeholder="25" />
+                </div>
+                </div>
+                <p class="ml-10 mr-10">-</p>
+                <div class="radio-date-box">
+                <div class="dateBox">
+                    <SelectBoxBorderNone {items} placeholder="2023" />
+                </div>
+                <div class="dateBox">
+                    <SelectBoxBorderNone {items} placeholder="12" />
+                </div>
+                <div class="dateBox">
+                    <SelectBoxBorderNone {items} placeholder="25" />
+                </div>
             </div>
         </div>
     </div>
@@ -249,9 +253,12 @@
         display: flex;
         font-size: 12px;
         color: #2E3132;
+        border-top: 1px solid #C5C7C8;
+        border-bottom: 1px solid #C5C7C8;
+        border-left: 1px solid #C5C7C8;
         .custom {
             text-align: center;
-            border: 1px solid #C5C7C8;
+            border-right: 1px solid #C5C7C8;
             cursor: pointer;
             padding: 8px 10px;
             box-sizing: content-box;
@@ -260,11 +267,17 @@
     .active {
         background-color: #F5F5F5;
     }
-    .dateBox {
+    .radio-date-box{
+         display: flex;
+         border-top: 1px solid #C5C7C8;
+        border-bottom: 1px solid #C5C7C8;
+        border-left: 1px solid #C5C7C8;
+        .dateBox {
         text-align: center;
-        border: 1px solid #C5C7C8;
+        border-right: 1px solid #C5C7C8;
         cursor: pointer;
         padding: 1px 4px;
         box-sizing: content-box;
+    }
     }
 </style>

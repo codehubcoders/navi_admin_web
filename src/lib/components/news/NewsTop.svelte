@@ -18,8 +18,8 @@
         selectedDeadline = event.currentTarget.value;
     }
 
-    let selectedTag = "건강";
-    let tagRadio = ["건강", "홍보", "기타"];
+    let selectedTag = "전체";
+    let tagRadio = ["전체", "건강", "홍보", "기타"];
 
     function onChangeTag(event) {
         selectedTag = event.currentTarget.value;

@@ -20,6 +20,10 @@
             </div>
             <div class="modal__body">
                 <div class="inputBox">
+                    <div class="title">이름</div>
+                    <input type="text" placeholder="홍길동" />
+                </div>
+                <div class="inputBox">
                     <div class="title">유형</div>
                     <input type="text" placeholder="기관회원" />
                 </div>
