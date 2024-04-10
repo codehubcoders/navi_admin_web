@@ -42,7 +42,7 @@ const signUpModal = () => {
     <p class="pt-20 fs-12 fw-500">아이디</p>
     <input type="text" id="id" placeholder="아이디를 입력하세요" />
     <p class="mt-15 fs-12 fw-500">비밀번호</p>
-    <input class="mb-20" type="text" id="password" placeholder="비밀번호를 입력하세요" />
+    <input class="mb-20" type="password" id="password" placeholder="비밀번호를 입력하세요" />
     <button class="btn-primary m-auto mt-10" on:click={logined}>로그인</button>
 
     <div class="d-f center mt-20 pt-10">
