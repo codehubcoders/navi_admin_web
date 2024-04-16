@@ -1,6 +1,6 @@
 <script>
-	import LocalMonitoring from './../../../lib/components/localmonitoring/LocalMonitoring.svelte';
-    // your script goes here
+import LocalMonitoring from "../../../lib/components/localmonitoring/LocalMonitoring.svelte";
+
 </script>
 
 <LocalMonitoring />
