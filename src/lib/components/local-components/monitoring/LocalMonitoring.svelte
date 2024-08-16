@@ -239,9 +239,15 @@ import CicleProgress from '../../globalComponents/CicleProgress.svelte';
         gap: 20px;
         padding: 0px;
         background-color: #fff;
+        
+        @media (max-width: 535px) {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
         .left{
             padding: 30px 30px 0 30px;
             background-color: #F5F5F5;
+
         }
         .right{
             background-color: #F5F5F5;
@@ -251,6 +257,9 @@ import CicleProgress from '../../globalComponents/CicleProgress.svelte';
         grid-template-columns: 1fr 1fr 1fr;
         gap: 20px;
         padding: 20px;
+        @media (max-width: 535px) {
+                grid-template-columns: 1fr;
+            }
         .w_card{
             padding:25px;
             background-color: #fff;
